@@ -25,3 +25,11 @@ jobs:
 
       - name: Run tests
         run: uv run pytest
+
+      # Each project has its own conftest.py and runs in a separate pytest process,
+      # so modules with the same name (app.py, ...) in different projects never clash.
+      - name: Run project tests
+        run: |
+          for conftest in $(git ls-files '*/conftest.py'); do
+            uv run pytest "$(dirname "$conftest")"
+          done
