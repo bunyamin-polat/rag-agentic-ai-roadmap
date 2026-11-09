@@ -1,0 +1,72 @@
+[project]
+name = "rag-agentic-ai-roadmap"
+version = "0.1.0"
+description = "A hands-on roadmap for building LLM, RAG, multimodal, and agentic AI applications."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    # langchain-huggingface does not support huggingface-hub 2.x yet.
+    "huggingface-hub>=1.0,<2",
+    "pydantic>=2.10",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29",
+    "nbconvert>=7.16",
+    "pytest>=8.3",
+    "ruff>=0.14",
+]
+stage-01 = [
+    "flask>=3.1",
+    "grandalf>=0.8",
+    "langchain>=1.4",
+    "langchain-core>=1.7",
+    "langchain-huggingface>=1.2",
+    "langgraph>=1.2",
+    "matplotlib>=3.10",
+    "numpy>=2.1",
+    "tokenizers>=0.22",
+]
+
+[build-system]
+requires = ["uv_build>=0.11,<0.12"]
+build-backend = "uv_build"
+
+[tool.uv]
+# `uv sync` installs every stage. Use `uv sync --no-default-groups --group dev --group stage-01`
+# to install a single stage.
+default-groups = "all"
+python-preference = "only-managed"
+
+[tool.uv.build-backend]
+module-name = "roadmap"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "RUF", # ruff-specific rules
+]
+# Turkish sample text is used on purpose to show how tokenizers treat other languages.
+allowed-confusables = ["ı"]
+
+[tool.ruff.lint.per-file-ignores]
+# Notebooks import mid-file on purpose so each concept is self-contained.
+"*.ipynb" = ["E402"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.pytest.ini_options]
+addopts = "-q"
