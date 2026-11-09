@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" aria-label="The browser sends the message to Flask, which asks each Ollama model for JSON that Pydantic validates, and the results go back as cards">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .bold { font-size: 15px; font-weight: 600; }
+    .label { font-size: 13px; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="250" fill="#ffffff"/>
+  <text x="20" y="32" class="title">How the Message Analyzer works</text>
+
+  <!-- browser -->
+  <rect x="20" y="70" width="150" height="70" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="95" y="98" class="bold" text-anchor="middle">Browser</text>
+  <text x="95" y="120" class="label" text-anchor="middle">message + models</text>
+
+  <line x1="174" y1="105" x2="244" y2="105" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="209" y="95" class="mono" text-anchor="middle">POST</text>
+
+  <!-- flask -->
+  <rect x="250" y="70" width="150" height="70" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="325" y="98" class="bold" text-anchor="middle">Flask app</text>
+  <text x="325" y="120" class="label" text-anchor="middle">checks the input</text>
+
+  <line x1="404" y1="105" x2="474" y2="105" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="439" y="95" class="small" text-anchor="middle">each model</text>
+
+  <!-- ollama -->
+  <rect x="480" y="62" width="180" height="86" rx="12" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="570" y="90" class="bold" text-anchor="middle">Ollama model</text>
+  <text x="570" y="111" class="label" text-anchor="middle">prompt + JSON schema</text>
+  <text x="570" y="130" class="small" text-anchor="middle">output must match schema</text>
+
+  <line x1="664" y1="105" x2="724" y2="105" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="694" y="95" class="mono" text-anchor="middle">JSON</text>
+
+  <!-- pydantic -->
+  <rect x="730" y="70" width="150" height="70" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="805" y="98" class="bold" text-anchor="middle">Pydantic</text>
+  <text x="805" y="120" class="label" text-anchor="middle">validates the fields</text>
+
+  <!-- return path -->
+  <path d="M805,144 L805,200 L95,200 L95,146" fill="none" stroke="#57606a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <text x="450" y="224" class="small" text-anchor="middle">summary · sentiment · category · urgency · reply  →  one card per model</text>
+</svg>

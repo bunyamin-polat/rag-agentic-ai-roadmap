@@ -51,5 +51,6 @@ tests. Run the same checks locally before you push:
 ```bash
 uv run ruff check .          # lint (notebooks included)
 uv run ruff format --check . # formatting
-uv run pytest                # tests
+uv run pytest                # tests for the shared helpers
+uv run pytest 01-llm-foundations/message-analyzer   # tests for one project
 ```
