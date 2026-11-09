@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Message Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <h1>Message Analyzer</h1>
+      <p class="lead">Paste a customer message. Local models summarise it, score the sentiment,
+        and draft a reply, so you can compare them side by side.</p>
+    </header>
+
+    <section class="panel">
+      <label class="label" for="message">Customer message</label>
+      <textarea id="message" rows="5" maxlength="{{ max_chars }}"
+        placeholder="Paste or type a customer message here..."></textarea>
+
+      <div class="examples">
+        <span>Try an example:</span>
+        <button type="button" class="chip" data-example="I was charged twice for order #4471 and nobody answers my emails. Please fix this today or I will cancel my subscription.">Double charge</button>
+        <button type="button" class="chip" data-example="My package was supposed to arrive last Monday. The tracking page has not changed for five days. Can you tell me where it is?">Late delivery</button>
+        <button type="button" class="chip" data-example="Just wanted to say thanks! The new headphones sound amazing and the setup took two minutes. Great job.">Happy customer</button>
+      </div>
+
+      <fieldset class="models">
+        <legend class="label">Models <span class="hint">(pick up to {{ max_models }})</span></legend>
+        <div id="models" data-max="{{ max_models }}">Loading models...</div>
+      </fieldset>
+
+      <div class="actions">
+        <button id="analyze" type="button" class="primary">Analyze</button>
+        <p id="status" class="status" role="status"></p>
+      </div>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
