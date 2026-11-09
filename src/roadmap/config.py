@@ -13,23 +13,21 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 # Load `.env` once on import. Existing environment variables win over the file.
 load_dotenv(REPO_ROOT / ".env")
 
-DEFAULT_CHAT_MODEL = "meta-llama/Llama-3.3-70B-Instruct"
-DEFAULT_PROVIDER = "auto"
+DEFAULT_CHAT_MODEL = "gpt-oss:20b"
+DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 
 
 @dataclass(frozen=True)
 class Settings:
-    """Runtime configuration for talking to Hugging Face Inference Providers."""
+    """Runtime configuration for talking to a local Ollama server."""
 
-    hf_token: str | None
     chat_model: str
-    provider: str
+    ollama_host: str
 
 
 def get_settings() -> Settings:
     """Build settings from the current environment."""
     return Settings(
-        hf_token=os.getenv("HF_TOKEN") or os.getenv("HUGGINGFACEHUB_API_TOKEN"),
-        chat_model=os.getenv("HF_CHAT_MODEL", DEFAULT_CHAT_MODEL),
-        provider=os.getenv("HF_PROVIDER", DEFAULT_PROVIDER),
+        chat_model=os.getenv("CHAT_MODEL", DEFAULT_CHAT_MODEL),
+        ollama_host=os.getenv("OLLAMA_HOST", DEFAULT_OLLAMA_HOST),
     )
