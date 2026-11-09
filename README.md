@@ -31,13 +31,25 @@ Every notebook and project uses the small `roadmap` package in [`src/roadmap`](s
 ```python
 from roadmap import ask, get_chat_model
 
-ask("Explain RAG in one sentence.")  # plain Ollama client, returns a string
-model = get_chat_model()              # LangChain chat model
+answer = ask("Explain RAG in one sentence.")  # plain Ollama client, returns a string
+model = get_chat_model()  # LangChain chat model
 ```
 
-## Code quality
+## Development workflow
+
+```text
+main
+ ├── feature/<topic>     one branch per topic, created from main
+ │
+ ▼
+Pull request  →  CI checks  →  review  →  merge into main
+```
+
+Every pull request runs [CI](.github/workflows/ci.yml): ruff lint, ruff format check, and the
+tests. Run the same checks locally before you push:
 
 ```bash
-uv run ruff check .      # lint (notebooks included)
-uv run ruff format .     # format
+uv run ruff check .          # lint (notebooks included)
+uv run ruff format --check . # formatting
+uv run pytest                # tests
 ```
