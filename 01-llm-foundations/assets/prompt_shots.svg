@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="350" viewBox="0 0 860 350" role="img" aria-label="Zero-shot prompts have no examples, one-shot prompts have one, few-shot prompts have several">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .head { font-size: 16px; font-weight: 600; }
+    .label { font-size: 14px; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <rect width="860" height="350" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Zero-shot, one-shot, and few-shot prompts</text>
+
+  <!-- zero-shot -->
+  <text x="145" y="66" class="head" text-anchor="middle">Zero-shot</text>
+  <rect x="20" y="78" width="250" height="36" rx="8" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="145" y="101" class="label" text-anchor="middle">Instruction</text>
+  <rect x="20" y="122" width="250" height="36" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="145" y="145" class="label" text-anchor="middle">New input</text>
+  <text x="145" y="318" class="small" text-anchor="middle">No examples.</text>
+  <text x="145" y="334" class="small" text-anchor="middle">Good for common, simple tasks.</text>
+
+  <!-- one-shot -->
+  <text x="430" y="66" class="head" text-anchor="middle">One-shot</text>
+  <rect x="305" y="78" width="250" height="36" rx="8" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="430" y="101" class="label" text-anchor="middle">Instruction</text>
+  <rect x="305" y="122" width="250" height="36" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="430" y="145" class="label" text-anchor="middle">Example: input → output</text>
+  <rect x="305" y="166" width="250" height="36" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="430" y="189" class="label" text-anchor="middle">New input</text>
+  <text x="430" y="318" class="small" text-anchor="middle">One example.</text>
+  <text x="430" y="334" class="small" text-anchor="middle">Shows the format you want.</text>
+
+  <!-- few-shot -->
+  <text x="715" y="66" class="head" text-anchor="middle">Few-shot</text>
+  <rect x="590" y="78" width="250" height="36" rx="8" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="715" y="101" class="label" text-anchor="middle">Instruction</text>
+  <rect x="590" y="122" width="250" height="36" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="715" y="145" class="label" text-anchor="middle">Example 1: input → output</text>
+  <rect x="590" y="166" width="250" height="36" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="715" y="189" class="label" text-anchor="middle">Example 2: input → output</text>
+  <rect x="590" y="210" width="250" height="36" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="715" y="233" class="label" text-anchor="middle">Example 3: input → output</text>
+  <rect x="590" y="254" width="250" height="36" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="715" y="277" class="label" text-anchor="middle">New input</text>
+  <text x="715" y="318" class="small" text-anchor="middle">A few examples.</text>
+  <text x="715" y="334" class="small" text-anchor="middle">Teaches labels, format, and style.</text>
+</svg>

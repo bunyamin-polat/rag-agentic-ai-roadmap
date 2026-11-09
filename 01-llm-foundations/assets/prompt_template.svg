@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="230" viewBox="0 0 900 230" role="img" aria-label="A template with placeholders plus values gives the final prompt">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .head { font-size: 13px; font-weight: 600; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; fill: #1f2328; }
+    .slot { fill: #B35F25; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="230" fill="#ffffff"/>
+  <text x="20" y="32" class="title">A prompt template is a prompt with blanks</text>
+
+  <!-- template -->
+  <text x="20" y="66" class="head">TEMPLATE (written once)</text>
+  <rect x="20" y="76" width="270" height="100" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="34" y="104" class="mono">Classify the text into one of:</text>
+  <text x="34" y="128" class="mono"><tspan class="slot">{categories}</tspan></text>
+  <text x="34" y="152" class="mono">Text: <tspan class="slot">{text}</tspan></text>
+
+  <text x="305" y="132" style="font-size:26px;fill:#57606a" text-anchor="middle">+</text>
+
+  <!-- values -->
+  <text x="320" y="66" class="head">VALUES (change every call)</text>
+  <rect x="320" y="76" width="235" height="100" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="334" y="100" class="mono"><tspan class="slot">categories</tspan> =</text>
+  <text x="334" y="118" class="mono">  music, food, sports</text>
+  <text x="334" y="142" class="mono"><tspan class="slot">text</tspan> =</text>
+  <text x="334" y="160" class="mono">  The concert was great.</text>
+
+  <line x1="562" y1="126" x2="600" y2="126" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- final prompt -->
+  <text x="606" y="66" class="head">FINAL PROMPT (sent to the model)</text>
+  <rect x="606" y="76" width="274" height="100" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="620" y="104" class="mono">Classify the text into one of:</text>
+  <text x="620" y="128" class="mono">music, food, sports</text>
+  <text x="620" y="152" class="mono">Text: The concert was great.</text>
+
+  <text x="20" y="210" class="small">In Python: template.format(categories=..., text=...). LangChain has its own PromptTemplate (next notebook).</text>
+</svg>

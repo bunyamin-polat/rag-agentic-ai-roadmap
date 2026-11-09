@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="250" viewBox="0 0 860 250" role="img" aria-label="Messages with roles go into a chat model, which returns an assistant reply">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .label { font-size: 14px; }
+    .tag { font-size: 12px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="860" height="250" fill="#ffffff"/>
+  <text x="20" y="32" class="title">How a chat request works</text>
+
+  <!-- messages -->
+  <rect x="20" y="55" width="320" height="52" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="34" y="76" class="tag" style="fill:#5B4E9A">system</text>
+  <text x="34" y="96" class="label">You are a concise assistant.</text>
+
+  <rect x="20" y="117" width="320" height="52" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="138" class="tag" style="fill:#B35F25">user</text>
+  <text x="34" y="158" class="label">What is a large language model?</text>
+
+  <rect x="20" y="179" width="320" height="44" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="34" y="206" class="small">earlier user / assistant turns (optional)</text>
+
+  <line x1="348" y1="139" x2="414" y2="139" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- model -->
+  <rect x="420" y="99" width="160" height="80" rx="12" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="500" y="135" class="label" text-anchor="middle" style="font-weight:600">Chat model</text>
+  <text x="500" y="156" class="small" text-anchor="middle">e.g. gpt-oss:20b</text>
+  <text x="500" y="205" class="small" text-anchor="middle">input and output are</text>
+  <text x="500" y="221" class="small" text-anchor="middle">counted in tokens</text>
+
+  <line x1="588" y1="139" x2="634" y2="139" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- reply -->
+  <rect x="640" y="91" width="200" height="96" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="654" y="112" class="tag" style="fill:#2F7A45">assistant</text>
+  <text x="654" y="133" class="label">A model trained on huge</text>
+  <text x="654" y="152" class="label">amounts of text to predict</text>
+  <text x="654" y="171" class="label">the next word.</text>
+</svg>

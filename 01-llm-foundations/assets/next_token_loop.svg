@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="300" viewBox="0 0 860 300" role="img" aria-label="The model scores possible next words, one is picked and appended, and the loop repeats">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .label { font-size: 14px; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .tag { font-size: 12px; font-weight: 600; fill: #57606a; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="860" height="300" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Text is generated one token at a time</text>
+
+  <!-- text so far -->
+  <rect x="20" y="108" width="210" height="56" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="128" class="tag">text so far</text>
+  <text x="34" y="150" class="label">The cat sat on the</text>
+
+  <line x1="236" y1="136" x2="266" y2="136" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- model -->
+  <rect x="272" y="106" width="120" height="60" rx="12" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="332" y="141" class="bold" text-anchor="middle">Model</text>
+
+  <line x1="398" y1="136" x2="428" y2="136" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- probabilities -->
+  <rect x="434" y="58" width="210" height="160" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="448" y="80" class="tag">next-token probabilities</text>
+  <text x="448" y="104" class="label">mat</text>
+  <rect x="500" y="93" width="110" height="14" rx="3" fill="#55A868"/>
+  <text x="615" y="105" class="small">54%</text>
+  <text x="448" y="128" class="label">sofa</text>
+  <rect x="500" y="117" width="37" height="14" rx="3" fill="#7F9CC4"/>
+  <text x="542" y="129" class="small">18%</text>
+  <text x="448" y="152" class="label">floor</text>
+  <rect x="500" y="141" width="27" height="14" rx="3" fill="#7F9CC4"/>
+  <text x="532" y="153" class="small">13%</text>
+  <text x="448" y="176" class="label">bed</text>
+  <rect x="500" y="165" width="18" height="14" rx="3" fill="#7F9CC4"/>
+  <text x="523" y="177" class="small">9%</text>
+  <text x="448" y="200" class="label">other</text>
+  <rect x="500" y="189" width="12" height="14" rx="3" fill="#7F9CC4"/>
+  <text x="517" y="201" class="small">6%</text>
+
+  <line x1="650" y1="136" x2="680" y2="136" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- pick -->
+  <rect x="686" y="106" width="154" height="60" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="763" y="130" class="tag" text-anchor="middle">pick one token</text>
+  <text x="763" y="152" class="bold" text-anchor="middle">→ "mat"</text>
+  <text x="763" y="186" class="small" text-anchor="middle">temperature and top-p</text>
+  <text x="763" y="202" class="small" text-anchor="middle">control this choice</text>
+
+  <!-- loop back -->
+  <path d="M763,212 L763,250 L125,250 L125,172" fill="none" stroke="#57606a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <text x="444" y="274" class="small" text-anchor="middle">append "mat" to the text and repeat until the answer is finished</text>
+</svg>

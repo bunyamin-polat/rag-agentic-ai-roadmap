@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="330" viewBox="0 0 860 330" role="img" aria-label="The same question is answered five times; the most common answer wins">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .label { font-size: 14px; }
+    .bold { font-size: 15px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="860" height="330" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Self-consistency: ask several times, keep the most common answer</text>
+
+  <!-- question -->
+  <rect x="20" y="148" width="150" height="50" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="95" y="170" class="label" text-anchor="middle">Same question</text>
+  <text x="95" y="188" class="small" text-anchor="middle">temperature &gt; 0</text>
+
+  <!-- fan out -->
+  <g stroke="#57606a" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M174,173 C200,173 200,78 226,78"/>
+    <path d="M174,173 C200,173 200,126 226,126"/>
+    <path d="M174,173 L226,173"/>
+    <path d="M174,173 C200,173 200,220 226,220"/>
+    <path d="M174,173 C200,173 200,268 226,268"/>
+  </g>
+
+  <!-- paths -->
+  <g fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5">
+    <rect x="230" y="60" width="170" height="36" rx="8"/>
+    <rect x="230" y="108" width="170" height="36" rx="8"/>
+    <rect x="230" y="155" width="170" height="36" rx="8"/>
+    <rect x="230" y="202" width="170" height="36" rx="8"/>
+    <rect x="230" y="250" width="170" height="36" rx="8"/>
+  </g>
+  <text x="315" y="83" class="label" text-anchor="middle">Reasoning path 1</text>
+  <text x="315" y="131" class="label" text-anchor="middle">Reasoning path 2</text>
+  <text x="315" y="178" class="label" text-anchor="middle">Reasoning path 3</text>
+  <text x="315" y="225" class="label" text-anchor="middle">Reasoning path 4</text>
+  <text x="315" y="273" class="label" text-anchor="middle">Reasoning path 5</text>
+
+  <!-- answers -->
+  <g stroke="#57606a" stroke-width="1.5" marker-end="url(#arrow)">
+    <line x1="404" y1="78" x2="436" y2="78"/>
+    <line x1="404" y1="126" x2="436" y2="126"/>
+    <line x1="404" y1="173" x2="436" y2="173"/>
+    <line x1="404" y1="220" x2="436" y2="220"/>
+    <line x1="404" y1="268" x2="436" y2="268"/>
+  </g>
+  <rect x="440" y="60" width="60" height="36" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="470" y="84" class="bold" text-anchor="middle">67</text>
+  <rect x="440" y="108" width="60" height="36" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="470" y="132" class="bold" text-anchor="middle">67</text>
+  <rect x="440" y="155" width="60" height="36" rx="8" fill="#FBEAEA" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="470" y="179" class="bold" text-anchor="middle">35</text>
+  <rect x="440" y="202" width="60" height="36" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="470" y="226" class="bold" text-anchor="middle">67</text>
+  <rect x="440" y="250" width="60" height="36" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="470" y="274" class="bold" text-anchor="middle">67</text>
+
+  <!-- converge -->
+  <g stroke="#57606a" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M504,78 C530,78 530,173 556,173"/>
+    <path d="M504,126 C530,126 530,173 556,173"/>
+    <path d="M504,173 L556,173"/>
+    <path d="M504,220 C530,220 530,173 556,173"/>
+    <path d="M504,268 C530,268 530,173 556,173"/>
+  </g>
+
+  <rect x="560" y="146" width="140" height="54" rx="12" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="630" y="171" class="bold" text-anchor="middle">Majority vote</text>
+  <text x="630" y="190" class="small" text-anchor="middle">67 wins 4 to 1</text>
+
+  <line x1="704" y1="173" x2="736" y2="173" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="740" y="148" width="100" height="50" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="2"/>
+  <text x="790" y="179" class="bold" text-anchor="middle">Answer: 67</text>
+
+  <text x="20" y="316" class="small">Each run makes different mistakes, but correct runs tend to agree. The cost: N runs use N times the tokens.</text>
+</svg>

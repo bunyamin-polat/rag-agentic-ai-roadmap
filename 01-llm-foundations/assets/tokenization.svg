@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="270" viewBox="0 0 860 270" role="img" aria-label="A sentence is split into tokens, and each token maps to an integer id">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .label { font-size: 15px; }
+    .row { font-size: 13px; font-weight: 600; fill: #57606a; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="860" height="270" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Text → tokens → token ids</text>
+
+  <!-- row labels -->
+  <text x="40" y="77" class="row">Text</text>
+  <text x="40" y="146" class="row">Tokens</text>
+  <text x="40" y="210" class="row">Token ids</text>
+
+  <!-- text -->
+  <rect x="218" y="52" width="425" height="40" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="430.5" y="77" class="label" text-anchor="middle">Tokenization splits text.</text>
+
+  <line x1="430.5" y1="95" x2="430.5" y2="118" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="442" y="111" class="small">tokenizer</text>
+
+  <!-- tokens -->
+  <rect x="218" y="122" width="80" height="38" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="258" y="146" class="label" text-anchor="middle">Token</text>
+  <rect x="308" y="122" width="90" height="38" rx="8" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="353" y="146" class="label" text-anchor="middle">ization</text>
+  <rect x="408" y="122" width="95" height="38" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="455.5" y="146" class="label" text-anchor="middle">␣splits</text>
+  <rect x="513" y="122" width="80" height="38" rx="8" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="553" y="146" class="label" text-anchor="middle">␣text</text>
+  <rect x="603" y="122" width="40" height="38" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="623" y="146" class="label" text-anchor="middle">.</text>
+
+  <!-- lookups -->
+  <line x1="258" y1="163" x2="258" y2="184" stroke="#57606a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="353" y1="163" x2="353" y2="184" stroke="#57606a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="455.5" y1="163" x2="455.5" y2="184" stroke="#57606a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="553" y1="163" x2="553" y2="184" stroke="#57606a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="623" y1="163" x2="623" y2="184" stroke="#57606a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="655" y="178" class="small">vocabulary lookup</text>
+
+  <!-- ids -->
+  <rect x="218" y="188" width="80" height="34" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="258" y="210" class="mono" text-anchor="middle">4421</text>
+  <rect x="308" y="188" width="90" height="34" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="353" y="210" class="mono" text-anchor="middle">2860</text>
+  <rect x="408" y="188" width="95" height="34" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="455.5" y="210" class="mono" text-anchor="middle">76848</text>
+  <rect x="513" y="188" width="80" height="34" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="553" y="210" class="mono" text-anchor="middle">2201</text>
+  <rect x="603" y="188" width="40" height="34" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="623" y="210" class="mono" text-anchor="middle">13</text>
+
+  <text x="218" y="252" class="small">␣ = the token starts with a space. Ids come from the gpt-oss tokenizer.</text>
+</svg>
