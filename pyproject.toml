@@ -5,8 +5,7 @@ description = "A hands-on roadmap for building LLM, RAG, multimodal, and agentic
 readme = "README.md"
 requires-python = ">=3.12,<3.14"
 dependencies = [
-    # langchain-huggingface does not support huggingface-hub 2.x yet.
-    "huggingface-hub>=1.0,<2",
+    "ollama>=0.6",
     "pydantic>=2.10",
     "python-dotenv>=1.0",
 ]
@@ -23,7 +22,7 @@ stage-01 = [
     "grandalf>=0.8",
     "langchain>=1.4",
     "langchain-core>=1.7",
-    "langchain-huggingface>=1.2",
+    "langchain-ollama>=1.1",
     "langgraph>=1.2",
     "matplotlib>=3.10",
     "numpy>=2.1",
