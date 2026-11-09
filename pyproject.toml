@@ -70,3 +70,4 @@ docstring-code-format = true
 
 [tool.pytest.ini_options]
 addopts = "-q"
+testpaths = ["tests"]
