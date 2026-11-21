@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-label="A sequential chain: each step reads earlier keys and adds a new key to the dictionary">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; fill: #57606a; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+    .key { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+    .new { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 700; fill: #2F7A45; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="330" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Sequential chain: each step adds one new key</text>
+
+  <!-- step row -->
+  <rect x="20" y="56" width="185" height="56" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="76" class="tag">INPUT</text>
+  <text x="36" y="98" class="bold">a location</text>
+
+  <line x1="209" y1="84" x2="241" y2="84" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="245" y="56" width="185" height="56" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="261" y="76" class="tag">STEP 1</text>
+  <text x="261" y="98" class="bold">suggest a dish</text>
+
+  <line x1="434" y1="84" x2="466" y2="84" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="470" y="56" width="185" height="56" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="486" y="76" class="tag">STEP 2</text>
+  <text x="486" y="98" class="bold">write a recipe</text>
+
+  <line x1="659" y1="84" x2="691" y2="84" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="695" y="56" width="185" height="56" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="711" y="76" class="tag">STEP 3</text>
+  <text x="711" y="98" class="bold">estimate the time</text>
+
+  <!-- dict states -->
+  <g stroke="#8C959F" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="112" y1="116" x2="112" y2="136"/>
+    <line x1="337" y1="116" x2="337" y2="136"/>
+    <line x1="562" y1="116" x2="562" y2="136"/>
+    <line x1="787" y1="116" x2="787" y2="136"/>
+  </g>
+  <g fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5">
+    <rect x="20" y="140" width="185" height="130" rx="10"/>
+    <rect x="245" y="140" width="185" height="130" rx="10"/>
+    <rect x="470" y="140" width="185" height="130" rx="10"/>
+    <rect x="695" y="140" width="185" height="130" rx="10"/>
+  </g>
+  <text x="36" y="164" class="tag">DATA SO FAR</text>
+  <text x="36" y="190" class="new">location</text>
+
+  <text x="261" y="164" class="tag">DATA SO FAR</text>
+  <text x="261" y="190" class="key">location</text>
+  <text x="261" y="212" class="new">+ meal</text>
+
+  <text x="486" y="164" class="tag">DATA SO FAR</text>
+  <text x="486" y="190" class="key">location</text>
+  <text x="486" y="212" class="key">meal</text>
+  <text x="486" y="234" class="new">+ recipe</text>
+
+  <text x="711" y="164" class="tag">DATA SO FAR</text>
+  <text x="711" y="190" class="key">location</text>
+  <text x="711" y="212" class="key">meal</text>
+  <text x="711" y="234" class="key">recipe</text>
+  <text x="711" y="256" class="new">+ time</text>
+
+  <text x="20" y="302" class="small">RunnablePassthrough.assign(...) keeps every key it receives and adds a new one, so later steps can use all earlier results.</text>
+</svg>

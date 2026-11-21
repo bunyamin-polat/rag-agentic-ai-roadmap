@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" role="img" aria-label="Every LangChain component can be run with invoke, batch, or stream">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .label { font-size: 13px; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; font-weight: 600; fill: #3B5E96; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="320" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Three ways to run any model, prompt, or chain</text>
+
+  <!-- invoke -->
+  <text x="20" y="84" class="mono">.invoke()</text>
+  <rect x="140" y="64" width="110" height="32" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="195" y="85" class="label" text-anchor="middle">1 input</text>
+  <line x1="254" y1="80" x2="306" y2="80" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="310" y="60" width="120" height="40" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="370" y="85" class="bold" text-anchor="middle">chain</text>
+  <line x1="434" y1="80" x2="486" y2="80" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="490" y="64" width="110" height="32" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="545" y="85" class="label" text-anchor="middle">1 output</text>
+  <text x="630" y="85" class="small">One request, wait for the full answer.</text>
+
+  <!-- batch -->
+  <text x="20" y="174" class="mono">.batch()</text>
+  <g fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5">
+    <rect x="140" y="124" width="110" height="28" rx="8"/>
+    <rect x="140" y="160" width="110" height="28" rx="8"/>
+    <rect x="140" y="196" width="110" height="28" rx="8"/>
+  </g>
+  <text x="195" y="143" class="label" text-anchor="middle">input 1</text>
+  <text x="195" y="179" class="label" text-anchor="middle">input 2</text>
+  <text x="195" y="215" class="label" text-anchor="middle">input 3</text>
+  <g stroke="#57606a" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M254,138 C280,138 280,174 306,174"/>
+    <path d="M254,174 L306,174"/>
+    <path d="M254,210 C280,210 280,174 306,174"/>
+  </g>
+  <rect x="310" y="154" width="120" height="40" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="370" y="179" class="bold" text-anchor="middle">chain</text>
+  <g stroke="#57606a" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M434,174 C460,174 460,138 486,138"/>
+    <path d="M434,174 L486,174"/>
+    <path d="M434,174 C460,174 460,210 486,210"/>
+  </g>
+  <g fill="#E9F5EC" stroke="#55A868" stroke-width="1.5">
+    <rect x="490" y="124" width="110" height="28" rx="8"/>
+    <rect x="490" y="160" width="110" height="28" rx="8"/>
+    <rect x="490" y="196" width="110" height="28" rx="8"/>
+  </g>
+  <text x="545" y="143" class="label" text-anchor="middle">output 1</text>
+  <text x="545" y="179" class="label" text-anchor="middle">output 2</text>
+  <text x="545" y="215" class="label" text-anchor="middle">output 3</text>
+  <text x="630" y="170" class="small">Many inputs in one call. Sent at the</text>
+  <text x="630" y="187" class="small">same time, results come back in order.</text>
+
+  <!-- stream -->
+  <text x="20" y="274" class="mono">.stream()</text>
+  <rect x="140" y="254" width="110" height="32" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="195" y="275" class="label" text-anchor="middle">1 input</text>
+  <line x1="254" y1="270" x2="306" y2="270" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="310" y="250" width="120" height="40" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="370" y="275" class="bold" text-anchor="middle">chain</text>
+  <line x1="434" y1="270" x2="486" y2="270" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <g fill="#E9F5EC" stroke="#55A868" stroke-width="1.5">
+    <rect x="490" y="256" width="34" height="28" rx="6"/>
+    <rect x="528" y="256" width="34" height="28" rx="6"/>
+    <rect x="566" y="256" width="34" height="28" rx="6"/>
+  </g>
+  <text x="507" y="275" class="label" text-anchor="middle">To</text>
+  <text x="545" y="275" class="label" text-anchor="middle">ky</text>
+  <text x="583" y="275" class="label" text-anchor="middle">o</text>
+  <text x="630" y="266" class="small">Pieces arrive while the model writes.</text>
+  <text x="630" y="283" class="small">Chat apps use this to show text live.</text>
+</svg>

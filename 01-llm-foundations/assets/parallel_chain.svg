@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260" role="img" aria-label="A parallel chain runs two branches on the same input at the same time and merges the results">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .label { font-size: 13px; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="260" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Parallel chain: one input, several branches, one merged result</text>
+
+  <!-- input -->
+  <rect x="20" y="104" width="160" height="56" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="100" y="128" class="bold" text-anchor="middle">Input</text>
+  <text x="100" y="148" class="mono" text-anchor="middle">{"topic": ...}</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M184,132 C220,132 220,84 256,84"/>
+    <path d="M184,132 C220,132 220,180 256,180"/>
+  </g>
+
+  <!-- branches -->
+  <rect x="260" y="56" width="300" height="56" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="276" y="80" class="bold">pros branch</text>
+  <text x="276" y="100" class="label">prompt | model | parser</text>
+
+  <rect x="260" y="152" width="300" height="56" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="276" y="176" class="bold">cons branch</text>
+  <text x="276" y="196" class="label">prompt | model | parser</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M564,84 C600,84 600,132 636,132"/>
+    <path d="M564,180 C600,180 600,132 636,132"/>
+  </g>
+
+  <!-- output -->
+  <rect x="640" y="94" width="240" height="76" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="656" y="118" class="bold">One merged result</text>
+  <text x="656" y="140" class="mono">{"pros": "...",</text>
+  <text x="656" y="158" class="mono"> "cons": "..."}</text>
+
+  <text x="20" y="242" class="small">RunnableParallel(pros=..., cons=...). The branches are sent at the same time; how much faster that is depends on the server.</text>
+</svg>
