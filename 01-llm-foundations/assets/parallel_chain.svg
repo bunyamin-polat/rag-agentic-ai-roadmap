@@ -13,7 +13,7 @@
     </marker>
   </defs>
   <rect width="900" height="260" fill="#ffffff"/>
-  <text x="20" y="32" class="title">Parallel chain: same input, branches run at the same time</text>
+  <text x="20" y="32" class="title">Parallel chain: one input, several branches, one merged result</text>
 
   <!-- input -->
   <rect x="20" y="104" width="160" height="56" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
@@ -45,5 +45,5 @@
   <text x="656" y="140" class="mono">{"pros": "...",</text>
   <text x="656" y="158" class="mono"> "cons": "..."}</text>
 
-  <text x="20" y="242" class="small">RunnableParallel(pros=..., cons=...). Total time is close to the slowest branch, not the sum of both.</text>
+  <text x="20" y="242" class="small">RunnableParallel(pros=..., cons=...). The branches are sent at the same time; how much faster that is depends on the server.</text>
 </svg>

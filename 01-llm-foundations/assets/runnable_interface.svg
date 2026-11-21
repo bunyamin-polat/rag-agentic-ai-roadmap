@@ -57,8 +57,8 @@
   <text x="545" y="143" class="label" text-anchor="middle">output 1</text>
   <text x="545" y="179" class="label" text-anchor="middle">output 2</text>
   <text x="545" y="215" class="label" text-anchor="middle">output 3</text>
-  <text x="630" y="170" class="small">Many inputs at once. They run</text>
-  <text x="630" y="187" class="small">at the same time, in order back.</text>
+  <text x="630" y="170" class="small">Many inputs in one call. Sent at the</text>
+  <text x="630" y="187" class="small">same time, results come back in order.</text>
 
   <!-- stream -->
   <text x="20" y="274" class="mono">.stream()</text>
