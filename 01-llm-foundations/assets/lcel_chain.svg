@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" aria-label="A chain passes a dictionary through a prompt template, a chat model, and an output parser">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .bold { font-size: 15px; font-weight: 600; }
+    .label { font-size: 13px; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .type { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; fill: #B35F25; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="250" fill="#ffffff"/>
+  <text x="20" y="32" class="title">A chain is a pipeline of small steps</text>
+
+  <!-- input -->
+  <rect x="20" y="66" width="140" height="70" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="90" y="94" class="bold" text-anchor="middle">Input</text>
+  <text x="90" y="116" class="mono" text-anchor="middle">{"topic": "cats"}</text>
+
+  <line x1="164" y1="101" x2="196" y2="101" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="180" y="166" class="type" text-anchor="middle">dict</text>
+
+  <!-- prompt -->
+  <rect x="200" y="66" width="150" height="70" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="275" y="94" class="bold" text-anchor="middle">Prompt template</text>
+  <text x="275" y="116" class="label" text-anchor="middle">fills the blanks</text>
+
+  <line x1="354" y1="101" x2="386" y2="101" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="370" y="166" class="type" text-anchor="middle">messages</text>
+
+  <!-- model -->
+  <rect x="390" y="66" width="150" height="70" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="465" y="94" class="bold" text-anchor="middle">Chat model</text>
+  <text x="465" y="116" class="label" text-anchor="middle">writes the answer</text>
+
+  <line x1="544" y1="101" x2="576" y2="101" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="560" y="166" class="type" text-anchor="middle">AIMessage</text>
+
+  <!-- parser -->
+  <rect x="580" y="66" width="150" height="70" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="655" y="94" class="bold" text-anchor="middle">Output parser</text>
+  <text x="655" y="116" class="label" text-anchor="middle">turns it into data</text>
+
+  <line x1="734" y1="101" x2="766" y2="101" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="750" y="166" class="type" text-anchor="middle">str / dict</text>
+
+  <!-- output -->
+  <rect x="770" y="66" width="110" height="70" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="825" y="94" class="bold" text-anchor="middle">Output</text>
+  <text x="825" y="116" class="label" text-anchor="middle">a joke</text>
+
+  <text x="20" y="166" class="small">type passed on:</text>
+  <rect x="20" y="190" width="430" height="36" rx="8" fill="#F6F8FA" stroke="#D0D7DE"/>
+  <text x="36" y="213" class="mono">chain = prompt | model | parser</text>
+  <text x="470" y="213" class="small">The | sign connects the steps. Each step's output is the next step's input.</text>
+</svg>
