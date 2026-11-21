@@ -21,7 +21,7 @@ model's answer into data that an app can use.
 | # | Type | Topic | Status |
 |---|---|---|---|
 | 1 | Notebook | [Prompt engineering](01_prompt_engineering.ipynb) | ✅ Ready |
-| 2 | Notebook | LangChain basics: models, templates, chains, output parsers | 🔜 Coming soon |
+| 2 | Notebook | [LangChain basics](02_langchain_basics.ipynb): models, templates, chains, output parsers | ✅ Ready |
 | 3 | Notebook | Memory, tools, and agents | 🔜 Coming soon |
 | – | Project | [Message Analyzer](message-analyzer/): a Flask app with structured output | ✅ Ready |
 
