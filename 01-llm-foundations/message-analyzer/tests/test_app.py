@@ -59,6 +59,13 @@ def test_analyze_runs_every_selected_model(client):
     assert results[0]["summary"] == "Summary of: Where is my order?"
 
 
+def test_analyze_uses_default_model_when_models_is_missing(client):
+    response = client.post("/api/analyze", json={"message": "Hi"})
+
+    assert response.status_code == 200
+    assert len(response.get_json()["results"]) == 1
+
+
 def test_analyze_reports_errors_per_model(client):
     response = client.post(
         "/api/analyze", json={"message": "Hi", "models": ["broken-model", "good-model"]}
@@ -76,6 +83,8 @@ def test_analyze_reports_errors_per_model(client):
         {"message": "   "},
         {"message": "x" * 5000},
         {"message": "Hi", "models": "gpt-oss:20b"},
+        {"message": "Hi", "models": []},
+        {"message": "Hi", "models": None},
         {"message": "Hi", "models": [f"model-{i}" for i in range(MAX_MODELS + 1)]},
     ],
 )

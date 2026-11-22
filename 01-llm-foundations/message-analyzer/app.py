@@ -48,7 +48,8 @@ def create_app(
     def analyze_message():
         data = request.get_json(silent=True) or {}
         message = str(data.get("message", "")).strip()
-        models = data.get("models") or [get_settings().chat_model]
+        # Use the default model only when "models" is missing. An empty list is an error.
+        models = data.get("models", [get_settings().chat_model])
 
         if not message:
             return jsonify(error="Please enter a message."), 400
