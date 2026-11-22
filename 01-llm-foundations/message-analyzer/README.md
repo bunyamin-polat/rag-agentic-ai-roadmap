@@ -92,6 +92,8 @@ curl -X POST http://127.0.0.1:5050/api/analyze \
 }
 ```
 
+The `reply` above is shortened; the API returns the full text.
+
 `GET /api/models` lists the installed chat models (embedding models are skipped).
 
 ## Project structure
