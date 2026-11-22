@@ -26,7 +26,8 @@ model's answer into data that an app can use.
 | 3 | Notebook | [Memory, tools, and agents](03_memory_tools_agents.ipynb): chat history, tool calling, your first agent | ✅ Ready |
 | – | Project | [Message Analyzer](message-analyzer/): a Flask app with structured output | ✅ Ready |
 
-Work through the notebooks in order. The project only needs Notebook 1.
+Work through the notebooks in order. You can build the project after Notebook 1: its README
+explains structured output, which Notebook 2 covers in more depth.
 
 ## Before you start
 
@@ -59,7 +60,7 @@ to the text, and repeats. Every prompting technique in this stage is a way to st
 | **Zero-shot / few-shot** | A prompt with no examples / with a few examples of the task. |
 | **Chain-of-thought** | Asking the model to write its steps before the final answer. |
 | **Self-consistency** | Asking several times and taking the most common answer. |
-| **Reasoning model** | A model that "thinks" in hidden steps before it answers, such as `gpt-oss`. |
+| **Reasoning model** | A model that writes out its reasoning ("thinking") before the final answer, such as `gpt-oss`. Ollama returns the thinking apart from the answer. |
 | **Prompt template** | A prompt with named blanks that you fill for each request. |
 | **Structured output** | Model output that must follow a schema, so code can use it as data. |
 | **Chain** | A pipeline of steps (prompt → model → parser) where each output feeds the next step. |
