@@ -1,5 +1,6 @@
 """Tests for the Flask routes with fake model functions (no Ollama server needed)."""
 
+import ollama
 import pytest
 from analyzer import AnalysisError
 from app import MAX_MODELS, create_app
@@ -46,6 +47,18 @@ def test_models_reports_when_ollama_is_down():
 
     assert response.status_code == 503
     assert "Ollama" in response.get_json()["error"]
+
+
+def test_models_reports_ollama_errors():
+    def ollama_error():
+        raise ollama.ResponseError("model list failed", 500)
+
+    client = create_app(analyze_fn=fake_analyze, models_fn=ollama_error).test_client()
+
+    response = client.get("/api/models")
+
+    assert response.status_code == 502
+    assert "model list failed" in response.get_json()["error"]
 
 
 def test_analyze_runs_every_selected_model(client):

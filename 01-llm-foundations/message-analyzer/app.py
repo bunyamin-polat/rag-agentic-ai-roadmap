@@ -43,6 +43,8 @@ def create_app(
             return jsonify(models=models_fn(), default=get_settings().chat_model)
         except ConnectionError:
             return jsonify(error="Cannot reach Ollama. Is it running? Try: ollama serve"), 503
+        except ollama.ResponseError as error:
+            return jsonify(error=f"Ollama returned an error: {error.error}"), 502
 
     @app.post("/api/analyze")
     def analyze_message():
