@@ -14,7 +14,8 @@ model's answer into data that an app can use.
   **self-consistency**, and **role prompting**.
 - How to reuse prompts with **templates**.
 - How to get **structured output** (JSON that follows a schema) instead of free text.
-- How LangChain connects models, prompts, memory, and tools into chains and agents.
+- How LangChain connects models, prompts, and parsers into **chains**.
+- How to give an assistant **memory**, let it call **tools**, and build an **agent**.
 
 ## Contents
 
@@ -22,7 +23,7 @@ model's answer into data that an app can use.
 |---|---|---|---|
 | 1 | Notebook | [Prompt engineering](01_prompt_engineering.ipynb) | ✅ Ready |
 | 2 | Notebook | [LangChain basics](02_langchain_basics.ipynb): models, templates, chains, output parsers | ✅ Ready |
-| 3 | Notebook | Memory, tools, and agents | 🔜 Coming soon |
+| 3 | Notebook | [Memory, tools, and agents](03_memory_tools_agents.ipynb): chat history, tool calling, your first agent | ✅ Ready |
 | – | Project | [Message Analyzer](message-analyzer/): a Flask app with structured output | ✅ Ready |
 
 Work through the notebooks in order. The project only needs Notebook 1.
@@ -61,6 +62,10 @@ to the text, and repeats. Every prompting technique in this stage is a way to st
 | **Reasoning model** | A model that "thinks" in hidden steps before it answers, such as `gpt-oss`. |
 | **Prompt template** | A prompt with named blanks that you fill for each request. |
 | **Structured output** | Model output that must follow a schema, so code can use it as data. |
+| **Chain** | A pipeline of steps (prompt → model → parser) where each output feeds the next step. |
+| **Memory** | The conversation that the app keeps and sends again, because the model forgets between calls. |
+| **Tool** | A Python function that the model can ask your code to run. |
+| **Agent** | A model that works in a loop: think, call a tool, read the result, repeat until it can answer. |
 
 ## Next
 
