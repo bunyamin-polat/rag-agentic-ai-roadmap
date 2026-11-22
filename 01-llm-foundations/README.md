@@ -8,8 +8,8 @@ model's answer into data that an app can use.
 
 ## What you will learn
 
-- How a chat model reads **tokens** and picks the next word, and what **temperature** and
-  **top-p** change.
+- How a chat model reads **tokens** and picks the next word, and what **temperature**,
+  **top-k**, and **top-p** change.
 - The main prompting techniques: **zero-shot**, **few-shot**, **chain-of-thought**,
   **self-consistency**, and **role prompting**.
 - How to reuse prompts with **templates**.
@@ -61,8 +61,12 @@ The notebook in brackets is where each term is explained in detail.
 | **Tokenizer** | The tool that splits text into tokens and turns them into ids. Each model family has its own. (NB 1) |
 | **Context window** | The most tokens (prompt + answer) a model can handle at once. (NB 1) |
 | **Max tokens** | The most tokens the model may write in one answer. For reasoning models, the thinking counts too. (NB 1) |
+| **Sampling** | Picking the next token at random, where likely tokens have a better chance. This is how models usually write. (NB 1) |
 | **Temperature** | How random the next-token pick is. Low = stable answers, high = varied answers. (NB 1) |
+| **Top-k** | Only the `k` most likely tokens can be picked, for example the top 40. (NB 1) In RAG, "top-k" has a second meaning: how many document pieces a search returns (Stage 2). |
 | **Top-p** | Only the most likely tokens, up to a total probability `p`, can be picked. (NB 1) |
+| **Greedy decoding** | Always taking the single most likely token, with no randomness. Temperature 0 or `top_k=1` does this. (NB 1) |
+| **Seed** | A starting number for the random choices. The same seed and settings give the same answer again. (NB 1) |
 | **Reasoning model** | A model that writes out its reasoning ("thinking") before the final answer, such as `gpt-oss`. Ollama returns the thinking apart from the answer. (NB 1) |
 | **Hallucination** | When a model states something false or made up as if it were true, such as an invented phone number. (NB 2) |
 
