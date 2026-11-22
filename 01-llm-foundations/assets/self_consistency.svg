@@ -78,5 +78,5 @@
   <rect x="740" y="148" width="100" height="50" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="2"/>
   <text x="790" y="179" class="bold" text-anchor="middle">Answer: 67</text>
 
-  <text x="20" y="316" class="small">Each run makes different mistakes, but correct runs tend to agree. The cost: N runs use N times the tokens.</text>
+  <text x="20" y="316" class="small">Wrong runs tend to make different mistakes, while correct runs agree. The cost: N runs use N times the tokens.</text>
 </svg>
