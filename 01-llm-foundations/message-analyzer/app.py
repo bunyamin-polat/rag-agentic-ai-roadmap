@@ -1,7 +1,7 @@
 """Message Analyzer: a small Flask web app.
 
 Paste a customer message, pick one or more local models, and compare how each model
-summarises it, scores the sentiment, and drafts a reply.
+summarizes it, scores the sentiment, and drafts a reply.
 
 Run it from the repo root:
 

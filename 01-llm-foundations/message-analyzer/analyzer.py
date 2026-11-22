@@ -1,4 +1,4 @@
-"""Analyse a customer message with a local LLM and get back structured fields.
+"""Analyze a customer message with a local LLM and get back structured fields.
 
 The model must answer with JSON that follows the `Analysis` schema. Ollama forces the
 output to match the schema while the model writes it (structured output), and Pydantic
@@ -59,7 +59,7 @@ def thinking_setting(client: ollama.Client, model: str) -> str | None:
 def analyze(
     message: str, model: str | None = None, client: ollama.Client | None = None
 ) -> dict[str, Any]:
-    """Analyse one message with one model.
+    """Analyze one message with one model.
 
     Returns the `Analysis` fields plus the model name, the time it took, and the number of
     generated tokens.
