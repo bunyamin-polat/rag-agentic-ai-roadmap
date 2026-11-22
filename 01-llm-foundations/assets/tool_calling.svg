@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="One tool-calling round: the model asks for a tool, your code runs it, and the result goes back to the model for the final answer">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; fill: #57606a; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .label { font-size: 13px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="300" fill="#ffffff"/>
+  <text x="20" y="32" class="title">One tool-calling round</text>
+
+  <!-- top row -->
+  <rect x="20" y="60" width="200" height="70" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="82" class="tag">1 · USER</text>
+  <text x="36" y="106" class="label">What is the weather</text>
+  <text x="36" y="122" class="label">in Oslo?</text>
+
+  <line x1="224" y1="95" x2="282" y2="95" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="286" y="60" width="240" height="70" rx="12" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="302" y="82" class="tag">2 · MODEL + TOOL LIST</text>
+  <text x="302" y="106" class="label">"I need get_weather."</text>
+  <text x="302" y="122" class="small">The model does not run the tool.</text>
+
+  <line x1="530" y1="95" x2="588" y2="95" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="592" y="60" width="288" height="70" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="608" y="82" class="tag">3 · AIMESSAGE WITH A TOOL CALL</text>
+  <text x="608" y="108" class="mono">get_weather(city="Oslo")</text>
+
+  <!-- down -->
+  <line x1="736" y1="134" x2="736" y2="182" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- bottom row -->
+  <rect x="592" y="186" width="288" height="70" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="608" y="208" class="tag">4 · YOUR CODE RUNS THE TOOL</text>
+  <text x="608" y="234" class="mono">ToolMessage("snow, -3 °C")</text>
+
+  <line x1="588" y1="221" x2="530" y2="221" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="286" y="186" width="240" height="70" rx="12" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="302" y="208" class="tag">5 · MODEL AGAIN</text>
+  <text x="302" y="232" class="label">reads the tool result</text>
+  <text x="302" y="248" class="small">(question + tool call + result)</text>
+
+  <line x1="282" y1="221" x2="224" y2="221" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="20" y="186" width="200" height="70" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="36" y="208" class="tag">6 · FINAL ANSWER</text>
+  <text x="36" y="232" class="label">It is snowing in Oslo,</text>
+  <text x="36" y="248" class="label">about -3 °C.</text>
+
+  <text x="20" y="286" class="small">The model only writes a request (name + arguments). Running the tool is always your code's job.</text>
+</svg>
