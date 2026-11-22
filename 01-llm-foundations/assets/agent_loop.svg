@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-label="An agent loop: the model decides, tools run, results go back to the model, until it can answer">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .bold { font-size: 15px; font-weight: 600; }
+    .label { font-size: 13px; }
+    .small { font-size: 12px; fill: #57606a; }
+    .edge { font-size: 12px; font-weight: 600; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#55A868"/>
+    </marker>
+  </defs>
+  <rect width="900" height="330" fill="#ffffff"/>
+  <text x="20" y="32" class="title">An agent is a model in a loop with tools</text>
+
+  <!-- question -->
+  <rect x="20" y="104" width="150" height="60" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="95" y="130" class="bold" text-anchor="middle">Question</text>
+  <text x="95" y="150" class="small" text-anchor="middle">+ memory</text>
+
+  <line x1="174" y1="134" x2="246" y2="134" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- model -->
+  <rect x="250" y="94" width="220" height="80" rx="12" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="360" y="124" class="bold" text-anchor="middle">Model</text>
+  <text x="360" y="144" class="label" text-anchor="middle">thinks and decides:</text>
+  <text x="360" y="161" class="label" text-anchor="middle">use a tool, or answer?</text>
+
+  <!-- act -->
+  <path d="M420,90 L420,62 L700,62 L700,90" fill="none" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="560" y="54" class="edge" text-anchor="middle">ACT: call a tool</text>
+
+  <!-- tools -->
+  <rect x="610" y="94" width="180" height="80" rx="12" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="700" y="124" class="bold" text-anchor="middle">Tools</text>
+  <text x="700" y="144" class="label" text-anchor="middle">lookup_order</text>
+  <text x="700" y="161" class="label" text-anchor="middle">calculate · ...</text>
+
+  <!-- observe -->
+  <path d="M700,178 L700,206 L420,206 L420,178" fill="none" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="560" y="224" class="edge" text-anchor="middle">OBSERVE: read the result</text>
+
+  <!-- answer -->
+  <line x1="300" y1="178" x2="300" y2="236" stroke="#55A868" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="290" y="214" class="edge" style="fill:#2F7A45" text-anchor="end">no tool needed</text>
+  <rect x="230" y="240" width="140" height="52" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="300" y="271" class="bold" text-anchor="middle">Answer</text>
+
+  <text x="420" y="312" class="small">This think → act → observe loop is often called ReAct.</text>
+  <text x="420" y="268" class="small">The loop repeats until the model can answer.</text>
+  <text x="420" y="290" class="small">create_agent() runs the whole loop for you.</text>
+</svg>
