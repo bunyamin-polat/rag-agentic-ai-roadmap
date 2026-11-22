@@ -50,7 +50,7 @@ analysis = Analysis.model_validate_json(response.message.content)  # checked, ty
 Two layers protect the app:
 
 | Layer | What it does |
-|---|---|
+| --- | --- |
 | `format=` (Ollama) | Limits the model's output so that it is valid JSON with the right fields. |
 | Pydantic | Checks types and values. If the check fails, the app shows an error card for that model. |
 

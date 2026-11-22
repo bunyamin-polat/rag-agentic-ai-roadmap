@@ -20,7 +20,7 @@ model's answer into data that an app can use.
 ## Contents
 
 | # | Type | Topic | Status |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 1 | Notebook | [Prompt engineering](01_prompt_engineering.ipynb) | ✅ Ready |
 | 2 | Notebook | [LangChain basics](02_langchain_basics.ipynb): models, templates, chains, output parsers | ✅ Ready |
 | 3 | Notebook | [Memory, tools, and agents](03_memory_tools_agents.ipynb): chat history, tool calling, your first agent | ✅ Ready |
@@ -50,7 +50,7 @@ to the text, and repeats. Every prompting technique in this stage is a way to st
 ## Key terms
 
 | Term | Meaning |
-|---|---|
+| --- | --- |
 | **LLM** | A large language model: a neural network trained on huge amounts of text to predict the next token. |
 | **Token** | A small piece of text (a word, part of a word, a digit, or a symbol). Models read and write tokens. |
 | **Context window** | The most tokens (prompt + answer) a model can handle at once. |
