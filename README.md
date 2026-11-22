@@ -21,7 +21,9 @@ small project.
 
 ## Setup
 
-Everything runs on your own computer with [Ollama](https://ollama.com). No API keys, no costs.
+The models run on your own computer with [Ollama](https://ollama.com). No API keys, no costs.
+You only need the internet for one-time downloads: the models (`ollama pull`), the Python
+packages (`uv sync`), and a few public files such as a tokenizer in Notebook 1.
 You need [uv](https://docs.astral.sh/uv/) and Ollama installed.
 
 ```bash
