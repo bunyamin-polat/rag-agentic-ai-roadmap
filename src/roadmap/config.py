@@ -14,6 +14,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(REPO_ROOT / ".env")
 
 DEFAULT_CHAT_MODEL = "gpt-oss:20b"
+DEFAULT_EMBED_MODEL = "nomic-embed-text"
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 
 
@@ -22,6 +23,7 @@ class Settings:
     """Runtime configuration for talking to a local Ollama server."""
 
     chat_model: str
+    embed_model: str
     ollama_host: str
 
 
@@ -29,5 +31,6 @@ def get_settings() -> Settings:
     """Build settings from the current environment."""
     return Settings(
         chat_model=os.getenv("CHAT_MODEL", DEFAULT_CHAT_MODEL),
+        embed_model=os.getenv("EMBED_MODEL", DEFAULT_EMBED_MODEL),
         ollama_host=os.getenv("OLLAMA_HOST", DEFAULT_OLLAMA_HOST),
     )
