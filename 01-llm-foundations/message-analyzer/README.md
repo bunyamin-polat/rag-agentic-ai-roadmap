@@ -50,7 +50,7 @@ analysis = Analysis.model_validate_json(response.message.content)  # checked, ty
 Two layers protect the app:
 
 | Layer | What it does |
-|---|---|
+| --- | --- |
 | `format=` (Ollama) | Limits the model's output so that it is valid JSON with the right fields. |
 | Pydantic | Checks types and values. If the check fails, the app shows an error card for that model. |
 
@@ -91,6 +91,8 @@ curl -X POST http://127.0.0.1:5050/api/analyze \
   ]
 }
 ```
+
+The `reply` above is shortened; the API returns the full text.
 
 `GET /api/models` lists the installed chat models (embedding models are skipped).
 

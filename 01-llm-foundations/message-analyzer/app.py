@@ -1,7 +1,7 @@
 """Message Analyzer: a small Flask web app.
 
 Paste a customer message, pick one or more local models, and compare how each model
-summarises it, scores the sentiment, and drafts a reply.
+summarizes it, scores the sentiment, and drafts a reply.
 
 Run it from the repo root:
 
@@ -43,12 +43,15 @@ def create_app(
             return jsonify(models=models_fn(), default=get_settings().chat_model)
         except ConnectionError:
             return jsonify(error="Cannot reach Ollama. Is it running? Try: ollama serve"), 503
+        except ollama.ResponseError as error:
+            return jsonify(error=f"Ollama returned an error: {error.error}"), 502
 
     @app.post("/api/analyze")
     def analyze_message():
         data = request.get_json(silent=True) or {}
         message = str(data.get("message", "")).strip()
-        models = data.get("models") or [get_settings().chat_model]
+        # Use the default model only when "models" is missing. An empty list is an error.
+        models = data.get("models", [get_settings().chat_model])
 
         if not message:
             return jsonify(error="Please enter a message."), 400

@@ -102,8 +102,12 @@ function renderResult(result) {
   const copy = el("button", "copy", "Copy reply");
   copy.type = "button";
   copy.addEventListener("click", async () => {
-    await navigator.clipboard.writeText(result.reply);
-    copy.textContent = "Copied";
+    try {
+      await navigator.clipboard.writeText(result.reply);
+      copy.textContent = "Copied";
+    } catch {
+      copy.textContent = "Copy failed";
+    }
     setTimeout(() => (copy.textContent = "Copy reply"), 1500);
   });
 

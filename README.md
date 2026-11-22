@@ -3,11 +3,27 @@
 A hands-on learning roadmap for building LLM, RAG, multimodal, and agentic AI applications,
 with explanations, definitions, diagrams, notebooks, and small projects.
 
-🚧 Work in progress.
+🚧 Work in progress. New stages are added step by step.
+
+## Roadmap
+
+Each stage has its own folder with a README, notebooks that explain the ideas, and at least one
+small project.
+
+| Stage | What you learn | Projects | Status |
+| --- | --- | --- | --- |
+| [1. LLM Foundations](01-llm-foundations/) | tokens, prompting, LangChain chains, structured output, memory, tools, agents | Message Analyzer (Flask) | ✅ Ready |
+| 2. RAG Fundamentals | loading and chunking documents, embeddings, retrieval, chat with your documents | PDF Q&A bot, profile chat | 🔜 Planned |
+| 3. Vector Databases | similarity measures, ChromaDB, FAISS, fast search indexes | food recommender, semantic search | 🔜 Planned |
+| 4. Advanced Retrieval | better retrievers, hybrid search, reranking, measuring retrieval quality | YouTube Q&A | 🔜 Planned |
+| 5. Multimodal | speech to text, text to speech, image generation, vision models | meeting assistant, image Q&A, style finder | 🔜 Planned |
+| 6. Agentic AI | added as the roadmap grows | – | 🔜 Planned |
 
 ## Setup
 
-Everything runs on your own computer with [Ollama](https://ollama.com). No API keys, no costs.
+The models run on your own computer with [Ollama](https://ollama.com). No API keys, no costs.
+You only need the internet for one-time downloads: the models (`ollama pull`), the Python
+packages (`uv sync`), and a few public files such as a tokenizer in Notebook 1.
 You need [uv](https://docs.astral.sh/uv/) and Ollama installed.
 
 ```bash
@@ -18,8 +34,9 @@ ollama pull gpt-oss:20b  # default chat model (~13 GB, needs 16 GB RAM)
 uv sync                  # creates .venv and installs everything
 ```
 
-On a smaller machine, pull a smaller model such as `qwen3:4b-instruct` (~2.5 GB) and set
-`CHAT_MODEL=qwen3:4b-instruct` in a `.env` file (see [`.env.example`](.env.example)).
+Each stage README lists any extra models it needs. On a smaller machine, pull a smaller model
+such as `qwen3:4b-instruct` (~2.5 GB) and set `CHAT_MODEL=qwen3:4b-instruct` in a `.env` file
+(see [`.env.example`](.env.example)).
 
 To open a notebook, select the `.venv` Python interpreter as the kernel (VS Code), or run
 `uv run --with jupyter jupyter lab`.
