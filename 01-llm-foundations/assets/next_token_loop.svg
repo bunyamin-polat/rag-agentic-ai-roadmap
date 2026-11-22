@@ -53,7 +53,7 @@
   <rect x="686" y="106" width="154" height="60" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
   <text x="763" y="130" class="tag" text-anchor="middle">pick one token</text>
   <text x="763" y="152" class="bold" text-anchor="middle">→ "mat"</text>
-  <text x="763" y="186" class="small" text-anchor="middle">temperature and top-p</text>
+  <text x="763" y="186" class="small" text-anchor="middle">temperature, top-k, top-p</text>
   <text x="763" y="202" class="small" text-anchor="middle">control this choice</text>
 
   <!-- loop back -->
