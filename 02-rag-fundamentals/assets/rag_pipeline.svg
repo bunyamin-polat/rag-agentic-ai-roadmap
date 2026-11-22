@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340" role="img" aria-label="The RAG pipeline: index documents once (load, split, embed, store), then for each question embed it, search, build a prompt, and generate the answer">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .phase { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; fill: #57606a; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; fill: #57606a; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="340" fill="#ffffff"/>
+  <text x="20" y="32" class="title">The RAG pipeline</text>
+
+  <!-- indexing -->
+  <text x="20" y="64" class="phase">1 · INDEXING (ONCE, BEFORE ANY QUESTION)</text>
+  <rect x="20" y="76" width="150" height="62" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="96" class="tag">LOAD</text>
+  <text x="36" y="118" class="bold">Documents</text>
+  <line x1="174" y1="107" x2="206" y2="107" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="210" y="76" width="150" height="62" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="226" y="96" class="tag">SPLIT</text>
+  <text x="226" y="118" class="bold">Chunks</text>
+  <line x1="364" y1="107" x2="396" y2="107" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="400" y="76" width="150" height="62" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="416" y="96" class="tag">EMBED</text>
+  <text x="416" y="118" class="bold">Vectors</text>
+  <line x1="554" y1="107" x2="586" y2="107" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="590" y="76" width="170" height="62" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="2"/>
+  <text x="606" y="96" class="tag">STORE</text>
+  <text x="606" y="118" class="bold">Vector store</text>
+
+  <!-- querying -->
+  <text x="20" y="190" class="phase">2 · RETRIEVAL AND GENERATION (FOR EVERY QUESTION)</text>
+  <rect x="20" y="202" width="150" height="62" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="222" class="tag">ASK</text>
+  <text x="36" y="244" class="bold">Question</text>
+  <line x1="174" y1="233" x2="206" y2="233" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="210" y="202" width="150" height="62" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="226" y="222" class="tag">EMBED</text>
+  <text x="226" y="244" class="bold">Question vector</text>
+  <line x1="364" y1="233" x2="586" y2="233" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="590" y="202" width="170" height="62" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="2"/>
+  <text x="606" y="222" class="tag">RETRIEVE</text>
+  <text x="606" y="244" class="bold">Top-k chunks</text>
+  <line x1="675" y1="142" x2="675" y2="198" stroke="#8172B3" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="684" y="174" class="small">search the store</text>
+
+  <!-- generation -->
+  <path d="M760,233 L790,233 L790,300 L746,300" fill="none" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="470" y="276" width="272" height="48" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="486" y="296" class="tag">GENERATE</text>
+  <text x="486" y="314" class="small">prompt = question + chunks → LLM</text>
+  <line x1="466" y1="300" x2="414" y2="300" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="210" y="276" width="200" height="48" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="226" y="296" class="tag">ANSWER</text>
+  <text x="226" y="314" class="small">grounded answer + sources</text>
+</svg>

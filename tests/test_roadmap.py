@@ -28,22 +28,36 @@ def fake_client(monkeypatch):
 
 
 def test_settings_defaults(monkeypatch):
-    monkeypatch.delenv("CHAT_MODEL", raising=False)
-    monkeypatch.delenv("OLLAMA_HOST", raising=False)
+    for name in ("CHAT_MODEL", "EMBED_MODEL", "OLLAMA_HOST"):
+        monkeypatch.delenv(name, raising=False)
 
     settings = config.get_settings()
 
     assert settings.chat_model == config.DEFAULT_CHAT_MODEL
+    assert settings.embed_model == config.DEFAULT_EMBED_MODEL
     assert settings.ollama_host == config.DEFAULT_OLLAMA_HOST
 
 
 def test_settings_read_environment(monkeypatch):
     monkeypatch.setenv("CHAT_MODEL", "qwen3:1.7b")
+    monkeypatch.setenv("EMBED_MODEL", "embeddinggemma")
     monkeypatch.setenv("OLLAMA_HOST", "http://gpu-box:11434")
 
     settings = config.get_settings()
 
-    assert settings == config.Settings(chat_model="qwen3:1.7b", ollama_host="http://gpu-box:11434")
+    assert settings == config.Settings(
+        chat_model="qwen3:1.7b", embed_model="embeddinggemma", ollama_host="http://gpu-box:11434"
+    )
+
+
+def test_get_embeddings_uses_settings(monkeypatch):
+    monkeypatch.setenv("EMBED_MODEL", "embeddinggemma")
+    monkeypatch.setenv("OLLAMA_HOST", "http://gpu-box:11434")
+
+    embeddings = llm.get_embeddings()
+
+    assert embeddings.model == "embeddinggemma"
+    assert embeddings.base_url == "http://gpu-box:11434"
 
 
 def test_ask_sends_system_and_user_messages(fake_client):

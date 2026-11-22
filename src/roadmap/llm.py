@@ -6,6 +6,8 @@ Two entry points, matching how the roadmap progresses:
   Stage 1 uses it to focus on prompts before introducing any framework.
 * `get_chat_model()` returns a LangChain chat model, used from the LangChain
   lessons onwards.
+* `get_embeddings()` returns a LangChain embedding model, used from the RAG
+  lessons onwards.
 
 Reasoning models such as `gpt-oss` "think" before they answer. Thinking tokens
 count toward the token limit, so the helpers ask for a low thinking effort by
@@ -23,7 +25,7 @@ import ollama
 from roadmap.config import get_settings
 
 if TYPE_CHECKING:
-    from langchain_ollama import ChatOllama
+    from langchain_ollama import ChatOllama, OllamaEmbeddings
 
 Message = dict[str, str]
 Think = bool | Literal["low", "medium", "high"] | None
@@ -100,3 +102,14 @@ def get_chat_model(
         reasoning=think if supports_thinking(model) else None,
         **kwargs,
     )
+
+
+def get_embeddings(model: str | None = None) -> OllamaEmbeddings:
+    """Return a LangChain embedding model for the configured Ollama server.
+
+    Defaults to `EMBED_MODEL` (`nomic-embed-text`).
+    """
+    from langchain_ollama import OllamaEmbeddings
+
+    settings = get_settings()
+    return OllamaEmbeddings(model=model or settings.embed_model, base_url=settings.ollama_host)

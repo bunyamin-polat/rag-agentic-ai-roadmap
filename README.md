@@ -13,7 +13,7 @@ small project.
 | Stage | What you learn | Projects | Status |
 | --- | --- | --- | --- |
 | [1. LLM Foundations](01-llm-foundations/) | tokens, prompting, LangChain chains, structured output, memory, tools, agents | Message Analyzer (Flask) | ✅ Ready |
-| 2. RAG Fundamentals | loading and chunking documents, embeddings, retrieval, chat with your documents | PDF Q&A bot, profile chat | 🔜 Planned |
+| [2. RAG Fundamentals](02-rag-fundamentals/) | loading and chunking documents, embeddings, retrieval, chat with your documents | PDF Q&A bot, profile chat | 🚧 In progress |
 | 3. Vector Databases | similarity measures, ChromaDB, FAISS, fast search indexes | food recommender, semantic search | 🔜 Planned |
 | 4. Advanced Retrieval | better retrievers, hybrid search, reranking, measuring retrieval quality | YouTube Q&A | 🔜 Planned |
 | 5. Multimodal | speech to text, text to speech, image generation, vision models | meeting assistant, image Q&A, style finder | 🔜 Planned |
