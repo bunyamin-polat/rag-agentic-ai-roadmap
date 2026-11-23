@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="A follow-up question searched on its own finds the wrong chunks; rewritten into a standalone question it finds the right one">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .row { font-size: 13px; font-weight: 600; fill: #57606a; }
+    .label { font-size: 13px; }
+    .bold { font-size: 13px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="300" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Follow-up questions need the history</text>
+
+  <!-- chat -->
+  <rect x="20" y="52" width="420" height="34" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="74" class="label">User: Tell me about the company cars.</text>
+  <rect x="460" y="52" width="420" height="34" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="474" y="74" class="label">Assistant: There are four shared electric cars ...</text>
+
+  <!-- raw search -->
+  <text x="20" y="128" class="row">Search the follow-up as it is</text>
+  <rect x="20" y="138" width="260" height="40" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="163" class="label">"Can I use one for a weekend trip?"</text>
+  <line x1="284" y1="158" x2="330" y2="158" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="334" y="138" width="546" height="40" rx="8" fill="#FBEAEA" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="348" y="163" class="label">3. Vacation  ·  6. Expenses and travel  ·  2. Remote work   ✗  (no "one" = car)</text>
+
+  <!-- rewritten -->
+  <text x="20" y="222" class="row">Rewrite it first, then search</text>
+  <rect x="20" y="232" width="260" height="40" rx="8" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="34" y="250" class="label">"Can I use a company car</text>
+  <text x="34" y="265" class="label">for a weekend trip?"</text>
+  <line x1="284" y1="252" x2="330" y2="252" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="334" y="232" width="546" height="40" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="348" y="257" class="label">7. Company vehicles  ·  ...   ✓  "Private trips with company vehicles are not allowed."</text>
+
+  <text x="20" y="294" class="small">The search only sees the text it gets. "one" means nothing without the earlier messages.</text>
+</svg>
