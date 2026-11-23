@@ -21,7 +21,7 @@ the parts of your documents that match the question, and let the model answer fr
 | --- | --- | --- | --- |
 | 1 | Notebook | [The RAG pipeline](01_rag_pipeline.ipynb): load, split, embed, store, retrieve, answer | ✅ Ready |
 | 2 | Notebook | [Loaders and chunking](02_loaders_and_chunking.ipynb): PDFs, web pages, chunk size and overlap | ✅ Ready |
-| 3 | Notebook | Conversational RAG: follow-up questions, RAG as an agent tool | 🔜 Coming soon |
+| 3 | Notebook | [Conversational RAG](03_conversational_rag.ipynb): follow-up questions, RAG as an agent tool | ✅ Ready |
 | – | Project | PDF Q&A bot: upload a PDF and ask questions about it (Gradio) | 🔜 Coming soon |
 | – | Project | Profile chat: chat about a person's profile (LlamaIndex) | 🔜 Coming soon |
 
@@ -100,6 +100,19 @@ The notebook in brackets is where each term is explained in detail.
 | **Top-k (retrieval)** | How many chunks the search returns. Not the same as top-k sampling in [Stage 1](../01-llm-foundations/README.md#models-and-tokens), which limits the next-token choice. (NB 1) |
 | **Test set** | Questions with known answers, used to measure a RAG setup instead of guessing. (NB 2) |
 | **Hit rate (hit@1)** | The share of test questions where the first retrieved chunk contains the answer. (NB 2) |
+
+### Conversations and agents
+
+| Term | Meaning |
+| --- | --- |
+| **Follow-up question** | A question that only makes sense with the earlier messages, such as "Can I use one for a weekend trip?" (NB 3) |
+| **Standalone question** | A question that can be understood without any chat history. The search needs one. (NB 3) |
+| **Question rewriting** | An LLM turns a follow-up into a standalone question before the search. Also called query rewriting. (NB 3) |
+| **Session** | One user's conversation, with its own history, kept apart from other users. (NB 3) |
+| **Clarifying question** | When a question is unclear, the assistant asks back instead of guessing what the user meant. (NB 3) |
+| **Conversational RAG** | RAG with chat history: rewrite, search, answer with the history, then save the turn. (NB 3) |
+| **Agentic RAG** | An agent decides when and how to search by calling a search tool: none, one, or several times. (NB 3) |
+| **Tool description** | The text that tells an agent what a tool does and how to call it. It shapes the queries the agent writes. (NB 3) |
 
 ## Next
 

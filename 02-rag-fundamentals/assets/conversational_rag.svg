@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Conversational RAG: rewrite the follow-up with the history, search with the rewritten question, answer with history and context, then save the turn">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; fill: #57606a; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="300" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Conversational RAG: one more step before the search</text>
+
+  <!-- inputs -->
+  <rect x="20" y="62" width="160" height="62" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="84" class="tag">FOLLOW-UP</text>
+  <text x="36" y="106" class="bold">"Can I use one ...?"</text>
+  <rect x="20" y="140" width="160" height="62" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="36" y="162" class="tag">CHAT HISTORY</text>
+  <text x="36" y="184" class="bold">earlier messages</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M184,93 L216,93"/>
+    <path d="M184,171 C200,171 200,110 216,110"/>
+  </g>
+
+  <!-- rewrite -->
+  <rect x="220" y="62" width="170" height="80" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="2"/>
+  <text x="236" y="84" class="tag">1 · REWRITE (LLM)</text>
+  <text x="236" y="106" class="bold">standalone question</text>
+  <text x="236" y="126" class="small">"... a company car ..."</text>
+
+  <line x1="394" y1="102" x2="426" y2="102" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- search -->
+  <rect x="430" y="62" width="160" height="80" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="446" y="84" class="tag">2 · SEARCH</text>
+  <text x="446" y="106" class="bold">top-k chunks</text>
+  <text x="446" y="126" class="small">with the new question</text>
+
+  <line x1="594" y1="102" x2="626" y2="102" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- answer -->
+  <rect x="630" y="62" width="250" height="80" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="2"/>
+  <text x="646" y="84" class="tag">3 · ANSWER (LLM)</text>
+  <text x="646" y="106" class="bold">history + context + question</text>
+  <text x="646" y="126" class="small">grounded prompt</text>
+
+  <!-- save -->
+  <path d="M755,146 L755,236 L104,236 L104,206" fill="none" stroke="#57606a" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <text x="430" y="226" class="small" text-anchor="middle">4 · save the question and the answer in the history of this session</text>
+
+  <text x="20" y="282" class="small">For the first question of a session there is no history, so step 1 is skipped.</text>
+</svg>
