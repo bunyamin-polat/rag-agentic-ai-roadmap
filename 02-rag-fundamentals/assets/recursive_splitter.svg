@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" aria-label="The recursive splitter tries paragraphs first, then lines, then words, then characters, until every piece fits the chunk size">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; fill: #57606a; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; fill: #3B5E96; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="250" fill="#ffffff"/>
+  <text x="20" y="32" class="title">The recursive splitter: big cuts first, smaller cuts only when needed</text>
+
+  <!-- steps -->
+  <rect x="20" y="62" width="190" height="86" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="36" y="84" class="tag">1 · PARAGRAPHS</text>
+  <text x="36" y="110" class="mono">"\n\n"</text>
+  <text x="36" y="134" class="small">best: keeps ideas together</text>
+
+  <line x1="214" y1="105" x2="242" y2="105" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="246" y="62" width="190" height="86" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="262" y="84" class="tag">2 · LINES</text>
+  <text x="262" y="110" class="mono">"\n"</text>
+  <text x="262" y="134" class="small">if a paragraph is too long</text>
+
+  <line x1="440" y1="105" x2="468" y2="105" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="472" y="62" width="190" height="86" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="488" y="84" class="tag">3 · WORDS</text>
+  <text x="488" y="110" class="mono">" "</text>
+  <text x="488" y="134" class="small">if a line is too long</text>
+
+  <line x1="666" y1="105" x2="694" y2="105" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="698" y="62" width="182" height="86" rx="10" fill="#FBEAEA" stroke="#C44E52" stroke-width="1.5"/>
+  <text x="714" y="84" class="tag">4 · CHARACTERS</text>
+  <text x="714" y="110" class="mono">""</text>
+  <text x="714" y="134" class="small">last resort</text>
+
+  <text x="20" y="186" class="small">For each piece that is still longer than chunk_size, the splitter moves one step to the right.</text>
+  <text x="20" y="206" class="small">Then it joins neighboring small pieces back together, as long as they fit in chunk_size.</text>
+  <text x="20" y="232" class="small">A simple CharacterTextSplitter only knows one separator, so a long paragraph can stay too long.</text>
+</svg>

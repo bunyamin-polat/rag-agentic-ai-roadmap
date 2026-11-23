@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" aria-label="Without overlap a sentence can be cut between two chunks; with overlap the end of one chunk is repeated at the start of the next">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .row { font-size: 13px; font-weight: 600; fill: #57606a; }
+    .label { font-size: 13px; }
+    .small { font-size: 12px; fill: #57606a; }
+    .cut { font-size: 12px; font-weight: 600; fill: #B4363C; }
+    .ok { font-size: 12px; font-weight: 600; fill: #2F7A45; }
+  </style>
+  <rect width="900" height="250" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Chunk overlap: repeat a little text so nothing is cut in half</text>
+
+  <!-- no overlap -->
+  <text x="20" y="80" class="row">overlap = 0</text>
+  <rect x="140" y="58" width="350" height="36" rx="6" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="152" y="81" class="label">... get vacation days in proportion to their working</text>
+  <rect x="496" y="58" width="300" height="36" rx="6" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="508" y="81" class="label">days. Request vacation in the HR ...</text>
+  <line x1="493" y1="50" x2="493" y2="102" stroke="#C44E52" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="493" y="118" class="cut" text-anchor="middle">sentence cut here</text>
+
+  <!-- with overlap -->
+  <text x="20" y="168" class="row">overlap = 40</text>
+  <rect x="140" y="146" width="350" height="36" rx="6" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="152" y="169" class="label">... get vacation days in proportion to their working</text>
+  <rect x="330" y="194" width="466" height="36" rx="6" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <rect x="330" y="194" width="160" height="36" rx="6" fill="#F3D9A6" stroke="none" opacity="0.7"/>
+  <text x="342" y="217" class="label">in proportion to their working days. Request vacation ...</text>
+  <text x="410" y="246" class="ok" text-anchor="middle">shared text (overlap)</text>
+  <text x="796" y="246" class="ok" text-anchor="end">the next chunk has the whole sentence</text>
+</svg>
