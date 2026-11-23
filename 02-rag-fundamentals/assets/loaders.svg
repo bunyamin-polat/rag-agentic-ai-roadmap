@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="290" viewBox="0 0 900 290" role="img" aria-label="Loaders turn text, PDF, and HTML files into Document objects with text and metadata">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .label { font-size: 13px; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .key { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; fill: #B35F25; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="290" fill="#ffffff"/>
+  <text x="20" y="32" class="title">A loader turns a file into Documents</text>
+
+  <!-- files -->
+  <rect x="20" y="58" width="170" height="52" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="80" class="bold">handbook.md</text>
+  <text x="36" y="98" class="small">plain text, read as is</text>
+  <rect x="20" y="124" width="170" height="52" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="146" class="bold">handbook.pdf</text>
+  <text x="36" y="164" class="small">text taken out page by page</text>
+  <rect x="20" y="190" width="170" height="52" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="212" class="bold">it_faq.html</text>
+  <text x="36" y="230" class="small">menus and scripts removed</text>
+
+  <!-- loaders -->
+  <g stroke="#57606a" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="194" y1="84" x2="246" y2="84"/>
+    <line x1="194" y1="150" x2="246" y2="150"/>
+    <line x1="194" y1="216" x2="246" y2="216"/>
+  </g>
+  <rect x="250" y="58" width="150" height="52" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="325" y="89" class="mono" text-anchor="middle">load_text()</text>
+  <rect x="250" y="124" width="150" height="52" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="325" y="155" class="mono" text-anchor="middle">load_pdf()</text>
+  <rect x="250" y="190" width="150" height="52" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="325" y="221" class="mono" text-anchor="middle">load_html()</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M404,84 C440,84 440,150 476,150"/>
+    <line x1="404" y1="150" x2="476" y2="150"/>
+    <path d="M404,216 C440,216 440,150 476,150"/>
+  </g>
+
+  <!-- document -->
+  <rect x="480" y="82" width="400" height="136" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="496" y="106" class="bold">Document</text>
+  <text x="496" y="134" class="key">page_content</text>
+  <text x="600" y="134" class="mono">"Full-time employees get 28 ..."</text>
+  <text x="496" y="162" class="key">metadata</text>
+  <text x="600" y="162" class="mono">{"source": "handbook.pdf",</text>
+  <text x="600" y="180" class="mono"> "page": 1}</text>
+  <text x="496" y="206" class="small">Metadata travels with every chunk, so answers can cite it.</text>
+
+  <text x="20" y="274" class="small">One loader per file type. Each returns a list of Documents: one per file, or one per page for PDFs.</text>
+</svg>
