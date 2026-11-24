@@ -1,0 +1,75 @@
+# Stage 3 — Vector Databases
+
+In Stage 2, an in-memory vector store found the chunks closest to a question. That works for
+one handbook, but not for millions of chunks that must survive a restart and be filtered by
+metadata. This stage looks inside the search: how "close" is measured, how a real vector
+database stores and filters vectors, and how indexes keep the search fast as the data grows.
+
+![Stage 3 path](assets/stage_map.svg)
+
+## What you will learn
+
+- Three ways to measure how close two vectors are: **L2 distance**, **dot product**, and
+  **cosine similarity**, and why they agree for **normalized** vectors.
+- How a similarity search works inside, and why a **brute-force** search gets slow.
+- How to store, filter, and update vectors in a **vector database** (ChromaDB).
+- How **approximate nearest neighbor (ANN)** indexes trade a little accuracy for a lot of
+  speed (FAISS).
+
+## Contents
+
+| # | Type | Topic | Status |
+| --- | --- | --- | --- |
+| 1 | Notebook | [Similarity by hand](01_similarity_by_hand.ipynb): L2, dot product, cosine, a search in a few lines | ✅ Ready |
+| 2 | Notebook | ChromaDB: collections, metadata filters, saving to disk | 🔜 Coming soon |
+| 3 | Notebook | FAISS and fast indexes: Flat, IVF, HNSW, LSH | 🔜 Coming soon |
+| – | Project | Food recommender: semantic search with filters and a RAG chat | 🔜 Coming soon |
+| – | Project | Semantic search with FAISS over a larger dataset | 🔜 Coming soon |
+
+Start with [Stage 2](../02-rag-fundamentals/) if embeddings and vector stores are new to you.
+
+## Before you start
+
+```bash
+ollama pull nomic-embed-text   # embedding model (~270 MB)
+uv sync                        # run in the repo root
+```
+
+Open a notebook and select the `.venv` Python kernel.
+
+## Key terms
+
+The notebook in brackets is where each term is explained in detail.
+
+### Vectors
+
+| Term | Meaning |
+| --- | --- |
+| **Vector** | A list of numbers. An embedding is a vector. (NB 1) |
+| **Dimension** | How many numbers a vector has. `nomic-embed-text` vectors have 768. (NB 1) |
+| **Length (norm)** | The square root of the sum of the squared numbers: the distance from zero to the vector's tip. (NB 1) |
+| **Normalized vector** | A vector divided by its length, so its length is 1. Also called a unit vector. `nomic-embed-text` returns normalized vectors. (NB 1) |
+
+### Similarity measures
+
+| Term | Meaning |
+| --- | --- |
+| **L2 distance** | The length of the gap between two vectors (Euclidean distance). 0 means identical; smaller is closer. (NB 1) |
+| **Dot product** | The sum of the products of matching numbers. Bigger is closer, but it also grows with the vectors' lengths. (NB 1) |
+| **Cosine similarity** | The dot product divided by both lengths: only the angle counts. 1 = same direction, 0 = unrelated, −1 = opposite. (NB 1) |
+| **Cosine distance** | 1 − cosine similarity. Many vector databases report this; smaller is closer. (NB 1) |
+| **Similarity vs. distance** | A similarity is big for close vectors, a distance is small. Check which one a library returns. (NB 1) |
+
+### Search
+
+| Term | Meaning |
+| --- | --- |
+| **k-nearest neighbors (k-NN)** | Finding the k vectors closest to a query vector. (NB 1) |
+| **Brute-force search** | Comparing the query with every stored vector. Exact, but the time grows with every vector you add. Also called exact or flat search. (NB 1) |
+| **Approximate nearest neighbor (ANN)** | A search that looks at only part of the vectors: much faster, but it may miss one of the true top k. (NB 1, NB 3) |
+| **Vector database** | A database built for vectors: it stores them with their metadata, filters, saves to disk, and keeps the search fast. (NB 1, NB 2) |
+
+## Next
+
+➡️ Stage 4 — Advanced retrieval (coming soon): better retrievers, hybrid search, reranking,
+and measuring retrieval quality.

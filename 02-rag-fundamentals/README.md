@@ -137,5 +137,5 @@ The notebook in brackets is where each term is explained in detail.
 
 ## Next
 
-➡️ Stage 3 — Vector databases (coming soon): how similarity search works inside, ChromaDB, and
-FAISS.
+➡️ [Stage 3 — Vector databases](../03-vector-databases/): how similarity search works inside,
+ChromaDB, and FAISS.
