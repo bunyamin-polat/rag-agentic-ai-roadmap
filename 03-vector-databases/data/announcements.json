@@ -1,0 +1,89 @@
+{
+  "note": "Made-up company announcements: sample data for the roadmap notebooks. Brightleaf is a made-up company; every name, date, and rule here is invented.",
+  "announcements": [
+    {
+      "id": "news-01",
+      "date": "2024-03-04",
+      "team": "IT",
+      "title": "Two-factor authentication for all accounts",
+      "text": "From today, two-factor authentication is required for every work account. Set it up in the password manager. The help desk can help on extension 4400."
+    },
+    {
+      "id": "news-02",
+      "date": "2024-06-17",
+      "team": "Facilities",
+      "title": "New coffee machine",
+      "text": "The kitchen on the second floor has a new coffee machine. It also makes tea and hot chocolate."
+    },
+    {
+      "id": "news-03",
+      "date": "2024-11-05",
+      "team": "People",
+      "title": "Speak-up form is open",
+      "text": "The anonymous speak-up form is now open. You can find it in the HR portal under 'Report a problem'."
+    },
+    {
+      "id": "news-04",
+      "date": "2025-02-10",
+      "team": "IT",
+      "title": "Longer passwords",
+      "text": "Passwords for work accounts must now have at least 14 characters instead of 12. You will be asked to change your password at your next login."
+    },
+    {
+      "id": "news-05",
+      "date": "2025-05-20",
+      "team": "Facilities",
+      "title": "Two more company cars",
+      "text": "Two more electric cars have joined the car-sharing pool, so Brightleaf now has four. Book them in the car-sharing app."
+    },
+    {
+      "id": "news-06",
+      "date": "2025-09-01",
+      "team": "People",
+      "title": "Longer parental leave",
+      "text": "Paid parental leave grows from 12 to 16 weeks for every child born or adopted from 1 September 2025."
+    },
+    {
+      "id": "news-07",
+      "date": "2025-12-01",
+      "team": "Facilities",
+      "title": "Office closed over the holidays",
+      "text": "The office is closed from 24 December to 1 January. You can still work from home on those days if you need to."
+    },
+    {
+      "id": "news-08",
+      "date": "2026-01-12",
+      "team": "People",
+      "title": "New handbook version",
+      "text": "Version 3.2 of the employee handbook is valid from January 2026. The biggest change is the rule for working from another country."
+    },
+    {
+      "id": "news-09",
+      "date": "2026-02-16",
+      "team": "IT",
+      "title": "New VPN app",
+      "text": "A new VPN app replaces the old one. Install it from the software center before 31 March 2026; after that date, the old app stops working."
+    },
+    {
+      "id": "news-10",
+      "date": "2026-04-07",
+      "team": "Facilities",
+      "title": "Bike parking in the basement",
+      "text": "The basement now has 40 bike parking spaces and two charging points for e-bikes. Use your badge to open the gate."
+    },
+    {
+      "id": "news-11",
+      "date": "2026-06-22",
+      "team": "IT",
+      "title": "Phishing training",
+      "text": "Every employee completes a 20-minute phishing training in the learning portal by 31 July 2026."
+    },
+    {
+      "id": "news-12",
+      "date": "2026-09-14",
+      "team": "People",
+      "title": "Book your learning days",
+      "text": "Remember to book your five paid learning days for this year in the HR portal before 30 November 2026."
+    }
+  ]
+}

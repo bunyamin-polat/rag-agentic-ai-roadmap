@@ -21,7 +21,7 @@ database stores and filters vectors, and how indexes keep the search fast as the
 | # | Type | Topic | Status |
 | --- | --- | --- | --- |
 | 1 | Notebook | [Similarity by hand](01_similarity_by_hand.ipynb): L2, dot product, cosine, a search in a few lines | ✅ Ready |
-| 2 | Notebook | ChromaDB: collections, metadata filters, saving to disk | 🔜 Coming soon |
+| 2 | Notebook | [ChromaDB](02_chromadb_basics.ipynb): collections, metadata filters, saving to disk, RAG with filters | ✅ Ready |
 | 3 | Notebook | FAISS and fast indexes: Flat, IVF, HNSW, LSH | 🔜 Coming soon |
 | – | Project | Food recommender: semantic search with filters and a RAG chat | 🔜 Coming soon |
 | – | Project | Semantic search with FAISS over a larger dataset | 🔜 Coming soon |
@@ -32,10 +32,20 @@ Start with [Stage 2](../02-rag-fundamentals/) if embeddings and vector stores ar
 
 ```bash
 ollama pull nomic-embed-text   # embedding model (~270 MB)
+ollama pull gpt-oss:20b        # chat model, for the RAG examples
 uv sync                        # run in the repo root
 ```
 
 Open a notebook and select the `.venv` Python kernel.
+
+## Sample data
+
+| File | What it is |
+| --- | --- |
+| [`data/announcements.json`](data/announcements.json) | Twelve made-up Brightleaf announcements from 2024 to 2026, each with a date and a team, for metadata filters. |
+| [`../02-rag-fundamentals/data/`](../02-rag-fundamentals/data/) | The employee handbook and IT FAQ from Stage 2. |
+
+Every name, date, and rule in the sample data is invented.
 
 ## Key terms
 
@@ -68,6 +78,19 @@ The notebook in brackets is where each term is explained in detail.
 | **Brute-force search** | Comparing the query with every stored vector. Exact, but the time grows with every vector you add. Also called exact or flat search. (NB 1) |
 | **Approximate nearest neighbor (ANN)** | A search that looks at only part of the vectors: much faster, but it may miss one of the true top k. (NB 1, NB 3) |
 | **Vector database** | A database built for vectors: it stores them with their metadata, filters, saves to disk, and keeps the search fast. (NB 1, NB 2) |
+
+### ChromaDB
+
+| Term | Meaning |
+| --- | --- |
+| **Client** | Your connection to Chroma: `EphemeralClient` keeps everything in memory, `PersistentClient` saves to a folder. (NB 2) |
+| **Collection** | A named set of records, like a table, with one embedding function and one distance measure. (NB 2) |
+| **Record** | One stored item: a unique id, the document (text), its embedding, and metadata. (NB 2) |
+| **Distance space** | The measure a collection uses: `cosine` (1 − cosine), `ip` (1 − dot product), or `l2` (the squared L2 distance). Always set it yourself. (NB 2) |
+| **Metadata filter** | A condition on the metadata (`where`), so only matching records are ranked. It can return fewer than k results. (NB 2) |
+| **Text filter** | A condition on the text itself (`where_document`), such as "contains VPN". (NB 2) |
+| **Upsert** | Insert a record if its id is new, replace it if the id already exists. (NB 2) |
+| **HNSW** | The index Chroma uses to find close vectors without checking every one of them. (NB 2, NB 3) |
 
 ## Next
 

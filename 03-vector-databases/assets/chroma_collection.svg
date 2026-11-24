@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-label="A Chroma client holds collections; a collection stores records with an id, a document, an embedding, and metadata, and offers add, get, query, update, and delete">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+    .head { font-size: 11px; font-weight: 600; fill: #57606a; letter-spacing: 0.05em; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+    .op { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 600; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="420" fill="#ffffff"/>
+  <text x="20" y="32" class="title">Inside a Chroma collection</text>
+
+  <!-- client -->
+  <rect x="20" y="60" width="200" height="110" rx="12" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="36" y="84" class="tag" style="fill:#5E5194">CLIENT</text>
+  <text x="36" y="108" class="bold">PersistentClient</text>
+  <text x="36" y="128" class="small">saves to a folder on disk</text>
+  <text x="36" y="152" class="small">EphemeralClient: memory only</text>
+
+  <line x1="224" y1="115" x2="246" y2="115" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- collection -->
+  <rect x="250" y="60" width="630" height="226" rx="12" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="266" y="84" class="tag" style="fill:#3B5E96">COLLECTION "brightleaf"</text>
+  <text x="266" y="104" class="small">embedding function: nomic-embed-text (Ollama) · distance: cosine · index: HNSW</text>
+
+  <text x="266" y="132" class="head">ID</text>
+  <text x="372" y="132" class="head">DOCUMENT</text>
+  <text x="586" y="132" class="head">EMBEDDING</text>
+  <text x="696" y="132" class="head">METADATA</text>
+  <line x1="266" y1="140" x2="864" y2="140" stroke="#B6C3DA"/>
+
+  <rect x="262" y="146" width="606" height="40" rx="4" fill="#ffffff"/>
+  <text x="270" y="170" class="mono">handbook-09</text>
+  <text x="372" y="170" class="mono">"## 7. Company vehicles ..."</text>
+  <text x="586" y="170" class="mono">768 numbers</text>
+  <text x="696" y="162" class="mono">source: handbook.md</text>
+  <text x="696" y="178" class="mono">section: 7. Company ...</text>
+
+  <rect x="262" y="190" width="606" height="40" rx="4" fill="#ffffff"/>
+  <text x="270" y="214" class="mono">it_faq-03</text>
+  <text x="372" y="214" class="mono">"## How do I connect ..."</text>
+  <text x="586" y="214" class="mono">768 numbers</text>
+  <text x="696" y="206" class="mono">source: it_faq.html</text>
+  <text x="696" y="222" class="mono">section: How do I ...</text>
+
+  <rect x="262" y="234" width="606" height="40" rx="4" fill="#ffffff"/>
+  <text x="270" y="258" class="mono">news-09</text>
+  <text x="372" y="258" class="mono">"New VPN app. A new ..."</text>
+  <text x="586" y="258" class="mono">768 numbers</text>
+  <text x="696" y="250" class="mono">source: announcements</text>
+  <text x="696" y="266" class="mono">team: IT · year: 2026</text>
+
+  <!-- operations -->
+  <text x="20" y="318" class="tag" style="fill:#57606a">WHAT YOU CAN DO WITH A COLLECTION</text>
+  <rect x="20" y="330" width="150" height="34" rx="17" fill="#E9F5EC" stroke="#55A868"/>
+  <text x="95" y="352" class="op" text-anchor="middle">add / upsert</text>
+  <text x="95" y="384" class="small" text-anchor="middle">store new records</text>
+
+  <rect x="182" y="330" width="150" height="34" rx="17" fill="#E9F5EC" stroke="#55A868"/>
+  <text x="257" y="352" class="op" text-anchor="middle">get(where=...)</text>
+  <text x="257" y="384" class="small" text-anchor="middle">filter only, no ranking</text>
+
+  <rect x="344" y="330" width="260" height="34" rx="17" fill="#E9F5EC" stroke="#55A868"/>
+  <text x="474" y="352" class="op" text-anchor="middle">query(query_texts, where=...)</text>
+  <text x="474" y="384" class="small" text-anchor="middle">closest records that match the filter</text>
+
+  <rect x="616" y="330" width="120" height="34" rx="17" fill="#E9F5EC" stroke="#55A868"/>
+  <text x="676" y="352" class="op" text-anchor="middle">update</text>
+  <text x="676" y="384" class="small" text-anchor="middle">change a record</text>
+
+  <rect x="748" y="330" width="132" height="34" rx="17" fill="#E9F5EC" stroke="#55A868"/>
+  <text x="814" y="352" class="op" text-anchor="middle">delete</text>
+  <text x="814" y="384" class="small" text-anchor="middle">by id or by filter</text>
+
+  <text x="20" y="410" class="small">Chroma embeds each document when you add it, and the question when you query, with the collection's embedding function.</text>
+</svg>
