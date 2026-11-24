@@ -84,20 +84,6 @@ with gr.Blocks() as app:
 | Streaming | A function that `yield`s several times updates the page each time | the answer appears word by word |
 | Chat messages | A list of `{"role": ..., "content": ...}` dicts | `gr.ChatMessage(..., metadata={"title": ...})` makes the collapsible Sources box |
 
-## From the course lab to this app
-
-The idea comes from a course lab with a PDF question-answering page. This version changes how
-it works in several places:
-
-| Lab version | This app |
-| --- | --- |
-| Indexed the whole PDF again for every question | Indexes each PDF once and reuses it (hash of the file) |
-| One question, one answer, no chat | A chat with follow-up questions, rewritten before the search |
-| No sources | Page numbers and passages under every answer |
-| The library's default prompt | The clear grounding prompt from Notebook 2, plus "ask back if unclear" |
-| Waited for the full answer | Streams the answer as it is written |
-| No tests | 14 tests that run without Ollama or a browser |
-
 ## Project structure
 
 ```text
