@@ -41,8 +41,8 @@ REWRITE_PROMPT = ChatPromptTemplate.from_messages(
         (
             "system",
             "Rewrite the user's latest question so that it can be understood without the chat "
-            "history. Replace words such as 'it', 'one', or 'them' with what they refer to. Keep "
-            "it short. Do not answer the question.",
+            "history: wherever it says 'it', 'one', or 'them', name the thing itself. Keep it "
+            "short. Do not answer the question.",
         ),
         MessagesPlaceholder("history"),
         ("user", "{question}"),
