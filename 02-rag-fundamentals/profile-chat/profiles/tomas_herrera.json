@@ -1,0 +1,57 @@
+{
+  "note": "Made-up profile for the roadmap examples. The person, companies, and schools do not exist.",
+  "name": "Tomás Herrera",
+  "headline": "Product Manager at Greenway Bikes",
+  "location": "Valencia, Spain",
+  "about": "I turn messy user research into clear product decisions. I started as a journalist, so I still believe the best questions are short ones. Right now I work on apps that help people commute by bike.",
+  "experience": [
+    {
+      "title": "Product Manager",
+      "company": "Greenway Bikes",
+      "start": "2022",
+      "end": "present",
+      "description": "Owns the bike-sharing app with 120,000 monthly riders. Launched a route planner that avoids steep hills, which raised weekly rides by 18 percent."
+    },
+    {
+      "title": "UX Researcher",
+      "company": "Mosaic Health",
+      "start": "2019",
+      "end": "2022",
+      "description": "Ran more than 200 user interviews for a patient appointment app. Built the research library that the whole design team used."
+    },
+    {
+      "title": "Technology Reporter",
+      "company": "Coastline Daily",
+      "start": "2015",
+      "end": "2019",
+      "description": "Wrote about local start-ups and digital services for a regional newspaper."
+    }
+  ],
+  "education": [
+    {
+      "degree": "MA in Human-Computer Interaction",
+      "school": "Harborview University",
+      "year": "2019",
+      "details": "Thesis on how older adults learn new mobile apps."
+    },
+    {
+      "degree": "BA in Journalism",
+      "school": "Harborview University",
+      "year": "2015"
+    }
+  ],
+  "skills": ["Product discovery", "User interviews", "Roadmapping", "A/B testing", "SQL", "Storytelling"],
+  "projects": [
+    {
+      "name": "Small Screens podcast",
+      "description": "A monthly podcast about mobile design, with 45 episodes so far."
+    },
+    {
+      "name": "Plain-language checklist",
+      "description": "A free checklist for writing app texts that everyone can understand, used by several local agencies."
+    }
+  ],
+  "languages": ["Spanish (native)", "English (fluent)", "Catalan (good)"],
+  "volunteering": "Guides weekend tours at a city science museum.",
+  "interests": ["Amateur astronomy", "Film photography", "Cooking paella for large groups"]
+}

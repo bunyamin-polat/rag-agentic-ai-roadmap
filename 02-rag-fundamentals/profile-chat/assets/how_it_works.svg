@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-label="A profile is turned into small documents, indexed once, then used by a query engine for icebreakers and by a chat engine for questions">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; fill: #57606a; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="330" fill="#ffffff"/>
+  <text x="20" y="32" class="title">How the profile chat works</text>
+
+  <!-- profile -->
+  <rect x="20" y="118" width="130" height="70" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="140" class="tag">PROFILE</text>
+  <text x="36" y="162" class="bold">JSON file</text>
+  <text x="36" y="178" class="small">jobs, skills, ...</text>
+
+  <line x1="154" y1="153" x2="182" y2="153" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- documents -->
+  <rect x="186" y="66" width="210" height="174" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="202" y="88" class="tag">ONE DOCUMENT PER FACT GROUP</text>
+  <text x="202" y="112" class="mono">summary (current job)</text>
+  <text x="202" y="130" class="mono">career timeline</text>
+  <text x="202" y="148" class="mono">one per job</text>
+  <text x="202" y="166" class="mono">education, projects</text>
+  <text x="202" y="184" class="mono">skills, languages</text>
+  <text x="202" y="202" class="mono">interests, volunteering</text>
+  <text x="202" y="226" class="small">each text repeats the name</text>
+
+  <line x1="400" y1="153" x2="428" y2="153" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- index -->
+  <rect x="432" y="118" width="140" height="70" rx="12" fill="#EFEDF7" stroke="#8172B3" stroke-width="2"/>
+  <text x="448" y="140" class="tag">INDEX (ONCE)</text>
+  <text x="448" y="162" class="bold">VectorStoreIndex</text>
+  <text x="448" y="178" class="small">Ollama embeddings</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M576,140 C600,140 600,96 624,96"/>
+    <path d="M576,166 C600,166 600,224 624,224"/>
+  </g>
+
+  <!-- icebreakers -->
+  <rect x="628" y="60" width="252" height="72" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="644" y="82" class="tag">QUERY ENGINE · TOP 6</text>
+  <text x="644" y="104" class="bold">3 icebreakers</text>
+  <text x="644" y="122" class="small">each based on a real fact</text>
+
+  <!-- chat -->
+  <rect x="628" y="170" width="252" height="100" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="644" y="192" class="tag">CHAT ENGINE · TOP 3</text>
+  <text x="644" y="214" class="bold">condense_plus_context</text>
+  <text x="644" y="234" class="small">rewrite follow-up → search →</text>
+  <text x="644" y="252" class="small">answer with history and today's date</text>
+
+  <text x="20" y="306" class="small">The index is built once per profile and shared by both engines. Answers stream into the chat with the sections they used.</text>
+</svg>

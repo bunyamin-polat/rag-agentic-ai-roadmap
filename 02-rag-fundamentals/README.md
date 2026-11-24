@@ -14,6 +14,7 @@ the parts of your documents that match the question, and let the model answer fr
 - How to choose **top-k**, show **sources**, and spot when the search fails.
 - How to load different file types and how **chunk size** and **overlap** change the results.
 - How to handle follow-up questions in a chat, and how to give RAG to an agent as a tool.
+- How to build the same RAG steps with a second framework, **LlamaIndex**.
 
 ## Contents
 
@@ -23,7 +24,7 @@ the parts of your documents that match the question, and let the model answer fr
 | 2 | Notebook | [Loaders and chunking](02_loaders_and_chunking.ipynb): PDFs, web pages, chunk size and overlap | ✅ Ready |
 | 3 | Notebook | [Conversational RAG](03_conversational_rag.ipynb): follow-up questions, RAG as an agent tool | ✅ Ready |
 | – | Project | [PDF Q&A bot](pdf-qa-bot/): upload a PDF and chat about it, with sources (Gradio) | ✅ Ready |
-| – | Project | Profile chat: chat about a person's profile (LlamaIndex) | 🔜 Coming soon |
+| – | Project | [Profile chat](profile-chat/): icebreakers and questions about a made-up profile (LlamaIndex) | ✅ Ready |
 
 Start with Stage 1 if LangChain chains (`prompt | llm | parser`) are new to you.
 
@@ -122,6 +123,16 @@ The notebook in brackets is where each term is explained in detail.
 | **Event** | "When this happens, call that function", such as a file upload or pressing Enter. (PDF Q&A bot) |
 | **Streaming answer** | Showing the answer piece by piece while the model writes it. (PDF Q&A bot) |
 | **Index cache** | Keeping each document's index so it is built only once, not on every question. (PDF Q&A bot) |
+
+### LlamaIndex
+
+| Term | Meaning |
+| --- | --- |
+| **LlamaIndex** | A framework for RAG apps, like LangChain, focused on indexing your data and searching it. (Profile chat) |
+| **Node** | LlamaIndex's name for a chunk: a piece of a `Document` with its metadata. (Profile chat) |
+| **VectorStoreIndex** | LlamaIndex's index: it splits documents into nodes, embeds them, and stores them for search. (Profile chat) |
+| **Query engine** | Retrieves the closest nodes and answers one question in one call: `index.as_query_engine()`. (Profile chat) |
+| **Chat engine** | A query engine with chat history. In `condense_plus_context` mode it rewrites a follow-up into a standalone question, retrieves, and answers. (Profile chat) |
 
 ## Next
 

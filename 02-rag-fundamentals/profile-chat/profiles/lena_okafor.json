@@ -1,0 +1,57 @@
+{
+  "note": "Made-up profile for the roadmap examples. The person, companies, and schools do not exist.",
+  "name": "Lena Okafor",
+  "headline": "Platform Engineer at Brightleaf",
+  "location": "Lisbon, Portugal",
+  "about": "I build the tools that let other engineers ship safely and fast. I care about simple systems, honest postmortems, and documentation that people actually read. Before tech, I worked as a bicycle courier for two years, which taught me a lot about logistics and patience.",
+  "experience": [
+    {
+      "title": "Platform Engineer",
+      "company": "Brightleaf",
+      "start": "2023",
+      "end": "present",
+      "description": "Runs the internal deployment platform used by 14 product teams. Cut the average deploy time from 25 minutes to 6 minutes by caching container builds. Leads the monthly incident review."
+    },
+    {
+      "title": "Backend Developer",
+      "company": "Parcelpath",
+      "start": "2020",
+      "end": "2023",
+      "description": "Built the route-planning service for a small delivery start-up. Moved the service from a single server to containers and wrote the on-call handbook."
+    },
+    {
+      "title": "Bicycle Courier",
+      "company": "City Express Couriers",
+      "start": "2018",
+      "end": "2020",
+      "description": "Delivered parcels across the city by bike, often more than 60 kilometers a day."
+    }
+  ],
+  "education": [
+    {
+      "degree": "MSc in Computer Science",
+      "school": "Riverside Technical University",
+      "year": "2020",
+      "details": "Thesis on scheduling delivery routes with simple heuristics."
+    },
+    {
+      "degree": "BSc in Mathematics",
+      "school": "Riverside Technical University",
+      "year": "2017"
+    }
+  ],
+  "skills": ["Kubernetes", "Go", "Python", "Terraform", "CI/CD pipelines", "Incident response", "Technical writing"],
+  "projects": [
+    {
+      "name": "tidyctl",
+      "description": "A small open-source command-line tool that removes unused cloud resources. It has about 900 stars and 30 contributors."
+    },
+    {
+      "name": "Talk: Smaller containers, smaller bills",
+      "description": "A talk at a local DevOps meetup about how image size affects build time and cloud cost."
+    }
+  ],
+  "languages": ["English (fluent)", "Portuguese (fluent)", "Igbo (conversational)"],
+  "volunteering": "Teaches a free beginner coding class for teenagers every second Saturday.",
+  "interests": ["Long-distance running (finished three marathons)", "Baking sourdough bread", "Board games"]
+}
