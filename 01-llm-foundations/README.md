@@ -97,6 +97,8 @@ The notebook in brackets is where each term is explained in detail.
 | **Chain** | A pipeline of steps (prompt → model → parser) where each output feeds the next step. (NB 2) |
 | **LCEL** | LangChain Expression Language: building chains by connecting runnables with the `\|` sign. (NB 2) |
 | **Output parser** | Turns the model's text into Python data, such as a string, a list, or a dictionary. (NB 2) |
+| **Sequential chain** | Steps that run one after another. Each step adds its result to the data and keeps what was already there (`RunnablePassthrough.assign`). (NB 2) |
+| **Parallel chain** | Independent steps that get the same input and run side by side. The result is one dictionary with a key for each step (`RunnableParallel`, or a plain `{...}` dictionary inside a chain). (NB 2) |
 
 ### Memory, tools, and agents
 
@@ -113,4 +115,5 @@ The notebook in brackets is where each term is explained in detail.
 
 ## Next
 
-➡️ Stage 2 — RAG fundamentals (coming soon): give the model your own documents to answer from.
+➡️ [Stage 2 — RAG fundamentals](../02-rag-fundamentals/): give the model your own documents to
+answer from.

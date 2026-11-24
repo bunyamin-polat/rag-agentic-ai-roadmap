@@ -2,6 +2,7 @@
 
 from datetime import date
 
+import profile_bot
 import pytest
 from llama_index.core import MockEmbedding
 from llama_index.core.llms import MockLLM
@@ -61,6 +62,13 @@ def test_career_timeline_lists_jobs_newest_first(lena):
 
     assert career.text.index("Brightleaf") < career.text.index("Parcelpath")
     assert career.text.index("Parcelpath") < career.text.index("City Express Couriers")
+
+
+@pytest.mark.parametrize(("thinks", "expected"), [(True, "low"), (False, None)])
+def test_default_llm_asks_for_thinking_only_when_supported(monkeypatch, thinks, expected):
+    monkeypatch.setattr(profile_bot, "supports_thinking", lambda model: thinks)
+
+    assert profile_bot.default_llm().thinking == expected
 
 
 def test_chat_engine_knows_todays_date(bot):
