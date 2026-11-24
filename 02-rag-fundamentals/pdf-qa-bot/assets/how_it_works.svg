@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-label="Uploading a PDF indexes it once; each question is rewritten if needed, searched, answered as a stream, and shown with its source pages">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .phase { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; fill: #57606a; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; fill: #57606a; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="330" fill="#ffffff"/>
+  <text x="20" y="32" class="title">How the PDF Q&amp;A bot works</text>
+
+  <!-- upload -->
+  <text x="20" y="64" class="phase">ON UPLOAD (ONCE PER FILE)</text>
+  <rect x="20" y="76" width="150" height="60" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="98" class="tag">UPLOAD</text>
+  <text x="36" y="120" class="bold">PDF file</text>
+  <line x1="174" y1="106" x2="206" y2="106" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="210" y="76" width="190" height="60" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="226" y="98" class="tag">ALREADY INDEXED?</text>
+  <text x="226" y="120" class="small">same file → reuse its index</text>
+  <line x1="404" y1="106" x2="436" y2="106" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="440" y="76" width="260" height="60" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="456" y="98" class="tag">INDEX</text>
+  <text x="456" y="120" class="small">one Document per page → chunks → vectors</text>
+  <line x1="704" y1="106" x2="736" y2="106" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="740" y="76" width="140" height="60" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="2"/>
+  <text x="756" y="98" class="tag">STORE</text>
+  <text x="756" y="120" class="bold">vector store</text>
+
+  <!-- ask -->
+  <text x="20" y="186" class="phase">ON EVERY QUESTION</text>
+  <rect x="20" y="198" width="150" height="60" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="36" y="220" class="tag">ASK</text>
+  <text x="36" y="242" class="bold">question + chat</text>
+  <line x1="174" y1="228" x2="206" y2="228" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="210" y="198" width="190" height="60" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="226" y="220" class="tag">REWRITE (FOLLOW-UPS)</text>
+  <text x="226" y="242" class="small">"one" → "a company vehicle"</text>
+  <line x1="404" y1="228" x2="436" y2="228" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="440" y="198" width="130" height="60" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="456" y="220" class="tag">SEARCH</text>
+  <text x="456" y="242" class="small">top 3 chunks</text>
+  <line x1="810" y1="140" x2="810" y2="170" stroke="#8172B3" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M810,170 L505,170 L505,194" fill="none" stroke="#8172B3" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <line x1="574" y1="228" x2="606" y2="228" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="610" y="198" width="270" height="60" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="626" y="220" class="tag">ANSWER</text>
+  <text x="626" y="242" class="small">streamed into the chat + Sources box</text>
+
+  <text x="20" y="300" class="small">rag.py holds the logic (index, rewrite, search, answer). app.py is only the Gradio page around it.</text>
+  <text x="20" y="318" class="small">That split keeps the logic easy to test without a browser or a model.</text>
+</svg>
