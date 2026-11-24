@@ -30,7 +30,7 @@ ICEBREAKER_PROMPT = PromptTemplate(
     "---------------------\n{context_str}\n---------------------\n"
     "Write three short, friendly conversation starters for meeting {name} for the first time. "
     "Base each one on a specific fact above and invent nothing. Use a numbered list, one "
-    "question per line. {query_str}"
+    "question per line, without quotation marks. {query_str}"
 )
 
 CHAT_SYSTEM_PROMPT = (
