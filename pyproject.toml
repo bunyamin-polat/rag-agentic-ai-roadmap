@@ -80,3 +80,9 @@ docstring-code-format = true
 [tool.pytest.ini_options]
 addopts = "-q"
 testpaths = ["tests"]
+# pytest-asyncio comes in with LlamaIndex; set its option so it does not warn on every run.
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = [
+    # Raised inside LlamaIndex, not in our code.
+    "ignore:There is no current event loop:DeprecationWarning",
+]
