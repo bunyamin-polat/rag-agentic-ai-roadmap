@@ -85,6 +85,7 @@ The notebook in brackets is where each term is explained in detail.
 | **OCR** | Optical character recognition: turning an image of text, such as a scanned PDF, into real text. Needed before such files can be loaded. (NB 2) |
 | **Chunk** | A small piece of a document. RAG searches over chunks, not whole documents. (NB 1) |
 | **Text splitter** | Cuts documents into chunks. The recursive splitter tries paragraphs, then lines, then words, and is the safe default. (NB 2) |
+| **Separator** | The text where a splitter may cut, such as a blank line (paragraph), a line break, or a space. (NB 2) |
 | **Header splitter** | Cuts Markdown at headings and stores the heading text in each chunk's metadata (`MarkdownHeaderTextSplitter`). (NB 2) |
 | **Chunk size** | The most characters a chunk may have. Too small loses meaning, too big buries facts; about 500 is a good start. (NB 1, NB 2) |
 | **Chunk overlap** | How many characters neighboring chunks share, so a sentence cut in two is not lost. About 10% of the chunk size. (NB 1, NB 2) |
