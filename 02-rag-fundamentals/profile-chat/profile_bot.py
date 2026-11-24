@@ -22,6 +22,7 @@ from llama_index.core import Document, PromptTemplate, VectorStoreIndex
 from llama_index.core.llms import ChatMessage
 
 from roadmap import get_settings
+from roadmap.llm import supports_thinking
 
 PROFILES_DIR = Path(__file__).parent / "profiles"
 
@@ -130,7 +131,8 @@ def default_llm():
         model=settings.chat_model,
         base_url=settings.ollama_host,
         temperature=0,
-        thinking="low",
+        # Only reasoning models such as gpt-oss accept a thinking level; others return an error.
+        thinking="low" if supports_thinking(settings.chat_model) else None,
         context_window=8192,
         request_timeout=180,
     )
