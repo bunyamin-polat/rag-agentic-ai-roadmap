@@ -13,7 +13,7 @@ small project.
 | Stage | What you learn | Projects | Status |
 | --- | --- | --- | --- |
 | [1. LLM Foundations](01-llm-foundations/) | tokens, prompting, LangChain chains, structured output, memory, tools, agents | Message Analyzer (Flask) | ✅ Ready |
-| [2. RAG Fundamentals](02-rag-fundamentals/) | loading and chunking documents, embeddings, retrieval, chat with your documents | PDF Q&A bot, profile chat | 🚧 In progress |
+| [2. RAG Fundamentals](02-rag-fundamentals/) | loading and chunking documents, embeddings, retrieval, chat with your documents | PDF Q&A bot, profile chat | ✅ Ready |
 | 3. Vector Databases | similarity measures, ChromaDB, FAISS, fast search indexes | food recommender, semantic search | 🔜 Planned |
 | 4. Advanced Retrieval | better retrievers, hybrid search, reranking, measuring retrieval quality | YouTube Q&A | 🔜 Planned |
 | 5. Multimodal | speech to text, text to speech, image generation, vision models | meeting assistant, image Q&A, style finder | 🔜 Planned |
@@ -46,10 +46,13 @@ To open a notebook, select the `.venv` Python interpreter as the kernel (VS Code
 Every notebook and project uses the small `roadmap` package in [`src/roadmap`](src/roadmap):
 
 ```python
-from roadmap import ask, get_chat_model
+from roadmap import ask, get_chat_model, get_embeddings
+from roadmap.loaders import load_directory
 
 answer = ask("Explain RAG in one sentence.")  # plain Ollama client, returns a string
 model = get_chat_model()  # LangChain chat model
+embeddings = get_embeddings()  # LangChain embedding model (from Stage 2)
+documents = load_directory("02-rag-fundamentals/data")  # .txt, .md, .pdf, .html files as Documents
 ```
 
 ## Development workflow

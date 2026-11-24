@@ -1,6 +1,6 @@
 """Small helpers for calling local chat models through Ollama.
 
-Two entry points, matching how the roadmap progresses:
+Three entry points, matching how the roadmap progresses:
 
 * `ask()` sends a prompt with the plain `ollama` client and returns the reply text.
   Stage 1 uses it to focus on prompts before introducing any framework.
