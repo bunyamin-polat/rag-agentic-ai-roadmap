@@ -22,7 +22,7 @@ the parts of your documents that match the question, and let the model answer fr
 | 1 | Notebook | [The RAG pipeline](01_rag_pipeline.ipynb): load, split, embed, store, retrieve, answer | ✅ Ready |
 | 2 | Notebook | [Loaders and chunking](02_loaders_and_chunking.ipynb): PDFs, web pages, chunk size and overlap | ✅ Ready |
 | 3 | Notebook | [Conversational RAG](03_conversational_rag.ipynb): follow-up questions, RAG as an agent tool | ✅ Ready |
-| – | Project | PDF Q&A bot: upload a PDF and ask questions about it (Gradio) | 🔜 Coming soon |
+| – | Project | [PDF Q&A bot](pdf-qa-bot/): upload a PDF and chat about it, with sources (Gradio) | ✅ Ready |
 | – | Project | Profile chat: chat about a person's profile (LlamaIndex) | 🔜 Coming soon |
 
 Start with Stage 1 if LangChain chains (`prompt | llm | parser`) are new to you.
@@ -113,6 +113,15 @@ The notebook in brackets is where each term is explained in detail.
 | **Conversational RAG** | RAG with chat history: rewrite, search, answer with the history, then save the turn. (NB 3) |
 | **Agentic RAG** | An agent decides when and how to search by calling a search tool: none, one, or several times. (NB 3) |
 | **Tool description** | The text that tells an agent what a tool does and how to call it. It shapes the queries the agent writes. (NB 3) |
+
+### Building the app
+
+| Term | Meaning |
+| --- | --- |
+| **Gradio** | A Python library that builds a web page around your functions. `gr.Interface` for one function, `gr.Blocks` for custom layouts. (PDF Q&A bot) |
+| **Event** | "When this happens, call that function", such as a file upload or pressing Enter. (PDF Q&A bot) |
+| **Streaming answer** | Showing the answer piece by piece while the model writes it. (PDF Q&A bot) |
+| **Index cache** | Keeping each document's index so it is built only once, not on every question. (PDF Q&A bot) |
 
 ## Next
 
