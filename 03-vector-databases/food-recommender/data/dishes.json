@@ -1,0 +1,1193 @@
+{
+  "note": "Made-up menu of Brightleaf Kitchen, the canteen of the made-up company from Stage 2. Sample data for the roadmap: every dish, number, and allergen list is invented.",
+  "allergens": [
+    "celery",
+    "egg",
+    "fish",
+    "gluten",
+    "milk",
+    "nuts",
+    "peanuts",
+    "sesame",
+    "shellfish",
+    "soy"
+  ],
+  "dishes": [
+    {
+      "id": "dish-01",
+      "name": "Margherita pizza",
+      "cuisine": "Italian",
+      "course": "main",
+      "description": "Thin, crisp pizza with tomato sauce, fresh mozzarella, and basil. Simple and cheesy.",
+      "ingredients": [
+        "wheat dough",
+        "tomato",
+        "mozzarella",
+        "basil",
+        "olive oil"
+      ],
+      "calories": 780,
+      "protein_g": 32,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-02",
+      "name": "Spaghetti carbonara",
+      "cuisine": "Italian",
+      "course": "main",
+      "description": "Rich and creamy pasta with egg, sharp cheese, crispy pork cheek, and lots of black pepper.",
+      "ingredients": [
+        "spaghetti",
+        "egg",
+        "pecorino",
+        "pork cheek",
+        "black pepper"
+      ],
+      "calories": 820,
+      "protein_g": 34,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "egg",
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-03",
+      "name": "Minestrone",
+      "cuisine": "Italian",
+      "course": "soup",
+      "description": "A light, warming vegetable soup with white beans and small pasta in a tomato broth.",
+      "ingredients": [
+        "carrot",
+        "celery",
+        "zucchini",
+        "white beans",
+        "small pasta",
+        "tomato"
+      ],
+      "calories": 310,
+      "protein_g": 12,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "celery"
+      ]
+    },
+    {
+      "id": "dish-04",
+      "name": "Mushroom risotto",
+      "cuisine": "Italian",
+      "course": "main",
+      "description": "Slow-cooked creamy rice with earthy mushrooms, butter, and parmesan. Real comfort food.",
+      "ingredients": [
+        "arborio rice",
+        "mushrooms",
+        "parmesan",
+        "butter",
+        "onion"
+      ],
+      "calories": 640,
+      "protein_g": 16,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": [
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-05",
+      "name": "Caprese salad",
+      "cuisine": "Italian",
+      "course": "salad",
+      "description": "A fresh summer salad of ripe tomatoes, soft mozzarella, basil, and olive oil.",
+      "ingredients": [
+        "tomato",
+        "mozzarella",
+        "basil",
+        "olive oil"
+      ],
+      "calories": 350,
+      "protein_g": 18,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": [
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-06",
+      "name": "Tiramisu",
+      "cuisine": "Italian",
+      "course": "dessert",
+      "description": "Layered coffee dessert with soft mascarpone cream and cocoa. Sweet and creamy.",
+      "ingredients": [
+        "mascarpone",
+        "ladyfingers",
+        "espresso",
+        "cocoa",
+        "egg"
+      ],
+      "calories": 450,
+      "protein_g": 8,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "egg",
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-07",
+      "name": "Pork tacos al pastor",
+      "cuisine": "Mexican",
+      "course": "main",
+      "description": "Corn tortillas with chili-marinated pork, grilled pineapple, onion, and cilantro. Smoky, sweet, and spicy.",
+      "ingredients": [
+        "corn tortillas",
+        "pork",
+        "dried chili",
+        "pineapple",
+        "onion",
+        "cilantro"
+      ],
+      "calories": 620,
+      "protein_g": 34,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 2,
+      "allergens": []
+    },
+    {
+      "id": "dish-08",
+      "name": "Black bean burrito bowl",
+      "cuisine": "Mexican",
+      "course": "main",
+      "description": "A filling bowl of rice, black beans, corn, fresh salsa, and avocado with lime. Plant-based and hearty.",
+      "ingredients": [
+        "rice",
+        "black beans",
+        "corn",
+        "tomato salsa",
+        "avocado",
+        "lime"
+      ],
+      "calories": 680,
+      "protein_g": 22,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 1,
+      "allergens": []
+    },
+    {
+      "id": "dish-09",
+      "name": "Chicken enchiladas",
+      "cuisine": "Mexican",
+      "course": "main",
+      "description": "Corn tortillas rolled around chicken, baked in red chili sauce with melted cheese.",
+      "ingredients": [
+        "corn tortillas",
+        "chicken",
+        "red chili sauce",
+        "cheese",
+        "sour cream"
+      ],
+      "calories": 740,
+      "protein_g": 40,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 2,
+      "allergens": [
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-10",
+      "name": "Tortilla soup",
+      "cuisine": "Mexican",
+      "course": "soup",
+      "description": "A smoky tomato and chili broth topped with crispy tortilla strips, avocado, and a little cheese.",
+      "ingredients": [
+        "tomato",
+        "chipotle chili",
+        "corn tortilla strips",
+        "avocado",
+        "cheese",
+        "lime"
+      ],
+      "calories": 380,
+      "protein_g": 14,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 2,
+      "allergens": [
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-11",
+      "name": "Guacamole with tortilla chips",
+      "cuisine": "Mexican",
+      "course": "starter",
+      "description": "Chunky avocado dip with lime, tomato, onion, and chili, served with crunchy corn chips.",
+      "ingredients": [
+        "avocado",
+        "lime",
+        "tomato",
+        "onion",
+        "green chili",
+        "corn chips"
+      ],
+      "calories": 420,
+      "protein_g": 6,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 1,
+      "allergens": []
+    },
+    {
+      "id": "dish-12",
+      "name": "Churros with chocolate",
+      "cuisine": "Mexican",
+      "course": "dessert",
+      "description": "Crispy fried dough sticks rolled in cinnamon sugar, with a thick chocolate dip.",
+      "ingredients": [
+        "wheat flour",
+        "egg",
+        "cinnamon",
+        "sugar",
+        "dark chocolate",
+        "milk"
+      ],
+      "calories": 510,
+      "protein_g": 6,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "egg",
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-13",
+      "name": "Chicken tikka masala",
+      "cuisine": "Indian",
+      "course": "main",
+      "description": "Grilled chicken pieces in a creamy, spiced tomato sauce, served with basmati rice.",
+      "ingredients": [
+        "chicken",
+        "yogurt",
+        "tomato",
+        "cream",
+        "garam masala",
+        "basmati rice"
+      ],
+      "calories": 760,
+      "protein_g": 42,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 2,
+      "allergens": [
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-14",
+      "name": "Chana masala",
+      "cuisine": "Indian",
+      "course": "main",
+      "description": "Chickpeas simmered in a tangy, spiced tomato and onion sauce. Warming and plant-based.",
+      "ingredients": [
+        "chickpeas",
+        "tomato",
+        "onion",
+        "ginger",
+        "garlic",
+        "cumin",
+        "rice"
+      ],
+      "calories": 560,
+      "protein_g": 18,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 2,
+      "allergens": []
+    },
+    {
+      "id": "dish-15",
+      "name": "Palak paneer",
+      "cuisine": "Indian",
+      "course": "main",
+      "description": "Soft cubes of paneer cheese in a smooth, mildly spiced spinach sauce.",
+      "ingredients": [
+        "spinach",
+        "paneer",
+        "cream",
+        "garlic",
+        "ginger",
+        "garam masala"
+      ],
+      "calories": 590,
+      "protein_g": 26,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 1,
+      "allergens": [
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-16",
+      "name": "Red lentil dal",
+      "cuisine": "Indian",
+      "course": "soup",
+      "description": "A thick, golden lentil soup with turmeric, cumin, and a splash of coconut milk. Gentle and comforting.",
+      "ingredients": [
+        "red lentils",
+        "turmeric",
+        "cumin",
+        "garlic",
+        "tomato",
+        "coconut milk"
+      ],
+      "calories": 340,
+      "protein_g": 18,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 1,
+      "allergens": []
+    },
+    {
+      "id": "dish-17",
+      "name": "Lamb vindaloo",
+      "cuisine": "Indian",
+      "course": "main",
+      "description": "A very hot curry of lamb and potatoes in a sharp chili, garlic, and vinegar sauce. For spice lovers.",
+      "ingredients": [
+        "lamb",
+        "potatoes",
+        "red chili",
+        "garlic",
+        "vinegar",
+        "rice"
+      ],
+      "calories": 720,
+      "protein_g": 38,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 3,
+      "allergens": []
+    },
+    {
+      "id": "dish-18",
+      "name": "Mango lassi",
+      "cuisine": "Indian",
+      "course": "dessert",
+      "description": "A cold, sweet yogurt drink with ripe mango and a pinch of cardamom.",
+      "ingredients": [
+        "yogurt",
+        "mango",
+        "cardamom",
+        "sugar"
+      ],
+      "calories": 260,
+      "protein_g": 8,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": [
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-19",
+      "name": "Salmon teriyaki",
+      "cuisine": "Japanese",
+      "course": "main",
+      "description": "Grilled salmon in a sweet and salty teriyaki glaze, with steamed rice and broccoli.",
+      "ingredients": [
+        "salmon",
+        "soy sauce",
+        "mirin",
+        "rice",
+        "broccoli"
+      ],
+      "calories": 640,
+      "protein_g": 38,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "fish",
+        "soy",
+        "gluten"
+      ]
+    },
+    {
+      "id": "dish-20",
+      "name": "Vegetable sushi rolls",
+      "cuisine": "Japanese",
+      "course": "main",
+      "description": "Rolls of seasoned rice and seaweed filled with cucumber, avocado, and carrot. Light and fresh.",
+      "ingredients": [
+        "sushi rice",
+        "nori seaweed",
+        "cucumber",
+        "avocado",
+        "carrot",
+        "sesame seeds"
+      ],
+      "calories": 420,
+      "protein_g": 9,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": [
+        "sesame"
+      ]
+    },
+    {
+      "id": "dish-21",
+      "name": "Chicken ramen",
+      "cuisine": "Japanese",
+      "course": "soup",
+      "description": "Wheat noodles in a rich chicken and soy broth with a soft-boiled egg and spring onions. A big, warming bowl.",
+      "ingredients": [
+        "wheat noodles",
+        "chicken broth",
+        "soy sauce",
+        "egg",
+        "chicken",
+        "spring onion"
+      ],
+      "calories": 690,
+      "protein_g": 36,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 1,
+      "allergens": [
+        "gluten",
+        "egg",
+        "soy"
+      ]
+    },
+    {
+      "id": "dish-22",
+      "name": "Miso soup with tofu",
+      "cuisine": "Japanese",
+      "course": "soup",
+      "description": "A light, savory broth of miso paste with soft tofu and seaweed.",
+      "ingredients": [
+        "miso paste",
+        "tofu",
+        "wakame seaweed",
+        "spring onion"
+      ],
+      "calories": 120,
+      "protein_g": 8,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": [
+        "soy"
+      ]
+    },
+    {
+      "id": "dish-23",
+      "name": "Vegetable tempura",
+      "cuisine": "Japanese",
+      "course": "starter",
+      "description": "Crispy, light batter around sweet potato, zucchini, and mushrooms, with a soy dipping sauce.",
+      "ingredients": [
+        "sweet potato",
+        "zucchini",
+        "mushrooms",
+        "wheat flour",
+        "egg",
+        "soy sauce"
+      ],
+      "calories": 480,
+      "protein_g": 7,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "egg",
+        "soy"
+      ]
+    },
+    {
+      "id": "dish-24",
+      "name": "Matcha cheesecake",
+      "cuisine": "Japanese",
+      "course": "dessert",
+      "description": "A creamy cheesecake with green tea flavor on a crunchy biscuit base. Not too sweet.",
+      "ingredients": [
+        "cream cheese",
+        "matcha",
+        "biscuits",
+        "egg",
+        "sugar"
+      ],
+      "calories": 430,
+      "protein_g": 8,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk",
+        "egg"
+      ]
+    },
+    {
+      "id": "dish-25",
+      "name": "Pad thai with shrimp",
+      "cuisine": "Thai",
+      "course": "main",
+      "description": "Stir-fried rice noodles with shrimp, egg, tamarind sauce, crushed peanuts, and lime. Sweet, sour, and nutty.",
+      "ingredients": [
+        "rice noodles",
+        "shrimp",
+        "egg",
+        "tamarind",
+        "fish sauce",
+        "peanuts",
+        "bean sprouts"
+      ],
+      "calories": 700,
+      "protein_g": 30,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 1,
+      "allergens": [
+        "shellfish",
+        "egg",
+        "peanuts",
+        "fish"
+      ]
+    },
+    {
+      "id": "dish-26",
+      "name": "Green curry with tofu",
+      "cuisine": "Thai",
+      "course": "main",
+      "description": "Tofu and eggplant in a creamy coconut curry with hot green chili and Thai basil, served with jasmine rice.",
+      "ingredients": [
+        "tofu",
+        "eggplant",
+        "coconut milk",
+        "green curry paste",
+        "Thai basil",
+        "jasmine rice"
+      ],
+      "calories": 650,
+      "protein_g": 20,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 3,
+      "allergens": [
+        "soy"
+      ]
+    },
+    {
+      "id": "dish-27",
+      "name": "Tom yum soup",
+      "cuisine": "Thai",
+      "course": "soup",
+      "description": "A hot and sour broth with shrimp, lemongrass, lime leaves, mushrooms, and chili. Light but fiery.",
+      "ingredients": [
+        "shrimp",
+        "lemongrass",
+        "lime leaves",
+        "mushrooms",
+        "red chili",
+        "fish sauce"
+      ],
+      "calories": 230,
+      "protein_g": 20,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 3,
+      "allergens": [
+        "shellfish",
+        "fish"
+      ]
+    },
+    {
+      "id": "dish-28",
+      "name": "Green papaya salad",
+      "cuisine": "Thai",
+      "course": "salad",
+      "description": "Crunchy shredded green papaya with lime, chili, tomato, and peanuts. Fresh, sour, and very spicy.",
+      "ingredients": [
+        "green papaya",
+        "lime",
+        "red chili",
+        "tomato",
+        "green beans",
+        "peanuts"
+      ],
+      "calories": 210,
+      "protein_g": 5,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 3,
+      "allergens": [
+        "peanuts"
+      ]
+    },
+    {
+      "id": "dish-29",
+      "name": "Chicken satay",
+      "cuisine": "Thai",
+      "course": "starter",
+      "description": "Grilled chicken skewers with a rich peanut sauce and a cool cucumber relish.",
+      "ingredients": [
+        "chicken",
+        "peanut sauce",
+        "coconut milk",
+        "cucumber",
+        "shallot"
+      ],
+      "calories": 480,
+      "protein_g": 34,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 1,
+      "allergens": [
+        "peanuts"
+      ]
+    },
+    {
+      "id": "dish-30",
+      "name": "Mango sticky rice",
+      "cuisine": "Thai",
+      "course": "dessert",
+      "description": "Sweet sticky rice soaked in coconut milk, served with fresh mango slices.",
+      "ingredients": [
+        "sticky rice",
+        "coconut milk",
+        "mango",
+        "sugar"
+      ],
+      "calories": 420,
+      "protein_g": 6,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": []
+    },
+    {
+      "id": "dish-31",
+      "name": "Turkish lentil soup",
+      "cuisine": "Turkish",
+      "course": "soup",
+      "description": "A smooth red lentil soup with cumin and a squeeze of lemon, finished with chili oil.",
+      "ingredients": [
+        "red lentils",
+        "onion",
+        "carrot",
+        "cumin",
+        "lemon",
+        "olive oil",
+        "chili flakes"
+      ],
+      "calories": 300,
+      "protein_g": 15,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 1,
+      "allergens": []
+    },
+    {
+      "id": "dish-32",
+      "name": "Chicken shish kebab",
+      "cuisine": "Turkish",
+      "course": "main",
+      "description": "Grilled chicken skewers marinated in yogurt and garlic, served with bulgur pilaf and salad.",
+      "ingredients": [
+        "chicken",
+        "yogurt",
+        "garlic",
+        "bulgur wheat",
+        "tomato",
+        "pepper"
+      ],
+      "calories": 690,
+      "protein_g": 45,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 1,
+      "allergens": [
+        "milk",
+        "gluten"
+      ]
+    },
+    {
+      "id": "dish-33",
+      "name": "Imam bayildi",
+      "cuisine": "Turkish",
+      "course": "main",
+      "description": "Whole eggplant baked with a sweet filling of onions, tomatoes, and garlic in olive oil. Soft and rich.",
+      "ingredients": [
+        "eggplant",
+        "onion",
+        "tomato",
+        "garlic",
+        "olive oil",
+        "parsley"
+      ],
+      "calories": 380,
+      "protein_g": 7,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": []
+    },
+    {
+      "id": "dish-34",
+      "name": "Lahmacun",
+      "cuisine": "Turkish",
+      "course": "main",
+      "description": "Very thin, crispy flatbread topped with spiced minced lamb, tomato, and pepper. Rolled up with parsley and lemon.",
+      "ingredients": [
+        "wheat flatbread",
+        "minced lamb",
+        "tomato",
+        "red pepper",
+        "parsley",
+        "lemon"
+      ],
+      "calories": 560,
+      "protein_g": 26,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 2,
+      "allergens": [
+        "gluten"
+      ]
+    },
+    {
+      "id": "dish-35",
+      "name": "Shepherd's salad",
+      "cuisine": "Turkish",
+      "course": "salad",
+      "description": "A crunchy chopped salad of tomato, cucumber, pepper, and onion with lemon and olive oil.",
+      "ingredients": [
+        "tomato",
+        "cucumber",
+        "green pepper",
+        "onion",
+        "parsley",
+        "lemon",
+        "olive oil"
+      ],
+      "calories": 160,
+      "protein_g": 3,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": []
+    },
+    {
+      "id": "dish-36",
+      "name": "Menemen",
+      "cuisine": "Turkish",
+      "course": "breakfast",
+      "description": "Soft scrambled eggs cooked with tomatoes, green peppers, and olive oil. A warm breakfast.",
+      "ingredients": [
+        "egg",
+        "tomato",
+        "green pepper",
+        "olive oil",
+        "chili flakes"
+      ],
+      "calories": 330,
+      "protein_g": 16,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 1,
+      "allergens": [
+        "egg"
+      ]
+    },
+    {
+      "id": "dish-37",
+      "name": "Baklava",
+      "cuisine": "Turkish",
+      "course": "dessert",
+      "description": "Crisp layers of filo pastry filled with pistachios and soaked in sweet syrup.",
+      "ingredients": [
+        "filo pastry",
+        "pistachios",
+        "butter",
+        "sugar syrup"
+      ],
+      "calories": 480,
+      "protein_g": 7,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "nuts",
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-38",
+      "name": "Greek salad",
+      "cuisine": "Greek",
+      "course": "salad",
+      "description": "Tomatoes, cucumber, red onion, and olives with a block of feta and oregano.",
+      "ingredients": [
+        "tomato",
+        "cucumber",
+        "red onion",
+        "olives",
+        "feta",
+        "oregano"
+      ],
+      "calories": 320,
+      "protein_g": 10,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": [
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-39",
+      "name": "Moussaka",
+      "cuisine": "Greek",
+      "course": "main",
+      "description": "Layers of eggplant, potato, and spiced beef in tomato sauce, baked under a thick creamy topping.",
+      "ingredients": [
+        "eggplant",
+        "potato",
+        "minced beef",
+        "tomato",
+        "bechamel sauce",
+        "cinnamon"
+      ],
+      "calories": 780,
+      "protein_g": 36,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk",
+        "egg"
+      ]
+    },
+    {
+      "id": "dish-40",
+      "name": "Chicken souvlaki with tzatziki",
+      "cuisine": "Greek",
+      "course": "main",
+      "description": "Grilled lemon-herb chicken skewers with warm pita bread and cool garlic yogurt sauce.",
+      "ingredients": [
+        "chicken",
+        "lemon",
+        "oregano",
+        "pita bread",
+        "yogurt",
+        "cucumber",
+        "garlic"
+      ],
+      "calories": 650,
+      "protein_g": 42,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk"
+      ]
+    },
+    {
+      "id": "dish-41",
+      "name": "Spanakopita",
+      "cuisine": "Greek",
+      "course": "starter",
+      "description": "Flaky filo pie filled with spinach, feta cheese, and dill.",
+      "ingredients": [
+        "filo pastry",
+        "spinach",
+        "feta",
+        "egg",
+        "dill"
+      ],
+      "calories": 420,
+      "protein_g": 14,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk",
+        "egg"
+      ]
+    },
+    {
+      "id": "dish-42",
+      "name": "Fasolada",
+      "cuisine": "Greek",
+      "course": "soup",
+      "description": "A thick, rustic white bean soup with tomato, carrot, and celery in olive oil.",
+      "ingredients": [
+        "white beans",
+        "tomato",
+        "carrot",
+        "celery",
+        "olive oil"
+      ],
+      "calories": 330,
+      "protein_g": 16,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": [
+        "celery"
+      ]
+    },
+    {
+      "id": "dish-43",
+      "name": "Yogurt with honey and walnuts",
+      "cuisine": "Greek",
+      "course": "breakfast",
+      "description": "Thick strained yogurt topped with honey and crunchy walnuts. Simple and high in protein.",
+      "ingredients": [
+        "strained yogurt",
+        "honey",
+        "walnuts"
+      ],
+      "calories": 290,
+      "protein_g": 15,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": true,
+      "spice": 0,
+      "allergens": [
+        "milk",
+        "nuts"
+      ]
+    },
+    {
+      "id": "dish-44",
+      "name": "Classic cheeseburger",
+      "cuisine": "American",
+      "course": "main",
+      "description": "A juicy beef burger with melted cheddar, pickles, lettuce, and tomato on a sesame bun, with fries.",
+      "ingredients": [
+        "beef patty",
+        "cheddar",
+        "sesame bun",
+        "lettuce",
+        "tomato",
+        "pickles",
+        "fries"
+      ],
+      "calories": 980,
+      "protein_g": 45,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk",
+        "sesame"
+      ]
+    },
+    {
+      "id": "dish-45",
+      "name": "Veggie burger",
+      "cuisine": "American",
+      "course": "main",
+      "description": "A smoky black bean and quinoa patty with avocado, lettuce, and tomato, with sweet potato fries.",
+      "ingredients": [
+        "black bean and quinoa patty",
+        "bun",
+        "avocado",
+        "lettuce",
+        "tomato",
+        "sweet potato fries"
+      ],
+      "calories": 720,
+      "protein_g": 24,
+      "vegetarian": true,
+      "vegan": true,
+      "gluten_free": false,
+      "spice": 1,
+      "allergens": [
+        "gluten"
+      ]
+    },
+    {
+      "id": "dish-46",
+      "name": "Buttermilk pancakes",
+      "cuisine": "American",
+      "course": "breakfast",
+      "description": "Fluffy pancakes with butter, maple syrup, and fresh berries.",
+      "ingredients": [
+        "wheat flour",
+        "buttermilk",
+        "egg",
+        "butter",
+        "maple syrup",
+        "berries"
+      ],
+      "calories": 620,
+      "protein_g": 14,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk",
+        "egg"
+      ]
+    },
+    {
+      "id": "dish-47",
+      "name": "Avocado toast with egg",
+      "cuisine": "American",
+      "course": "breakfast",
+      "description": "Toasted sourdough with smashed avocado, a poached egg, and a pinch of chili flakes.",
+      "ingredients": [
+        "sourdough bread",
+        "avocado",
+        "egg",
+        "lemon",
+        "chili flakes"
+      ],
+      "calories": 420,
+      "protein_g": 17,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 1,
+      "allergens": [
+        "gluten",
+        "egg"
+      ]
+    },
+    {
+      "id": "dish-48",
+      "name": "Chicken Caesar salad",
+      "cuisine": "American",
+      "course": "salad",
+      "description": "Crisp romaine with grilled chicken, parmesan, crunchy croutons, and a creamy anchovy dressing.",
+      "ingredients": [
+        "romaine lettuce",
+        "chicken",
+        "parmesan",
+        "croutons",
+        "anchovy dressing"
+      ],
+      "calories": 560,
+      "protein_g": 40,
+      "vegetarian": false,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk",
+        "egg",
+        "fish"
+      ]
+    },
+    {
+      "id": "dish-49",
+      "name": "Chocolate brownie",
+      "cuisine": "American",
+      "course": "dessert",
+      "description": "A dense, fudgy chocolate brownie with walnuts. Very sweet.",
+      "ingredients": [
+        "dark chocolate",
+        "butter",
+        "sugar",
+        "egg",
+        "wheat flour",
+        "walnuts"
+      ],
+      "calories": 470,
+      "protein_g": 6,
+      "vegetarian": true,
+      "vegan": false,
+      "gluten_free": false,
+      "spice": 0,
+      "allergens": [
+        "gluten",
+        "milk",
+        "egg",
+        "nuts"
+      ]
+    }
+  ]
+}
