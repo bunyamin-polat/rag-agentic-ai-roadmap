@@ -14,6 +14,8 @@ import gradio as gr
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from rag import PdfError, PdfQA, sources_markdown
 
+from roadmap import OLLAMA_ERRORS, explain_ollama_error
+
 SAMPLE_PDF = Path(__file__).resolve().parents[1] / "data" / "handbook.pdf"
 SOURCES_TITLE = "📄 Sources"
 START_MESSAGE = "Upload a PDF, or use the sample handbook, to start."
@@ -47,8 +49,8 @@ def load_pdf_file(path: str | None):
         info = qa.index(path)
     except PdfError as error:
         return None, f"⚠️ {error}", []
-    except ConnectionError:
-        return None, "⚠️ Cannot reach Ollama. Is it running? Try: `ollama serve`", []
+    except OLLAMA_ERRORS as error:
+        return None, explain_ollama_error(error), []
     status = f"✅ **{info.name}**: {info.pages} pages, {info.chunks} chunks. Ask a question."
     return info.file_id, status, []
 
@@ -71,8 +73,11 @@ def respond(question: str, history: list[dict], file_id: str | None):
             if piece:  # a reasoning model sends empty pieces while it thinks
                 answer += piece
                 yield [*history, {"role": "assistant", "content": answer}], ""
-    except (PdfError, ConnectionError) as error:
+    except PdfError as error:
         yield [*history, {"role": "assistant", "content": f"⚠️ {error}"}], ""
+        return
+    except OLLAMA_ERRORS as error:
+        yield [*history, {"role": "assistant", "content": explain_ollama_error(error)}], ""
         return
 
     sources = gr.ChatMessage(

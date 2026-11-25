@@ -13,6 +13,8 @@ import gradio as gr
 from llama_index.core.llms import ChatMessage
 from profile_bot import ProfileBot, list_profiles, load_profile
 
+from roadmap import OLLAMA_ERRORS, explain_ollama_error
+
 PROFILES = list_profiles()
 SOURCES_TITLE = "📄 Profile sections used"
 
@@ -42,13 +44,13 @@ def select_profile(name: str):
         return
     try:
         bot = get_bot(name)
-    except ConnectionError:
-        yield "⚠️ Cannot reach Ollama. Is it running? Try: `ollama serve`", "", []
+        card = profile_card(bot.profile)
+        if name not in _icebreakers:
+            yield card, "*Thinking of icebreakers ...*", []
+            _icebreakers[name] = bot.icebreakers()
+    except OLLAMA_ERRORS as error:
+        yield explain_ollama_error(error), "", []
         return
-    card = profile_card(bot.profile)
-    if name not in _icebreakers:
-        yield card, "*Thinking of icebreakers ...*", []
-        _icebreakers[name] = bot.icebreakers()
     yield card, _icebreakers[name], []
 
 
@@ -86,9 +88,8 @@ def respond(question: str, history: list[dict], name: str):
             if piece:
                 answer += piece
                 yield [*history, {"role": "assistant", "content": answer}], ""
-    except ConnectionError:
-        message = "⚠️ Cannot reach Ollama. Is it running? Try: `ollama serve`"
-        yield [*history, {"role": "assistant", "content": message}], ""
+    except OLLAMA_ERRORS as error:
+        yield [*history, {"role": "assistant", "content": explain_ollama_error(error)}], ""
         return
 
     sources = gr.ChatMessage(

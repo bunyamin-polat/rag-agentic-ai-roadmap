@@ -1,6 +1,7 @@
 """Tests for the Gradio handlers in app.py, with a fake PdfQA: no Ollama server needed."""
 
 import app
+import ollama
 import pytest
 from langchain_core.documents import Document
 from langchain_core.messages import AIMessage, HumanMessage
@@ -78,3 +79,15 @@ def test_respond_asks_for_a_pdf_first(fake_qa):
     [(chat, _)] = list(app.respond("Hello?", [], None))
 
     assert chat[-1]["content"] == app.START_MESSAGE
+
+
+def test_missing_model_says_what_to_pull(monkeypatch):
+    class MissingModelQA:
+        def index(self, path):
+            raise ollama.ResponseError("model 'nomic-embed-text' not found", 404)
+
+    monkeypatch.setattr(app, "qa", MissingModelQA())
+
+    _, status, _ = app.load_pdf_file("handbook.pdf")
+
+    assert "`ollama pull nomic-embed-text`" in status
