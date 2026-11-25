@@ -10,6 +10,7 @@ starting it again continues where it stopped.
 
 from __future__ import annotations
 
+import re
 import shutil
 import time
 
@@ -27,7 +28,8 @@ def main() -> None:
     print(f"{len(paragraphs):,} paragraphs, {len(dev_questions):,} test questions")
 
     embeddings = get_embeddings()
-    parts_dir = INDEX_DIR / "parts"
+    # One parts folder per embedding model, so a run never mixes vectors from two models.
+    parts_dir = INDEX_DIR / f"parts-{re.sub(r'[^A-Za-z0-9._-]', '_', embeddings.model)}"
     parts_dir.mkdir(parents=True, exist_ok=True)
     start = time.perf_counter()
     parts = []
