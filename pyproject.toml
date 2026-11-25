@@ -49,8 +49,9 @@ requires = ["uv_build>=0.11,<0.12"]
 build-backend = "uv_build"
 
 [tool.uv]
-# `uv sync` installs every stage. Use `uv sync --no-default-groups --group dev --group stage-01`
-# to install a single stage.
+# `uv sync` installs every stage. The stages build on each other, so to install less, name a
+# stage together with the stages before it, for example:
+# `uv sync --no-default-groups --group dev --group stage-01 --group stage-02`
 default-groups = "all"
 python-preference = "only-managed"
 

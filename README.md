@@ -14,7 +14,7 @@ small project.
 | --- | --- | --- | --- |
 | [1. LLM Foundations](01-llm-foundations/) | tokens, prompting, LangChain chains, structured output, memory, tools, agents | Message Analyzer (Flask) | ✅ Ready |
 | [2. RAG Fundamentals](02-rag-fundamentals/) | loading and chunking documents, embeddings, retrieval, chat with your documents | PDF Q&A bot, profile chat | ✅ Ready |
-| [3. Vector Databases](03-vector-databases/) | similarity measures, ChromaDB, FAISS, fast search indexes | food recommender, semantic search | 🚧 In progress |
+| [3. Vector Databases](03-vector-databases/) | similarity measures, ChromaDB, FAISS, fast search indexes | food recommender, semantic search | ✅ Ready |
 | 4. Advanced Retrieval | better retrievers, hybrid search, reranking, measuring retrieval quality | YouTube Q&A | 🔜 Planned |
 | 5. Multimodal | speech to text, text to speech, image generation, vision models | meeting assistant, image Q&A, style finder | 🔜 Planned |
 | 6. Agentic AI | added as the roadmap grows | – | 🔜 Planned |
@@ -33,6 +33,10 @@ cd rag-agentic-ai-roadmap
 ollama pull gpt-oss:20b  # default chat model (~13 GB, needs 16 GB RAM)
 uv sync                  # creates .venv and installs everything
 ```
+
+`uv sync` installs the packages of every stage. To install less, name a stage together with the
+stages before it, because each stage builds on the earlier ones, for example
+`uv sync --no-default-groups --group dev --group stage-01 --group stage-02`.
 
 Each stage README lists any extra models it needs. On a smaller machine, pull a smaller model
 such as `qwen3:4b-instruct` (~2.5 GB) and set `CHAT_MODEL=qwen3:4b-instruct` in a `.env` file
@@ -74,3 +78,7 @@ uv run ruff format --check . # formatting
 uv run pytest                # tests for the shared helpers
 uv run pytest 01-llm-foundations/message-analyzer   # tests for one project
 ```
+
+Run each project's tests with its own command, like the last line: the projects share file
+names such as `app.py`, so one pytest run cannot load two of them at once. CI does the same
+for every folder that has a `conftest.py`.
