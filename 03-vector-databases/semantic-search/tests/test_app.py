@@ -1,6 +1,7 @@
 """Tests for the Gradio handler in app.py, with a fake search: no Ollama server needed."""
 
 import app
+import ollama
 import pytest
 from search import Hit, Paragraph, SearchResult
 
@@ -44,3 +45,13 @@ def test_missing_index_explains_how_to_build_it(monkeypatch):
 def test_empty_question_asks_for_one(fake):
     assert "Ask a question" in app.run_search("   ", 5, "HNSW (fast, approximate)")
     assert fake.seen is None
+
+
+def test_missing_model_says_what_to_pull(monkeypatch):
+    class MissingModel:
+        def search(self, query, k, exact):
+            raise ollama.ResponseError("model 'nomic-embed-text' not found", 404)
+
+    monkeypatch.setattr(app, "get_search", MissingModel)
+
+    assert "`ollama pull nomic-embed-text`" in app.run_search("anything", 5, "Flat (exact)")

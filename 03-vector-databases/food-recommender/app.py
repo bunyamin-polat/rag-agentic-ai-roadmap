@@ -13,13 +13,14 @@ import gradio as gr
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from recommender import Filters, FoodRecommender, Match, diet_labels, load_menu
 
+from roadmap import OLLAMA_ERRORS, explain_ollama_error
+
 MENU = load_menu()
 CUISINES = sorted({dish["cuisine"] for dish in MENU["dishes"]})
 COURSES = ["any", "breakfast", "starter", "soup", "salad", "main", "dessert"]
 DISH_IDS = {dish["name"]: dish["id"] for dish in sorted(MENU["dishes"], key=lambda d: d["name"])}
 MAX_CALORIES = 1000  # the slider's top value means "no limit"
 SOURCES_TITLE = "🍽️ Dishes used"
-OLLAMA_DOWN = "⚠️ Cannot reach Ollama. Is it running? Try: `ollama serve`"
 
 _recommender: FoodRecommender | None = None
 
@@ -69,8 +70,8 @@ def search(query: str, *filter_values) -> str:
         return "*Describe what you feel like eating.*"
     try:
         return results_table(get_recommender().search(query, make_filters(*filter_values)))
-    except ConnectionError:
-        return OLLAMA_DOWN
+    except OLLAMA_ERRORS as error:
+        return explain_ollama_error(error)
 
 
 def similar(dish_name: str | None, *filter_values) -> str:
@@ -78,8 +79,8 @@ def similar(dish_name: str | None, *filter_values) -> str:
         return "*Pick a dish to see similar ones.*"
     try:
         matches = get_recommender().similar(DISH_IDS[dish_name], make_filters(*filter_values))
-    except ConnectionError:
-        return OLLAMA_DOWN
+    except OLLAMA_ERRORS as error:
+        return explain_ollama_error(error)
     return results_table(matches)
 
 
@@ -117,8 +118,8 @@ def respond(question: str, history: list[dict], *filter_values):
             if piece:
                 answer += piece
                 yield [*history, {"role": "assistant", "content": answer}], ""
-    except ConnectionError:
-        yield [*history, {"role": "assistant", "content": OLLAMA_DOWN}], ""
+    except OLLAMA_ERRORS as error:
+        yield [*history, {"role": "assistant", "content": explain_ollama_error(error)}], ""
         return
 
     reply = [*history, {"role": "assistant", "content": answer.strip()}]

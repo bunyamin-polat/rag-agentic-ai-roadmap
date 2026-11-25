@@ -1,6 +1,7 @@
 """Tests for the Gradio handlers in app.py, with a fake recommender: no Ollama server needed."""
 
 import app
+import ollama
 import pytest
 from langchain_core.messages import AIMessage, HumanMessage
 from recommender import Filters, Match
@@ -83,3 +84,13 @@ def test_respond_streams_then_adds_the_dishes_box(fake):
     question, sent_history, _ = fake.seen["ask"]
     assert question == "Which one has the most protein?"
     assert sent_history == [HumanMessage("A warm soup"), AIMessage("Try the dal.")]  # no dish box
+
+
+def test_missing_model_says_what_to_pull(monkeypatch):
+    class MissingModel:
+        def search(self, query, filters):
+            raise ollama.ResponseError("model 'nomic-embed-text' not found", 404)
+
+    monkeypatch.setattr(app, "get_recommender", MissingModel)
+
+    assert "`ollama pull nomic-embed-text`" in app.search("lentil soup", *NO_FILTERS)
