@@ -40,6 +40,7 @@ stage-02 = [
 ]
 stage-03 = [
     "chromadb>=1.5.9",
+    "faiss-cpu>=1.16.0",
     "langchain-chroma>=1.2.0",
 ]
 

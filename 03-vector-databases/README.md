@@ -22,7 +22,7 @@ database stores and filters vectors, and how indexes keep the search fast as the
 | --- | --- | --- | --- |
 | 1 | Notebook | [Similarity by hand](01_similarity_by_hand.ipynb): L2, dot product, cosine, a search in a few lines | ✅ Ready |
 | 2 | Notebook | [ChromaDB](02_chromadb_basics.ipynb): collections, metadata filters, saving to disk, RAG with filters | ✅ Ready |
-| 3 | Notebook | FAISS and fast indexes: Flat, IVF, HNSW, LSH | 🔜 Coming soon |
+| 3 | Notebook | [FAISS and fast indexes](03_faiss_and_ann_indexes.ipynb): Flat, IVF, HNSW, LSH, speed vs. recall | ✅ Ready |
 | – | Project | Food recommender: semantic search with filters and a RAG chat | 🔜 Coming soon |
 | – | Project | Semantic search with FAISS over a larger dataset | 🔜 Coming soon |
 
@@ -44,8 +44,10 @@ Open a notebook and select the `.venv` Python kernel.
 | --- | --- |
 | [`data/announcements.json`](data/announcements.json) | Twelve made-up Brightleaf announcements from 2024 to 2026, each with a date and a team, for metadata filters. |
 | [`../02-rag-fundamentals/data/`](../02-rag-fundamentals/data/) | The employee handbook and IT FAQ from Stage 2. |
+| [SQuAD v1.1](https://rajpurkar.github.io/SQuAD-explorer/) | Questions people wrote about Wikipedia articles, an open dataset (CC BY-SA 4.0). Notebook 3 downloads it (about 35 MB), embeds 20,000 questions, and saves everything in `.cache/`. |
 
-Every name, date, and rule in the sample data is invented.
+The Brightleaf data is made up: every name, date, and rule in it is invented. SQuAD is real,
+open data.
 
 ## Key terms
 
@@ -90,7 +92,22 @@ The notebook in brackets is where each term is explained in detail.
 | **Metadata filter** | A condition on the metadata (`where`), so only matching records are ranked. It can return fewer than k results. (NB 2) |
 | **Text filter** | A condition on the text itself (`where_document`), such as "contains VPN". (NB 2) |
 | **Upsert** | Insert a record if its id is new, replace it if the id already exists. (NB 2) |
-| **HNSW** | The index Chroma uses to find close vectors without checking every one of them. (NB 2, NB 3) |
+
+### Fast indexes (FAISS)
+
+| Term | Meaning |
+| --- | --- |
+| **FAISS** | An open-source library for fast vector search. It builds indexes, but stores no texts or metadata. (NB 3) |
+| **Index** | A structure that stores vectors and searches them. FAISS offers many kinds. (NB 3) |
+| **Recall@k** | Of the true k nearest neighbors, the share that an index returns. An exact search has a recall of 1. (NB 3) |
+| **Ground truth** | The correct answers to compare against; here, the results of the exact Flat search. (NB 3) |
+| **Flat index** | The exact brute-force search inside FAISS (`IndexFlatIP`). (NB 3) |
+| **IVF** | Inverted file index: k-means groups the vectors into `nlist` clusters, and a search looks only inside the `nprobe` nearest ones. (NB 3) |
+| **k-means** | An algorithm that groups vectors into k clusters around k centers. (NB 3) |
+| **Training** | A one-time step some indexes need before vectors are added, such as k-means for IVF. (NB 3) |
+| **HNSW** | Hierarchical Navigable Small World: a layered graph that links every vector to its neighbors. A search jumps far on the top layer, then steps to closer neighbors. `M` = links per vector, `efSearch` = candidates kept during a search. Chroma's index. (NB 2, NB 3) |
+| **LSH** | Locality-sensitive hashing: random planes turn every vector into a short bit code, and the search compares codes. Very small, but low recall for embeddings. (NB 3) |
+| **Hamming distance** | The number of bits that differ between two codes. (NB 3) |
 
 ## Next
 
