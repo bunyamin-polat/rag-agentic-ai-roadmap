@@ -23,7 +23,7 @@ database stores and filters vectors, and how indexes keep the search fast as the
 | 1 | Notebook | [Similarity by hand](01_similarity_by_hand.ipynb): L2, dot product, cosine, a search in a few lines | ✅ Ready |
 | 2 | Notebook | [ChromaDB](02_chromadb_basics.ipynb): collections, metadata filters, saving to disk, RAG with filters | ✅ Ready |
 | 3 | Notebook | [FAISS and fast indexes](03_faiss_and_ann_indexes.ipynb): Flat, IVF, HNSW, LSH, speed vs. recall | ✅ Ready |
-| – | Project | Food recommender: semantic search with filters and a RAG chat | 🔜 Coming soon |
+| – | Project | [Food recommender](food-recommender/): search a canteen menu by meaning, with filters, similar dishes, and a chat (Gradio) | ✅ Ready |
 | – | Project | Semantic search with FAISS over a larger dataset | 🔜 Coming soon |
 
 Start with [Stage 2](../02-rag-fundamentals/) if embeddings and vector stores are new to you.
@@ -108,6 +108,14 @@ The notebook in brackets is where each term is explained in detail.
 | **HNSW** | Hierarchical Navigable Small World: a layered graph that links every vector to its neighbors. A search jumps far on the top layer, then steps to closer neighbors. `M` = links per vector, `efSearch` = candidates kept during a search. Chroma's index. (NB 2, NB 3) |
 | **LSH** | Locality-sensitive hashing: random planes turn every vector into a short bit code, and the search compares codes. Very small, but low recall for embeddings. (NB 3) |
 | **Hamming distance** | The number of bits that differ between two codes. (NB 3) |
+
+### Building the apps
+
+| Term | Meaning |
+| --- | --- |
+| **Item-to-item recommendation** | Recommending items like a given one, by searching with that item's own vector. (Food recommender) |
+| **Hard filter** | A rule that must always hold, such as "vegan" or "no nuts". It belongs in a metadata filter, not in the question text. (Food recommender) |
+| **Index fingerprint** | A short hash of the data and the embedding model, saved with the index, so the app embeds again only when one of them changes. (Food recommender) |
 
 ## Next
 
