@@ -13,13 +13,14 @@ import gradio as gr
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from recommender import Filters, FoodRecommender, Match, diet_labels, load_menu
 
+from roadmap import OLLAMA_ERRORS, explain_ollama_error
+
 MENU = load_menu()
 CUISINES = sorted({dish["cuisine"] for dish in MENU["dishes"]})
 COURSES = ["any", "breakfast", "starter", "soup", "salad", "main", "dessert"]
 DISH_IDS = {dish["name"]: dish["id"] for dish in sorted(MENU["dishes"], key=lambda d: d["name"])}
 MAX_CALORIES = 1000  # the slider's top value means "no limit"
 SOURCES_TITLE = "🍽️ Dishes used"
-OLLAMA_DOWN = "⚠️ Cannot reach Ollama. Is it running? Try: `ollama serve`"
 
 _recommender: FoodRecommender | None = None
 
@@ -46,7 +47,8 @@ def make_filters(cuisines, course, max_calories, diet, max_spice, avoid) -> Filt
     )
 
 
-def results_table(matches: list[Match]) -> str:
+def results_table(matches: list[Match], max_calories: int | None = None) -> str:
+    """A table of dishes. With a calorie limit, it also shows how much of the budget is left."""
     if not matches:
         return "*No dish matches. Try other words or fewer filters.*"
     rows = [
@@ -55,32 +57,38 @@ def results_table(matches: list[Match]) -> str:
     ]
     for match in matches:
         dish = match.dish
+        kcal = str(dish["calories"])
+        if max_calories is not None:
+            kcal += f" ({max_calories - dish['calories']} left)"
         rows.append(
             f"| {match.similarity:.0%} | **{dish['name']}** | {dish['cuisine']} | {dish['course']} "
-            f"| {dish['calories']} | {', '.join(diet_labels(dish)) or '-'} "
+            f"| {kcal} | {', '.join(diet_labels(dish)) or '-'} "
             f"| {'🌶️' * dish['spice'] or '-'} | {', '.join(dish['allergens']) or '-'} |"
         )
     return "\n".join(rows)
 
 
-def search(query: str, *filter_values) -> str:
+def search(query: str, k: float, *filter_values) -> str:
     query = (query or "").strip()
     if not query:
         return "*Describe what you feel like eating.*"
+    filters = make_filters(*filter_values)
     try:
-        return results_table(get_recommender().search(query, make_filters(*filter_values)))
-    except ConnectionError:
-        return OLLAMA_DOWN
+        matches = get_recommender().search(query, filters, k=int(k))
+    except OLLAMA_ERRORS as error:
+        return explain_ollama_error(error)
+    return results_table(matches, filters.max_calories)
 
 
-def similar(dish_name: str | None, *filter_values) -> str:
+def similar(dish_name: str | None, k: float, *filter_values) -> str:
     if not dish_name:
         return "*Pick a dish to see similar ones.*"
+    filters = make_filters(*filter_values)
     try:
-        matches = get_recommender().similar(DISH_IDS[dish_name], make_filters(*filter_values))
-    except ConnectionError:
-        return OLLAMA_DOWN
-    return results_table(matches)
+        matches = get_recommender().similar(DISH_IDS[dish_name], filters, k=int(k))
+    except OLLAMA_ERRORS as error:
+        return explain_ollama_error(error)
+    return results_table(matches, filters.max_calories)
 
 
 def text_of(content) -> str:
@@ -117,8 +125,8 @@ def respond(question: str, history: list[dict], *filter_values):
             if piece:
                 answer += piece
                 yield [*history, {"role": "assistant", "content": answer}], ""
-    except ConnectionError:
-        yield [*history, {"role": "assistant", "content": OLLAMA_DOWN}], ""
+    except OLLAMA_ERRORS as error:
+        yield [*history, {"role": "assistant", "content": explain_ollama_error(error)}], ""
         return
 
     reply = [*history, {"role": "assistant", "content": answer.strip()}]
@@ -156,6 +164,7 @@ def build_app() -> gr.Blocks:
                 diet = gr.CheckboxGroup(["vegetarian", "vegan", "gluten-free"], label="Diet")
                 max_spice = gr.Slider(0, 3, value=3, step=1, label="Max spice (0 = not spicy)")
                 avoid = gr.CheckboxGroup(MENU["allergens"], label="Leave out allergens")
+                k = gr.Slider(1, 10, value=5, step=1, label="Results in Search and Similar (k)")
             with gr.Column(scale=3):
                 with gr.Tab("Search"):
                     query = gr.Textbox(
@@ -188,11 +197,11 @@ def build_app() -> gr.Blocks:
                     )
 
         filters = [cuisines, course, max_calories, diet, max_spice, avoid]
-        query.submit(search, [query, *filters], results)
-        dish.change(similar, [dish, *filters], similar_results)
-        for component in filters:  # filters update the search and the similar dishes at once
-            component.change(search, [query, *filters], results)
-            component.change(similar, [dish, *filters], similar_results)
+        query.submit(search, [query, k, *filters], results)
+        dish.change(similar, [dish, k, *filters], similar_results)
+        for component in [k, *filters]:  # update the search and the similar dishes at once
+            component.change(search, [query, k, *filters], results)
+            component.change(similar, [dish, k, *filters], similar_results)
         question.submit(respond, [question, chatbot, *filters], [chatbot, question])
     return app
 

@@ -16,6 +16,7 @@ default and keep the limit generous.
 
 from __future__ import annotations
 
+import re
 from collections.abc import Sequence
 from functools import cache
 from typing import TYPE_CHECKING, Literal
@@ -113,3 +114,19 @@ def get_embeddings(model: str | None = None) -> OllamaEmbeddings:
 
     settings = get_settings()
     return OllamaEmbeddings(model=model or settings.embed_model, base_url=settings.ollama_host)
+
+
+# The errors you get when Ollama is not ready: the server is not running (ConnectionError),
+# or a model is not downloaded (ResponseError with status 404).
+OLLAMA_ERRORS = (ConnectionError, ollama.ResponseError)
+
+
+def explain_ollama_error(error: Exception) -> str:
+    """A short message that tells the user what to do, for an error from OLLAMA_ERRORS."""
+    if isinstance(error, ollama.ResponseError):
+        missing = re.search(r"model '([^']+)' not found", error.error)
+        if missing:
+            model = missing.group(1)
+            return f"⚠️ The model {model} is not downloaded. Try: `ollama pull {model}`"
+        return f"⚠️ Ollama returned an error: {error.error}"
+    return "⚠️ Cannot reach Ollama. Is it running? Try: `ollama serve`"

@@ -49,6 +49,11 @@ Open a notebook and select the `.venv` Python kernel.
 The Brightleaf data is made up: every name, date, and rule in it is invented. SQuAD is real,
 open data.
 
+The notebooks save what they build, and you can delete it any time: Notebook 2 writes to
+`chroma_db/notebook_2/`, Notebook 3 to `.cache/` (about 160 MB: the SQuAD files, the vectors,
+and an index). Both folders are in `.gitignore`. After deleting `.cache/`, Notebook 3 downloads
+and embeds again (about 3 minutes).
+
 ## Key terms
 
 The notebook in brackets is where each term is explained in detail.
@@ -100,6 +105,7 @@ The notebook in brackets is where each term is explained in detail.
 | **FAISS** | An open-source library for fast vector search. It builds indexes, but stores no texts or metadata. (NB 3) |
 | **Index** | A structure that stores vectors and searches them. FAISS offers many kinds. (NB 3) |
 | **Recall@k** | Of the true k nearest neighbors, the share that an index returns. An exact search has a recall of 1. (NB 3) |
+| **Hit@k** | The share of test questions whose right answer is in the top k results; hit@1 means it comes first. It measures the search itself, while recall@k compares an index with the exact search. Introduced in [Stage 2](../02-rag-fundamentals/README.md). (Semantic search) |
 | **Ground truth** | The correct answers to compare against; here, the results of the exact Flat search. (NB 3) |
 | **Flat index** | The exact brute-force search inside FAISS (`IndexFlatIP`). (NB 3) |
 | **IVF** | Inverted file index: k-means groups the vectors into `nlist` clusters, and a search looks only inside the `nprobe` nearest ones. (NB 3) |

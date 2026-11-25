@@ -5,16 +5,19 @@ Stage 2. This app searches its menu by meaning ("something fresh and crunchy"), 
 cuisine, course, calories, diet, spice, and allergens, finds similar dishes, and recommends
 dishes in a chat. The menu is made up.
 
-![Search with the vegan filter](assets/search.png)
+![Search with the vegan filter and a 500 kcal limit](assets/search.png)
 
 | Tab | You | The app |
 | --- | --- | --- |
-| **Search** | describe what you feel like eating | shows the closest dishes that pass the filters, with a match score |
-| **Similar dishes** | pick a dish | shows the dishes whose vectors are closest to that dish's own vector |
+| **Search** | describe what you feel like eating | shows the k closest dishes that pass the filters, with a match score |
+| **Similar dishes** | pick a dish | shows the k dishes whose vectors are closest to that dish's own vector |
 | **Ask** | chat | rewrites follow-up questions and recommends dishes from the matching ones only |
 
-The filters on the left apply to all three tabs. Here the vegan filter is on, so "a warm soup"
-only finds vegan soups, and the follow-up keeps that context:
+The filters on the left apply to all three tabs; the k slider sets how many results Search and
+Similar dishes show (Ask always uses the 5 closest). With a calorie limit, the kcal column also
+shows how much of the limit is left, so "420 (80 left)" fits a 500 kcal budget. Here the vegan
+filter and a 500 kcal limit are on, so "a warm soup" only finds vegan soups, and the follow-up
+keeps that context:
 
 ![Chat with the vegan filter](assets/ask.png)
 
@@ -29,8 +32,8 @@ only finds vegan soups, and the follow-up keeps that context:
    values. Numbers stay out of the embedding: a search cannot tell 380 from 830 calories, a
    filter can.
 2. **Embedded once.** The dishes go into a Chroma collection saved in `chroma_db/`. The
-   collection stores a fingerprint of the menu and the embedding model, so the app embeds the
-   menu again only when one of them changes.
+   collection stores a fingerprint of the menu (dishes and allergen list) and the embedding
+   model, so the app embeds the menu again only when one of them changes.
 3. **One filter for every tab.** The filter panel becomes a Chroma `where` filter:
 
    ```python
@@ -98,6 +101,7 @@ uv run pytest 03-vector-databases/food-recommender
 
 The tests check that the menu data is consistent (a vegan dish is also vegetarian, "gluten-free"
 matches the allergens), that filters turn into the right `where`, that searches only return
-dishes that pass the filters, that the menu is embedded once and again after a change, that a
-search with no matching dish skips the model, and that follow-ups search the rewrite and the
-previous message.
+dishes that pass the filters, that the menu is embedded once and again after a change (also a
+new allergen), that a calorie limit shows the calories left, that a search with no matching dish
+skips the model, that follow-ups search the rewrite and the previous message, and that a missing
+Ollama model gets a clear message.

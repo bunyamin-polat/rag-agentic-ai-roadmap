@@ -13,6 +13,8 @@ import os
 import gradio as gr
 from search import IndexOutOfDate, SearchResult, SemanticSearch
 
+from roadmap import OLLAMA_ERRORS, explain_ollama_error
+
 MODES = {"HNSW (fast, approximate)": False, "Flat (exact)": True}
 EXAMPLES = [
     "How does a steam engine work?",
@@ -24,7 +26,6 @@ NO_INDEX = (
     "⚠️ There is no index yet. Build it once with:\n\n"
     "`uv run python 03-vector-databases/semantic-search/build_index.py`"
 )
-OLLAMA_DOWN = "⚠️ Cannot reach Ollama. Is it running? Try: `ollama serve`"
 
 _search: SemanticSearch | None = None
 
@@ -62,8 +63,8 @@ def run_search(query: str, k: float, mode: str) -> str:
         return NO_INDEX
     except IndexOutOfDate as error:
         return f"⚠️ {error}"
-    except ConnectionError:
-        return OLLAMA_DOWN
+    except OLLAMA_ERRORS as error:
+        return explain_ollama_error(error)
     return results_markdown(result, int(k))
 
 

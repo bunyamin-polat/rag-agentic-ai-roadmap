@@ -1,6 +1,7 @@
 """Tests for the Gradio handlers in app.py, with a fake ProfileBot: no Ollama server needed."""
 
 import app
+import ollama
 import pytest
 from llama_index.core.llms import ChatMessage
 
@@ -78,3 +79,15 @@ def test_respond_asks_for_a_profile_first(fake_bot):
     [(chat, _)] = list(app.respond("Hello?", [], None))
 
     assert chat[-1]["content"] == "Pick a profile first."
+
+
+def test_missing_model_says_what_to_pull(monkeypatch):
+    def missing_model(name):
+        raise ollama.ResponseError("model 'nomic-embed-text' not found", 404)
+
+    monkeypatch.setattr(app, "get_bot", missing_model)
+    monkeypatch.setattr(app, "_icebreakers", {})
+
+    [(card, _, _)] = list(app.select_profile("Lena Okafor"))
+
+    assert "`ollama pull nomic-embed-text`" in card
