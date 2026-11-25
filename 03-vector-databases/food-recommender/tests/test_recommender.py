@@ -105,6 +105,19 @@ def test_a_changed_menu_is_embedded_again(menu, tmp_path):
     assert updated.collection.count() == 10
 
 
+def test_a_new_allergen_in_the_list_rebuilds_the_index(menu, tmp_path):
+    FoodRecommender(menu, embeddings=CountingEmbeddings(size=32), llm=fake_llm(), path=tmp_path)
+    more_allergens = {**menu, "allergens": [*menu["allergens"], "mustard"]}
+
+    updated = FoodRecommender(
+        more_allergens, embeddings=CountingEmbeddings(size=32), llm=fake_llm(), path=tmp_path
+    )
+
+    assert updated.embeddings.calls == len(menu["dishes"])
+    stored = updated.collection.get(ids=["dish-01"], include=["metadatas"])["metadatas"][0]
+    assert stored["has_mustard"] is False
+
+
 def test_ask_without_matching_dishes_skips_the_model(recommender, monkeypatch):
     monkeypatch.setattr(recommender, "_llm", None)  # the model must not be needed
 

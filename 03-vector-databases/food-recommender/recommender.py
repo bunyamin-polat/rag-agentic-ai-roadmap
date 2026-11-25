@@ -185,9 +185,9 @@ class FoodRecommender:
         return self._llm
 
     def fingerprint(self) -> str:
-        """Changes when the dishes or the embedding model change."""
+        """Changes when the dishes, the allergen list, or the embedding model change."""
         model = getattr(self.embeddings, "model", type(self.embeddings).__name__)
-        payload = json.dumps([model, self.dishes], sort_keys=True).encode()
+        payload = json.dumps([model, self.allergens, self.dishes], sort_keys=True).encode()
         return hashlib.sha256(payload).hexdigest()[:16]
 
     def _open(self, client):
