@@ -14,12 +14,12 @@ class FakeRecommender:
     def __init__(self):
         self.seen = {}
 
-    def search(self, query, filters):
-        self.seen["search"] = (query, filters)
+    def search(self, query, filters, k=5):
+        self.seen["search"] = (query, filters, k)
         return [Match(DAL, 0.81)]
 
-    def similar(self, dish_id, filters):
-        self.seen["similar"] = (dish_id, filters)
+    def similar(self, dish_id, filters, k=5):
+        self.seen["similar"] = (dish_id, filters, k)
         return [Match(DAL, 0.75)]
 
     def ask(self, question, history, filters):
@@ -53,14 +53,21 @@ def test_top_slider_values_mean_no_limit():
 
 
 def test_search_shows_a_table(fake):
-    table = app.search("lentil soup", *NO_FILTERS)
+    table = app.search("lentil soup", 3, *NO_FILTERS)
 
     assert "**Red lentil dal**" in table and "81%" in table
-    assert fake.seen["search"] == ("lentil soup", Filters())
+    assert "left)" not in table  # no calorie limit, no budget
+    assert fake.seen["search"] == ("lentil soup", Filters(), 3)
+
+
+def test_a_calorie_limit_shows_the_calories_left(fake):
+    table = app.search("lentil soup", 5, [], "any", 400, [], 3, [])
+
+    assert "| 340 (60 left) |" in table  # the dal has 340 kcal: 60 left of 400
 
 
 def test_similar_looks_up_the_dish_id(fake):
-    app.similar("Red lentil dal", *NO_FILTERS)
+    app.similar("Red lentil dal", 5, *NO_FILTERS)
 
     assert fake.seen["similar"][0] == DAL["id"]
 
@@ -88,9 +95,9 @@ def test_respond_streams_then_adds_the_dishes_box(fake):
 
 def test_missing_model_says_what_to_pull(monkeypatch):
     class MissingModel:
-        def search(self, query, filters):
+        def search(self, query, filters, k=5):
             raise ollama.ResponseError("model 'nomic-embed-text' not found", 404)
 
     monkeypatch.setattr(app, "get_recommender", MissingModel)
 
-    assert "`ollama pull nomic-embed-text`" in app.search("lentil soup", *NO_FILTERS)
+    assert "`ollama pull nomic-embed-text`" in app.search("lentil soup", 5, *NO_FILTERS)
