@@ -13,7 +13,8 @@ loses.
 
 1. **Build once.** `build_index.py` downloads SQuAD v1.1 (the same files as Notebook 3, kept
    in `../.cache/`) and embeds all 20,963 paragraphs. It works in parts of 1,024 paragraphs
-   and saves each part, so a stopped run continues where it stopped. Then it builds an HNSW
+   and saves each part in a folder named after the embedding model, so a stopped run
+   continues where it stopped, and never mixes vectors from two models. Then it builds an HNSW
    index (`M=32`, `efSearch=64`) and saves the vectors, the index, the paragraphs, and the
    name of the embedding model in `.cache/`. On our machine this takes about 4 minutes; the
    HNSW index itself takes 0.6 seconds. The paragraphs are embedded as they are: embedding
@@ -79,6 +80,9 @@ uv run python 03-vector-databases/semantic-search/app.py
 ```
 
 Open <http://127.0.0.1:7863>. Use `PORT=8000` to change the port. The app needs no chat model.
+
+The index lives in `.cache/` next to the app (about 145 MB). Delete it any time; the app then
+asks you to run `build_index.py` again.
 
 ## Data
 
