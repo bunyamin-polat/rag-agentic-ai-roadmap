@@ -24,7 +24,7 @@ database stores and filters vectors, and how indexes keep the search fast as the
 | 2 | Notebook | [ChromaDB](02_chromadb_basics.ipynb): collections, metadata filters, saving to disk, RAG with filters | ✅ Ready |
 | 3 | Notebook | [FAISS and fast indexes](03_faiss_and_ann_indexes.ipynb): Flat, IVF, HNSW, LSH, speed vs. recall | ✅ Ready |
 | – | Project | [Food recommender](food-recommender/): search a canteen menu by meaning, with filters, similar dishes, and a chat (Gradio) | ✅ Ready |
-| – | Project | Semantic search with FAISS over a larger dataset | 🔜 Coming soon |
+| – | Project | [Semantic search](semantic-search/): find the Wikipedia paragraph that answers a question, HNSW vs. Flat side by side (Gradio) | ✅ Ready |
 
 Start with [Stage 2](../02-rag-fundamentals/) if embeddings and vector stores are new to you.
 
@@ -116,6 +116,7 @@ The notebook in brackets is where each term is explained in detail.
 | **Item-to-item recommendation** | Recommending items like a given one, by searching with that item's own vector. (Food recommender) |
 | **Hard filter** | A rule that must always hold, such as "vegan" or "no nuts". It belongs in a metadata filter, not in the question text. (Food recommender) |
 | **Index fingerprint** | A short hash of the data and the embedding model, saved with the index, so the app embeds again only when one of them changes. (Food recommender) |
+| **Build step** | A one-time script that embeds the data and saves the index, so the app itself starts in a moment. (Semantic search) |
 
 ## Next
 

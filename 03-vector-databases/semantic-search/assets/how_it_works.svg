@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-label="build_index.py embeds the SQuAD paragraphs once and saves an HNSW index; every search embeds the question and asks both the HNSW index and an exact Flat index">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .section { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; fill: #57606a; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; fill: #1f2328; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="360" fill="#ffffff"/>
+  <text x="20" y="30" class="title">How the semantic search works</text>
+
+  <!-- ============ once ============ -->
+  <text x="20" y="58" class="section">ONCE: <tspan class="mono" style="fill:#57606a">build_index.py</tspan> (A FEW MINUTES)</text>
+
+  <rect x="20" y="68" width="190" height="90" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="90" class="tag" style="fill:#A8592B">SQUAD V1.1</text>
+  <text x="34" y="112" class="bold">~21,000 paragraphs</text>
+  <text x="34" y="132" class="small">from Wikipedia, plus test</text>
+  <text x="34" y="148" class="small">questions with known answers</text>
+
+  <line x1="213" y1="113" x2="233" y2="113" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="237" y="68" width="200" height="90" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="251" y="90" class="tag" style="fill:#5E5194">EMBED IN PARTS</text>
+  <text x="251" y="112" class="bold">nomic-embed-text</text>
+  <text x="251" y="132" class="small">each part is saved, so a stopped</text>
+  <text x="251" y="148" class="small">run continues where it stopped</text>
+
+  <line x1="440" y1="113" x2="460" y2="113" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="464" y="68" width="200" height="90" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="478" y="90" class="tag" style="fill:#3B5E96">SAVE TO .cache/</text>
+  <text x="478" y="112" class="bold">HNSW index + vectors</text>
+  <text x="478" y="132" class="small">M=32, efSearch=64, and the</text>
+  <text x="478" y="148" class="small">embedding model's name</text>
+
+  <line x1="667" y1="113" x2="687" y2="113" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="691" y="68" width="189" height="90" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="705" y="90" class="tag" style="fill:#2F7A45">MEASURE</text>
+  <text x="705" y="112" class="bold">500 test questions</text>
+  <text x="705" y="132" class="small">hit@1, hit@5, and HNSW</text>
+  <text x="705" y="148" class="small">recall against Flat</text>
+
+  <!-- ============ every search ============ -->
+  <text x="20" y="200" class="section">ON EVERY SEARCH: <tspan class="mono" style="fill:#57606a">app.py</tspan></text>
+
+  <rect x="20" y="210" width="190" height="104" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="232" class="tag" style="fill:#A8592B">QUESTION</text>
+  <text x="34" y="254" class="bold">"Why do leaves</text>
+  <text x="34" y="272" class="bold">change color?"</text>
+  <text x="34" y="296" class="small">embedded by Ollama</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M213,262 C225,262 225,236 237,236"/>
+    <path d="M213,262 C225,262 225,290 237,290"/>
+  </g>
+
+  <rect x="241" y="212" width="196" height="46" rx="8" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.2"/>
+  <text x="255" y="232" class="bold" style="font-size:13px">HNSW</text>
+  <text x="255" y="249" class="small">approximate, very fast</text>
+  <rect x="241" y="266" width="196" height="46" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.2"/>
+  <text x="255" y="286" class="bold" style="font-size:13px">Flat</text>
+  <text x="255" y="303" class="small">exact, checks every vector</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M440,235 C452,235 452,262 464,262"/>
+    <path d="M440,289 C452,289 452,262 464,262"/>
+  </g>
+
+  <rect x="468" y="210" width="412" height="104" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="482" y="232" class="tag" style="fill:#2F7A45">SHOW</text>
+  <text x="482" y="254" class="small"><tspan style="fill:#1f2328">the top k paragraphs</tspan> of the index you picked, with titles</text>
+  <text x="482" y="274" class="small"><tspan style="fill:#1f2328">the time</tspan> to embed the question and to search each index</text>
+  <text x="482" y="294" class="small"><tspan style="fill:#1f2328">the overlap:</tspan> how many of the exact top k HNSW found</text>
+
+  <text x="20" y="344" class="small">Both indexes share the same saved vectors. The Flat index is rebuilt from them in milliseconds when the app starts.</text>
+</svg>
