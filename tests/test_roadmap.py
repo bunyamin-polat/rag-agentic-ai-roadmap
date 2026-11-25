@@ -2,6 +2,7 @@
 
 from types import SimpleNamespace
 
+import ollama
 import pytest
 
 from roadmap import config, llm
@@ -113,3 +114,18 @@ def test_get_chat_model_uses_settings(monkeypatch):
     assert model.temperature == 0.2
     assert model.num_predict == 64
     assert model.reasoning is None
+
+
+def test_explain_ollama_error_names_the_missing_model():
+    error = ollama.ResponseError("model 'qwen3:4b' not found", 404)
+
+    message = llm.explain_ollama_error(error)
+
+    assert message == "⚠️ The model qwen3:4b is not downloaded. Try: `ollama pull qwen3:4b`"
+
+
+def test_explain_ollama_error_for_other_errors():
+    busy = ollama.ResponseError("busy")
+    assert "Ollama returned an error: busy" in llm.explain_ollama_error(busy)
+    assert "`ollama serve`" in llm.explain_ollama_error(ConnectionError("refused"))
+    assert all(issubclass(kind, Exception) for kind in llm.OLLAMA_ERRORS)
