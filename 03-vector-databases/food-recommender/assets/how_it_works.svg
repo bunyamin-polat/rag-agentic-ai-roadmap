@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="380" viewBox="0 0 900 380" role="img" aria-label="The menu is embedded once into a saved Chroma collection; every search, similar-dish lookup, and question queries it with the filters from the panel">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .section { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; fill: #57606a; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="380" fill="#ffffff"/>
+  <text x="20" y="30" class="title">How Brightleaf Kitchen works</text>
+
+  <!-- ================= once ================= -->
+  <text x="20" y="58" class="section">ONCE, AND AGAIN ONLY WHEN THE MENU CHANGES</text>
+
+  <rect x="20" y="68" width="165" height="86" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="90" class="tag" style="fill:#A8592B">MENU</text>
+  <text x="34" y="112" class="bold">dishes.json</text>
+  <text x="34" y="132" class="small">49 made-up dishes</text>
+
+  <line x1="188" y1="111" x2="208" y2="111" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="212" y="68" width="232" height="86" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="226" y="90" class="tag" style="fill:#57606a">TWO VIEWS OF EVERY DISH</text>
+  <text x="226" y="114" class="small"><tspan class="mono" style="fill:#1f2328">text</tspan>: the meaning, to embed</text>
+  <text x="226" y="136" class="small"><tspan class="mono" style="fill:#1f2328">metadata</tspan>: numbers and labels,</text>
+  <text x="226" y="150" class="small">for the filters</text>
+
+  <line x1="447" y1="111" x2="467" y2="111" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="471" y="68" width="170" height="86" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="485" y="90" class="tag" style="fill:#5E5194">EMBED</text>
+  <text x="485" y="112" class="bold">nomic-embed-text</text>
+  <text x="485" y="132" class="small">768 numbers per dish</text>
+
+  <line x1="644" y1="111" x2="664" y2="111" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="668" y="68" width="212" height="86" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="682" y="90" class="tag" style="fill:#3B5E96">CHROMA, SAVED TO DISK</text>
+  <text x="682" y="112" class="bold">cosine · HNSW</text>
+  <text x="682" y="132" class="small">a fingerprint of the menu says</text>
+  <text x="682" y="148" class="small">when to embed again</text>
+
+  <!-- ================= every request ================= -->
+  <text x="20" y="196" class="section">ON EVERY REQUEST</text>
+
+  <rect x="20" y="206" width="165" height="132" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="228" class="tag" style="fill:#A8592B">FILTER PANEL</text>
+  <text x="34" y="250" class="bold">a "where" filter</text>
+  <text x="34" y="272" class="small">cuisine, course, kcal,</text>
+  <text x="34" y="290" class="small">diet, spice, allergens</text>
+  <text x="34" y="316" class="small">used by every tab</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M188,272 C198,272 198,226 208,226"/>
+    <line x1="188" y1="272" x2="208" y2="272"/>
+    <path d="M188,272 C198,272 198,318 208,318"/>
+  </g>
+
+  <rect x="212" y="207" width="232" height="38" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.2"/>
+  <text x="226" y="231" class="small"><tspan class="bold" style="font-size:13px">Search</tspan>: embed the words you type</text>
+  <rect x="212" y="253" width="232" height="38" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.2"/>
+  <text x="226" y="277" class="small"><tspan class="bold" style="font-size:13px">Similar</tspan>: the dish's stored vector</text>
+  <rect x="212" y="299" width="232" height="38" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.2"/>
+  <text x="226" y="317" class="small"><tspan class="bold" style="font-size:13px">Ask</tspan>: rewrite a follow-up, and</text>
+  <text x="226" y="331" class="small">search the last message too</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M447,226 C457,226 457,272 467,272"/>
+    <line x1="447" y1="272" x2="467" y2="272"/>
+    <path d="M447,318 C457,318 457,272 467,272"/>
+  </g>
+
+  <rect x="471" y="206" width="170" height="132" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="485" y="228" class="tag" style="fill:#3B5E96">CHROMA QUERY</text>
+  <text x="485" y="250" class="bold">vector + where</text>
+  <text x="485" y="272" class="small">the 5 closest dishes</text>
+  <text x="485" y="290" class="small">that pass the filter</text>
+  <text x="485" y="316" class="small">match = 1 − distance</text>
+
+  <line x1="725" y1="157" x2="595" y2="203" stroke="#4C72B0" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+
+  <line x1="644" y1="272" x2="664" y2="272" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="668" y="206" width="212" height="132" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="682" y="228" class="tag" style="fill:#2F7A45">SHOW</text>
+  <text x="682" y="250" class="small"><tspan style="fill:#1f2328">Search, Similar:</tspan> a table</text>
+  <text x="682" y="276" class="small"><tspan style="fill:#1f2328">Ask:</tspan> menu cards → gpt-oss →</text>
+  <text x="682" y="294" class="small">answer, then a closed</text>
+  <text x="682" y="312" class="small">"Dishes used" box</text>
+
+  <text x="20" y="368" class="small">Hard rules (vegan, allergens) belong in the filters, which apply to every search. The chat carries softer wishes through rewriting.</text>
+</svg>
