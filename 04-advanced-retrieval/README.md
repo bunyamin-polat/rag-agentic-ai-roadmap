@@ -20,7 +20,7 @@ measures whether each change really helps.
 | # | Type | Topic | Status |
 | --- | --- | --- | --- |
 | 1 | Notebook | [Better retrievers](01_better_retrievers.ipynb): MMR, score threshold, multi-query, self-query, parent document | ✅ Ready |
-| 2 | Notebook | [Keyword search, hybrid search, and reranking](02_llamaindex_retrievers.ipynb): BM25, hybrid search, auto-merging, two rerankers | ✅ Ready |
+| 2 | Notebook | Keyword search, hybrid search, and reranking (LlamaIndex) | 🔜 Coming soon |
 | 3 | Notebook | Measuring retrieval: hit@k, MRR, and time | 🔜 Coming soon |
 | – | Project | YouTube Q&A: summarize a video and chat about it (Gradio) | 🔜 Coming soon |
 
@@ -35,9 +35,7 @@ ollama pull gpt-oss:20b        # chat model
 uv sync                        # run in the repo root
 ```
 
-Notebook 2 also downloads a small cross-encoder model (about 90 MB) from Hugging Face the
-first time it runs; no account is needed. Open a notebook and select the `.venv` Python
-kernel.
+Open a notebook and select the `.venv` Python kernel.
 
 ## Sample data
 
@@ -60,22 +58,6 @@ The notebook in brackets is where each term is explained in detail.
 | **Multi-query** | The model writes the question in other words; every version is searched, and each chunk is kept once. Helps when questions and documents use different words. (NB 1) |
 | **Self-query** | The model splits the question into a topic and metadata filters ("IT", "2026"), and the search uses both. (NB 1) |
 | **Parent document** | Search small pieces for a precise match, then give the model the whole section (the parent) each piece came from. (NB 1) |
-
-### Keyword search, hybrid search, and reranking
-
-| Term | Meaning |
-| --- | --- |
-| **Dense retrieval** | Search with embeddings: every chunk is a vector, and closeness means similar meaning. Finds other wordings, but blurs exact numbers, codes, and names. (NB 2) |
-| **Sparse retrieval** | Search with the words themselves, no embeddings. **BM25** is the common method. (NB 2) |
-| **BM25** | Scores a chunk by the question's words it contains: rare words count more than common ones, each extra repeat adds less, and shorter chunks get a small bonus. Strong for exact terms like "4400". (NB 2) |
-| **Hybrid search** | Runs a dense and a sparse retriever and merges their lists, so both kinds of questions are covered. (NB 2) |
-| **Reciprocal rank fusion (RRF)** | Merges ranked lists by position, not by score: each list gives a chunk `1 / (60 + rank)`, and the parts are added up. (NB 2) |
-| **Hierarchical nodes** | The same text cut into several levels, from large parents to small **leaves**. (NB 2) |
-| **Auto-merging** | Searches only the leaves; when enough leaves of one parent come back, it returns the parent instead. An automatic parent document retriever. (NB 2) |
-| **Candidate set** | The short list from the first, fast search. A reranker only reorders this list. (NB 2) |
-| **Reranking** | A second pass that reads the question and each candidate **together** and reorders the candidate set. (NB 2) |
-| **Cross-encoder** | A small model trained to score how well a passage answers a question. Fast, but can be fooled by shared words. (NB 2) |
-| **LLM reranker** | A chat model scores the candidates. Slower, but it understands other wordings better. (NB 2) |
 
 ## Next
 
