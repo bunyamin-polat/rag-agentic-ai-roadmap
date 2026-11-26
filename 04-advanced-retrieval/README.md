@@ -21,7 +21,7 @@ measures whether each change really helps.
 | --- | --- | --- | --- |
 | 1 | Notebook | [Better retrievers](01_better_retrievers.ipynb): MMR, score threshold, multi-query, self-query, parent document | ✅ Ready |
 | 2 | Notebook | [Keyword search, hybrid search, and reranking](02_llamaindex_retrievers.ipynb): BM25, hybrid search, auto-merging, two rerankers | ✅ Ready |
-| 3 | Notebook | Measuring retrieval: hit@k, MRR, and time | 🔜 Coming soon |
+| 3 | Notebook | [Measuring retrieval](03_retrieval_evaluation.ipynb): a test set, hit@k, MRR, and time for six methods on two datasets | ✅ Ready |
 | – | Project | YouTube Q&A: summarize a video and chat about it (Gradio) | 🔜 Coming soon |
 
 Start with [Stage 2](../02-rag-fundamentals/) and [Stage 3](../03-vector-databases/) if
@@ -35,8 +35,8 @@ ollama pull gpt-oss:20b        # chat model
 uv sync                        # run in the repo root
 ```
 
-Notebook 2 also downloads a small cross-encoder model (about 90 MB) from Hugging Face the
-first time it runs; no account is needed. Open a notebook and select the `.venv` Python
+Notebooks 2 and 3 also download a small cross-encoder model (about 90 MB) from Hugging Face
+the first time they run; no account is needed. Open a notebook and select the `.venv` Python
 kernel.
 
 ## Sample data
@@ -44,6 +44,10 @@ kernel.
 The notebooks reuse Brightleaf's made-up knowledge base: the employee handbook and IT FAQ
 from [Stage 2](../02-rag-fundamentals/data/), and the company announcements from
 [Stage 3](../03-vector-databases/data/).
+
+Notebook 3 also tests on the development set of **SQuAD v1.1** (license: CC BY-SA 4.0):
+questions that people wrote about Wikipedia paragraphs. It downloads the file (about 5 MB)
+once into `.cache/`.
 
 ## Key terms
 
@@ -76,6 +80,15 @@ The notebook in brackets is where each term is explained in detail.
 | **Reranking** | A second pass that reads the question and each candidate **together** and reorders the candidate set. (NB 2) |
 | **Cross-encoder** | A small model trained to score how well a passage answers a question. Fast, but can be fooled by shared words. (NB 2) |
 | **LLM reranker** | A chat model scores the candidates. Slower, but it understands other wordings better. (NB 2) |
+
+### Measuring retrieval
+
+| Term | Meaning |
+| --- | --- |
+| **Test set** | Questions whose right chunk you know. Here each question comes with a short phrase that only the right chunk contains. (NB 3) |
+| **hit@k** | The share of questions whose right chunk is somewhere in the top k results. hit@3 matters most when the top 3 chunks go into the prompt. (NB 3) |
+| **MRR** | Mean reciprocal rank: the average of 1 / rank of the right chunk, with 0 when it is missing. Rewards a high place. (NB 3) |
+| **SQuAD** | An open dataset of questions that people wrote about Wikipedia paragraphs. Here the second test set: each question's paragraph is its right chunk. (NB 3) |
 
 ## Next
 
