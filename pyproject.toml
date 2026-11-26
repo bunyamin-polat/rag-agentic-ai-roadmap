@@ -43,6 +43,11 @@ stage-03 = [
     "faiss-cpu>=1.16.0",
     "langchain-chroma>=1.2.0",
 ]
+stage-04 = [
+    "llama-index-retrievers-bm25>=0.9.0",
+    "sentence-transformers>=6.3.0",
+    "torch>=2.15.0",
+]
 
 [build-system]
 requires = ["uv_build>=0.11,<0.12"]
@@ -54,6 +59,15 @@ build-backend = "uv_build"
 # `uv sync --no-default-groups --group dev --group stage-01 --group stage-02`
 default-groups = "all"
 python-preference = "only-managed"
+
+[tool.uv.sources]
+# On Linux (CI), take the small CPU-only build of torch; the default one pulls in CUDA (several GB).
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [tool.uv.build-backend]
 module-name = "roadmap"

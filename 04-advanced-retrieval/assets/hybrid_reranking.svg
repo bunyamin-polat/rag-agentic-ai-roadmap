@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Hybrid search and reranking: the question goes to vector search and BM25, reciprocal rank fusion merges the two lists into one candidate list, and a reranker reads the candidates again to pick the final top 3">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="300" fill="#ffffff"/>
+  <text x="20" y="30" class="title">Hybrid search, then reranking</text>
+
+  <!-- question -->
+  <rect x="20" y="112" width="140" height="70" rx="10" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="34" y="134" class="tag" style="fill:#A8592B">QUESTION</text>
+  <text x="34" y="156" class="bold">"Who do I call on</text>
+  <text x="34" y="173" class="bold">extension 4400?"</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M163,147 C180,147 180,92 196,92"/>
+    <path d="M163,147 C180,147 180,202 196,202"/>
+  </g>
+
+  <!-- two retrievers -->
+  <rect x="200" y="58" width="190" height="68" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="214" y="80" class="tag" style="fill:#3B5E96">VECTOR SEARCH (DENSE)</text>
+  <text x="214" y="100" class="small">close in meaning</text>
+  <text x="214" y="116" class="small">top 10</text>
+
+  <rect x="200" y="168" width="190" height="68" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="214" y="190" class="tag" style="fill:#3B5E96">BM25 (SPARSE)</text>
+  <text x="214" y="210" class="small">same rare words, "4400"</text>
+  <text x="214" y="226" class="small">top 10</text>
+
+  <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M393,92 C410,92 410,147 426,147"/>
+    <path d="M393,202 C410,202 410,147 426,147"/>
+  </g>
+
+  <!-- fusion -->
+  <rect x="430" y="104" width="170" height="86" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="444" y="126" class="tag" style="fill:#5E5194">FUSION (RRF)</text>
+  <text x="444" y="148" class="bold">one candidate list</text>
+  <text x="444" y="168" class="small">ranks count, not scores:</text>
+  <text x="444" y="184" class="small">1 / (60 + rank) per list</text>
+
+  <line x1="603" y1="147" x2="626" y2="147" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- reranker -->
+  <rect x="630" y="94" width="160" height="106" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="644" y="116" class="tag" style="fill:#2F7A45">RERANKER</text>
+  <text x="644" y="138" class="bold">reads question +</text>
+  <text x="644" y="155" class="bold">each candidate</text>
+  <text x="644" y="176" class="small">cross-encoder: fast</text>
+  <text x="644" y="192" class="small">LLM: slow, more careful</text>
+
+  <line x1="793" y1="147" x2="816" y2="147" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="820" y="117" width="60" height="60" rx="10" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.5"/>
+  <text x="850" y="144" class="bold" text-anchor="middle">top 3</text>
+  <text x="850" y="162" class="small" text-anchor="middle">to the</text>
+  <text x="850" y="174" class="small" text-anchor="middle">model</text>
+
+  <text x="20" y="276" class="small">The first stage must be fast and find the right chunk somewhere in its list. The second stage only reorders that short list.</text>
+</svg>
