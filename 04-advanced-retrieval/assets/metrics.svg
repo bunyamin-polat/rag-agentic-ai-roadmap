@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-label="Three questions: the right chunk is first, third, or missing. hit@1 is 1 of 3, hit@3 is 2 of 3, and MRR is the average of 1, one third, and 0, which is 0.44">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .head { font-size: 13px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+    .cell { font-size: 13px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  </style>
+  <rect width="900" height="330" fill="#ffffff"/>
+  <text x="20" y="30" class="title">How hit@k and MRR are counted</text>
+
+  <!-- question 1: right chunk first -->
+  <text x="20" y="64" class="head">Question 1</text>
+  <g>
+    <rect x="20" y="74" width="130" height="28" rx="6" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+    <text x="30" y="93" class="cell">#1 right chunk ✓</text>
+    <rect x="20" y="108" width="130" height="28" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+    <text x="30" y="127" class="small">#2 other chunk</text>
+    <rect x="20" y="142" width="130" height="28" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+    <text x="30" y="161" class="small">#3 other chunk</text>
+  </g>
+
+  <!-- question 2: right chunk third -->
+  <text x="180" y="64" class="head">Question 2</text>
+  <g>
+    <rect x="180" y="74" width="130" height="28" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+    <text x="190" y="93" class="small">#1 other chunk</text>
+    <rect x="180" y="108" width="130" height="28" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+    <text x="190" y="127" class="small">#2 other chunk</text>
+    <rect x="180" y="142" width="130" height="28" rx="6" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+    <text x="190" y="161" class="cell">#3 right chunk ✓</text>
+  </g>
+
+  <!-- question 3: missing -->
+  <text x="340" y="64" class="head">Question 3</text>
+  <g>
+    <rect x="340" y="74" width="130" height="28" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+    <text x="350" y="93" class="small">#1 other chunk</text>
+    <rect x="340" y="108" width="130" height="28" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+    <text x="350" y="127" class="small">#2 other chunk</text>
+    <rect x="340" y="142" width="130" height="28" rx="6" fill="#F6F8FA" stroke="#D0D7DE"/>
+    <text x="350" y="161" class="small">#3 other chunk</text>
+  </g>
+  <text x="340" y="192" class="small">right chunk not found</text>
+
+  <!-- table -->
+  <g text-anchor="middle">
+    <text x="645" y="64" class="head">hit@1</text>
+    <text x="725" y="64" class="head">hit@3</text>
+    <text x="820" y="64" class="head">1 / rank</text>
+  </g>
+  <line x1="520" y1="72" x2="880" y2="72" stroke="#D0D7DE"/>
+  <text x="520" y="93" class="cell">Question 1</text>
+  <text x="520" y="127" class="cell">Question 2</text>
+  <text x="520" y="161" class="cell">Question 3</text>
+  <g text-anchor="middle" class="mono">
+    <text x="645" y="93" class="mono">1</text><text x="725" y="93" class="mono">1</text><text x="820" y="93" class="mono">1</text>
+    <text x="645" y="127" class="mono">0</text><text x="725" y="127" class="mono">1</text><text x="820" y="127" class="mono">1/3</text>
+    <text x="645" y="161" class="mono">0</text><text x="725" y="161" class="mono">0</text><text x="820" y="161" class="mono">0</text>
+  </g>
+  <line x1="520" y1="176" x2="880" y2="176" stroke="#8C959F"/>
+  <text x="520" y="200" class="head">Average</text>
+  <g text-anchor="middle">
+    <text x="645" y="200" class="mono" style="font-weight:600">0.33</text>
+    <text x="725" y="200" class="mono" style="font-weight:600">0.67</text>
+    <text x="820" y="200" class="mono" style="font-weight:600">0.44</text>
+  </g>
+  <text x="820" y="218" class="small" text-anchor="middle">= MRR</text>
+
+  <text x="20" y="246" class="small"><tspan style="fill:#1f2328;font-weight:600">hit@k</tspan>: the share of questions whose right chunk is somewhere in the top k. It asks "is it there?"</text>
+  <text x="20" y="270" class="small"><tspan style="fill:#1f2328;font-weight:600">MRR</tspan> (mean reciprocal rank): the average of 1 / rank, with 0 when the right chunk is missing. It also rewards a high place.</text>
+  <text x="20" y="294" class="small">Both need a test set: questions where you know which chunk holds the answer.</text>
+</svg>
