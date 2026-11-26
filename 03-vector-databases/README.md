@@ -126,5 +126,5 @@ The notebook in brackets is where each term is explained in detail.
 
 ## Next
 
-➡️ Stage 4 — Advanced retrieval (coming soon): better retrievers, hybrid search, reranking,
-and measuring retrieval quality.
+➡️ [Stage 4 — Advanced retrieval](../04-advanced-retrieval/): better retrievers, hybrid search,
+reranking, and measuring retrieval quality.
