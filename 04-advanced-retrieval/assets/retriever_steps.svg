@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340" role="img" aria-label="Where each retriever acts: multi-query and self-query change the question before the search; score threshold and MMR filter the results after the search; parent document swaps small pieces for whole sections">
+  <style>
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .title { font-size: 18px; font-weight: 600; }
+    .section { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; fill: #57606a; }
+    .bold { font-size: 14px; font-weight: 600; }
+    .small { font-size: 12px; fill: #57606a; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="340" fill="#ffffff"/>
+  <text x="20" y="30" class="title">Where each retriever changes the search</text>
+
+  <!-- pipeline row -->
+  <rect x="20" y="52" width="120" height="44" rx="8" fill="#FCEFE6" stroke="#DD8452" stroke-width="1.5"/>
+  <text x="80" y="79" class="bold" text-anchor="middle">Question</text>
+  <line x1="143" y1="74" x2="168" y2="74" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="172" y="52" width="210" height="44" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="277" y="79" class="small" text-anchor="middle">BEFORE THE SEARCH</text>
+  <line x1="385" y1="74" x2="410" y2="74" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="414" y="52" width="120" height="44" rx="8" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="474" y="79" class="bold" text-anchor="middle">Search</text>
+  <line x1="537" y1="74" x2="562" y2="74" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="566" y="52" width="180" height="44" rx="8" fill="#F6F8FA" stroke="#8C959F" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="656" y="79" class="small" text-anchor="middle">AFTER THE SEARCH</text>
+  <line x1="749" y1="74" x2="774" y2="74" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="778" y="52" width="102" height="44" rx="8" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="829" y="79" class="bold" text-anchor="middle">Context</text>
+
+  <g stroke="#B6C3DA" stroke-width="1.5" stroke-dasharray="3 3">
+    <line x1="277" y1="96" x2="277" y2="124"/>
+    <line x1="656" y1="96" x2="656" y2="124"/>
+    <line x1="829" y1="96" x2="829" y2="124"/>
+  </g>
+
+  <!-- before the search -->
+  <rect x="20" y="124" width="362" height="88" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="34" y="146" class="bold">Multi-query</text>
+  <text x="34" y="166" class="small">the model writes the question in other words;</text>
+  <text x="34" y="184" class="small">search with each, keep every chunk found</text>
+  <text x="34" y="202" class="small" style="fill:#5E5194">fixes: the question uses other words than the text</text>
+
+  <rect x="20" y="222" width="362" height="88" rx="10" fill="#EFEDF7" stroke="#8172B3" stroke-width="1.5"/>
+  <text x="34" y="244" class="bold">Self-query</text>
+  <text x="34" y="264" class="small">the model splits the question into a topic and</text>
+  <text x="34" y="282" class="small">metadata filters ("IT", "2026")</text>
+  <text x="34" y="300" class="small" style="fill:#5E5194">fixes: filters hidden in the question</text>
+
+  <!-- after the search -->
+  <rect x="402" y="124" width="320" height="88" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="416" y="146" class="bold">Score threshold</text>
+  <text x="416" y="166" class="small">drop every chunk whose score is too low,</text>
+  <text x="416" y="184" class="small">so the result can be empty</text>
+  <text x="416" y="202" class="small" style="fill:#3B5E96">fixes: weak matches when nothing fits</text>
+
+  <rect x="402" y="222" width="320" height="88" rx="10" fill="#E8EEF8" stroke="#4C72B0" stroke-width="1.5"/>
+  <text x="416" y="244" class="bold">MMR</text>
+  <text x="416" y="264" class="small">pick chunks that are relevant and different</text>
+  <text x="416" y="282" class="small">from the ones already picked</text>
+  <text x="416" y="300" class="small" style="fill:#3B5E96">fixes: near-duplicates filling the top k</text>
+
+  <!-- context -->
+  <rect x="742" y="124" width="138" height="200" rx="10" fill="#E9F5EC" stroke="#55A868" stroke-width="1.5"/>
+  <text x="756" y="146" class="bold">Parent</text>
+  <text x="756" y="164" class="bold">document</text>
+  <text x="756" y="188" class="small">search small</text>
+  <text x="756" y="206" class="small">pieces, give the</text>
+  <text x="756" y="224" class="small">model the whole</text>
+  <text x="756" y="242" class="small">section</text>
+  <text x="756" y="270" class="small" style="fill:#2F7A45">fixes: a precise</text>
+  <text x="756" y="288" class="small" style="fill:#2F7A45">match without</text>
+  <text x="756" y="306" class="small" style="fill:#2F7A45">enough context</text>
+</svg>
